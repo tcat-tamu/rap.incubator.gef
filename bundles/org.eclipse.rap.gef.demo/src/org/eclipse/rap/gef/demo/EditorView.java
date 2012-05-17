@@ -31,6 +31,7 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.IKeyBindingService;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.INavigationHistory;
 import org.eclipse.ui.IPageLayout;
@@ -477,6 +478,11 @@ public class EditorView extends ViewPart {
          vSite.getPage().showEditor(ref);
       }
       
+    }
+
+    @Override
+    public IKeyBindingService getKeyBindingService() {
+      return vSite.getKeyBindingService();
     }
   }
 }
