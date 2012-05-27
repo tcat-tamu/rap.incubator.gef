@@ -14,6 +14,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.FocusEvent;
@@ -21,7 +22,6 @@ import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
@@ -40,7 +40,6 @@ import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RangeModel;
 import org.eclipse.draw2d.Viewport;
 import org.eclipse.draw2d.geometry.Insets;
-import org.eclipse.swt.SWT;
 
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditDomain;
@@ -237,14 +236,14 @@ public class RulerComposite extends Composite {
 		int leftWidth = 0, topHeight = 0;
 		Rectangle leftTrim = null, topTrim = null;
 		if (left != null) {
-			leftTrim = calculateRulerTrim((Canvas) left.getControl());
+			leftTrim = calculateRulerTrim((Composite) left.getControl());
 			// Adding the trim width here because FigureCanvas#computeSize()
 			// does not
 			leftWidth = left.getControl().computeSize(SWT.DEFAULT, SWT.DEFAULT).x
 					+ leftTrim.width;
 		}
 		if (top != null) {
-			topTrim = calculateRulerTrim((Canvas) top.getControl());
+			topTrim = calculateRulerTrim((Composite) top.getControl());
 			topHeight = top.getControl().computeSize(SWT.DEFAULT, SWT.DEFAULT).y
 					+ topTrim.height;
 		}

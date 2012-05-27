@@ -102,7 +102,8 @@ public class ToolTipHelper extends PopUpHelper {
 			timer = new Timer(true);
 			timer.schedule(new TimerTask() {
 				public void run() {
-					Display.getDefault().asyncExec(new Runnable() {
+				   //[ariddle] - changed for RAP compatibility
+					control.getDisplay().asyncExec(new Runnable() {
 						public void run() {
 							hide();
 							timer.cancel();
