@@ -31,7 +31,7 @@
         <artifactId>tycho-p2-repository-plugin</artifactId>
         <version>${tycho-version}</version>
         <configuration>
-          <repositoryName>RAP Incubator</repositoryName>
+          <repositoryName>RAP GEF</repositoryName>
           <includeAllDependencies>false</includeAllDependencies>
           <compress>true</compress>
         </configuration>
