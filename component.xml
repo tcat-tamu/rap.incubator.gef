@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <name>
+    GEF
+  </name>
+  <maintainer>
+    Austin Riddle
+  </maintainer>
+  <description>
+    <p>
+      Initial port of Draw2D, GEF and Zest for RAP is still under development.
+    </p>
+  </description>
+</component>
