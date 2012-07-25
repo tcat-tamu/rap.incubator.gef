@@ -22,7 +22,7 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
-import org.eclipse.rwt.lifecycle.UICallBack;
+import org.eclipse.rap.rwt.lifecycle.UICallBack;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionBars;
@@ -31,7 +31,6 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IEditorSite;
-import org.eclipse.ui.IKeyBindingService;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.INavigationHistory;
 import org.eclipse.ui.IPageLayout;
@@ -480,9 +479,9 @@ public class EditorView extends ViewPart {
       
     }
 
-    @Override
-    public IKeyBindingService getKeyBindingService() {
-      return vSite.getKeyBindingService();
-    }
+//    @Override
+//    public IKeyBindingService getKeyBindingService() {
+//      return vSite.getKeyBindingService();
+//    }
   }
 }
