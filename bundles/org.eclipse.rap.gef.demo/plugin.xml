@@ -6,16 +6,14 @@
          point="org.eclipse.rap.ui.entrypoint">
       <entrypoint
             class="org.eclipse.rap.gef.demo.Application"
-            parameter="demo"
-            id="org.eclipse.rap.gef.demo.Application">
+            id="org.eclipse.rap.gef.demo.Application"
+            path="/gef">
       </entrypoint>
    </extension>
    <extension
          point="org.eclipse.rap.ui.branding">
       <branding
-            defaultEntrypointId="org.eclipse.rap.gef.demo.Applicationorg.eclipse.rap.gef.demo.Application"
             id="org.eclipse.rap.gef.demo.branding"
-            servletName="gef"
             title="RAP GEF Demo">
       </branding>
    </extension>
