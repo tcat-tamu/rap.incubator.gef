@@ -51,6 +51,8 @@
 				id="org.eclipse.gef.ui.palette_view">
 		</view>
 	</extension>
+<!-- UNSUPPORTED extension point -->
+<!--
 	<extension
 			point="org.eclipse.ui.perspectiveExtensions">
 		<perspectiveExtension
@@ -64,7 +66,9 @@
 			</view>
 		</perspectiveExtension>
 	</extension>
-
+-->
+<!-- UNSUPPORTED extension point -->
+<!--
 	<extension point="org.eclipse.ui.bindings">
 		<key
 			sequence="M1+="
@@ -81,6 +85,7 @@
 			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
 
 	</extension>
+	-->
 	<extension point="org.eclipse.core.runtime.adapters">
 		<factory
 				class="org.eclipse.gef.internal.PropertySourceAdapterFactory"
