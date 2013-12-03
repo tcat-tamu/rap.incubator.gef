@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rap.gef.feature"
       label="%featureName"
-      version="1.5.0.qualifier"
+      version="0.1.0.qualifier"
       provider-name="%providerName">
 
    <description url="http://www.eclipse.org/rap">
@@ -87,21 +87,4 @@
          version="0.0.0"
          unpack="false"/>
 
-<!--
-   <plugin
-         id="org.eclipse.rap.gef.demo"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.rap.gef.demo.source"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
--->
-
 </feature>
-

@@ -37,8 +37,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.rap.rwt.lifecycle.IEntryPoint;
-import org.eclipse.rap.rwt.lifecycle.UICallBack;
+import org.eclipse.rap.rwt.application.EntryPoint;
+import org.eclipse.rap.rwt.service.ServerPushSession;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.custom.StackLayout;
@@ -52,8 +52,8 @@ import org.eclipse.ui.part.ViewPart;
  * This class controls all aspects of the application's execution
  * and is contributed through the plugin.xml.
  */
-public class Application implements IEntryPoint 
-{
+public class Application implements EntryPoint 
+{	
  
   public int createUI() 
   {
@@ -68,10 +68,12 @@ public class Application implements IEntryPoint
     private Map controls;
     private StackLayout layout;
     private Composite demoContent; 
+    private ServerPushSession serverPushSession;
     
     public void createPartControl (final Composite parent) 
     {
-      UICallBack.activate(getSite().getId()+getViewSite().getSecondaryId());
+      serverPushSession = new ServerPushSession();
+      serverPushSession.start();
       SashForm form = new SashForm(parent, SWT.HORIZONTAL);
       final ListViewer exampleList = new ListViewer(form, SWT.V_SCROLL | SWT.BORDER);
       exampleList.setContentProvider(new ArrayContentProvider());
@@ -127,7 +129,7 @@ public class Application implements IEntryPoint
     }
     
     public void dispose() {
-      UICallBack.deactivate(getSite().getId()+getViewSite().getSecondaryId());
+      serverPushSession.stop();
       super.dispose();
     }
   }
