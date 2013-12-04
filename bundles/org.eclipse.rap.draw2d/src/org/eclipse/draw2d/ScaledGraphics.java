@@ -12,6 +12,7 @@ package org.eclipse.draw2d;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -275,13 +276,12 @@ public class ScaledGraphics extends Graphics {
 			popState();
 		}
 
-		// UNSUPPORTED - RAP does not allow the disposing of factory created fonts
 		// Dispose fonts
-		// Iterator iter = fontCache.values().iterator();
-		// while (iter.hasNext()) {
-		// Font font = ((Font) iter.next());
-		// font.dispose();
-		// }
+		Iterator<?> iter = fontCache.values().iterator();
+		while (iter.hasNext()) {
+			Font font = ((Font) iter.next());
+			font.dispose();
+		}
 
 	}
 
@@ -800,6 +800,13 @@ public class ScaledGraphics extends Graphics {
 	 */
 	public void setLineDash(float[] dash) {
 		graphics.setLineDash(dash);
+	}
+
+	/**
+	 * @see org.eclipse.draw2d.Graphics#setLineDashOffset(float)
+	 */
+	public void setLineDashOffset(float value) {
+		graphics.setLineDashOffset(value);
 	}
 
 	/**

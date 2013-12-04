@@ -10,18 +10,20 @@
  *******************************************************************************/
 package org.eclipse.draw2d;
 
-import org.eclipse.swt.graphics.GC;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.Control;
+
 
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.SWTError;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Canvas;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 
 class BufferedGraphicsSource implements GraphicsSource {
 
-	// UNSUPPORTED - bypass buffer handling since offscreen rendering is
-	// not possible in RAP
-	// private Image imageBuffer;
+	private Image imageBuffer;
 	private GC imageGC;
 	private GC controlGC;
 	private Control control;
@@ -59,19 +61,15 @@ class BufferedGraphicsSource implements GraphicsSource {
 		/*
 		 * The imageBuffer may be null if double-buffering was not successful.
 		 */
-		// UNSUPPORTED - bypass buffer handling since offscreen rendering is
-		// not possible in RAP
-		// if (imageBuffer != null) {
-		// imageGC.dispose();
-		// controlGC.drawImage(getImage(), 0, 0, inUse.width, inUse.height,
-		// inUse.x, inUse.y, inUse.width, inUse.height);
-		// imageBuffer.dispose();
-		// imageBuffer = null;
-		// imageGC = null;
-		// }
-		if (controlGC != null) {
-			controlGC.dispose();
+		if (imageBuffer != null) {
+			imageGC.dispose();
+			controlGC.drawImage(getImage(), 0, 0, inUse.width, inUse.height,
+					inUse.x, inUse.y, inUse.width, inUse.height);
+			imageBuffer.dispose();
+			imageBuffer = null;
+			imageGC = null;
 		}
+		controlGC.dispose();
 		controlGC = null;
 
 		// UNSUPPORTED - Caret is not implemented in the RAP API
@@ -97,37 +95,33 @@ class BufferedGraphicsSource implements GraphicsSource {
 		 * will fail. When this happens, do not use double-buffering for
 		 * painting.
 		 */
-		// UNSUPPORTED - bypass buffer creation since offscreen rendering is
-		// not possible in RAP
-		// try {
-		// imageBuffer = new Image(null, inUse.width, inUse.height);
-		// } catch (SWTError noMoreHandles) {
-		// imageBuffer = null;
-		// } catch (IllegalArgumentException tooBig) {
-		// imageBuffer = null;
-		// }
+		try {
+			imageBuffer = new Image(Display.getCurrent(), inUse.width, inUse.height);
+		} catch (SWTError noMoreHandles) {
+			imageBuffer = null;
+		} catch (IllegalArgumentException tooBig) {
+			imageBuffer = null;
+		}
 
 		controlGC = new GC(control, control.getStyle()
 				& (org.eclipse.draw2d.rap.swt.SWT.RIGHT_TO_LEFT | SWT.LEFT_TO_RIGHT));
 		Graphics graphics;
-		// UNSUPPORTED - bypass buffer handling since offscreen rendering is
-		// not possible in RAP
-		// if (imageBuffer != null) {
-		// imageGC = new GC(imageBuffer, control.getStyle()
-		// & (SWT.RIGHT_TO_LEFT | SWT.LEFT_TO_RIGHT));
-		// imageGC.setBackground(controlGC.getBackground());
-		// imageGC.setForeground(controlGC.getForeground());
-		// imageGC.setFont(controlGC.getFont());
-		// imageGC.setLineStyle(controlGC.getLineStyle());
-		// imageGC.setLineWidth(controlGC.getLineWidth());
-		// imageGC.setXORMode(controlGC.getXORMode());
-		// graphics = new SWTGraphics(imageGC);
-		// graphics.translate(inUse.getLocation().negate());
-		// } else {
-		graphics = new SWTGraphics(controlGC);
-		// }
+		if (imageBuffer != null) {
+			imageGC = new GC(imageBuffer.getDevice(), control.getStyle()
+					& (org.eclipse.draw2d.rap.swt.SWT.RIGHT_TO_LEFT | SWT.LEFT_TO_RIGHT));
+			imageGC.setBackground(controlGC.getBackground());
+			imageGC.setForeground(controlGC.getForeground());
+			imageGC.setFont(controlGC.getFont());
+			//imageGC.setLineStyle(controlGC.getLineStyle());
+			imageGC.setLineWidth(controlGC.getLineWidth());
+			//imageGC.setXORMode(controlGC.getXORMode());
+			graphics = new SWTGraphics(imageGC);
+			//graphics.translate(inUse.getLocation().negate());
+		} else {
+			graphics = new SWTGraphics(controlGC);
+		}
 
-		graphics.setClip(inUse);
+		//graphics.setClip(inUse);
 		return graphics;
 	}
 
@@ -138,10 +132,7 @@ class BufferedGraphicsSource implements GraphicsSource {
 	 * @return the current image buffer
 	 */
 	protected Image getImage() {
-		// UNSUPPORTED - bypass buffer handling since offscreen rendering is
-		// not possible in RAP
-		// return imageBuffer;
-		return null;
+		return imageBuffer;
 	}
 
 	/**

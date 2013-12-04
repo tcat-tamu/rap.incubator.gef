@@ -6,15 +6,13 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * IBM Corporation - initial API and implementation
+ *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 package org.eclipse.draw2d;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.draw2d.geometry.PointList;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.SWT;
 import org.eclipse.draw2d.rap.swt.graphics.LineAttributes;
 import org.eclipse.swt.graphics.Color;
@@ -23,11 +21,15 @@ import org.eclipse.swt.graphics.FontMetrics;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Path;
+import org.eclipse.swt.graphics.PathData;
 import org.eclipse.swt.graphics.Pattern;
 import org.eclipse.swt.graphics.Region;
 import org.eclipse.swt.graphics.TextLayout;
 import org.eclipse.swt.graphics.Transform;
 import org.eclipse.swt.widgets.Display;
+
+import org.eclipse.draw2d.geometry.PointList;
+import org.eclipse.draw2d.geometry.Rectangle;
 
 /**
  * A concrete implementation of <code>Graphics</code> using an SWT
@@ -84,6 +86,7 @@ public class SWTGraphics extends Graphics {
 	}
 
 	static class RectangleClipping implements Clipping {
+
 		private float top, left, bottom, right;
 
 		RectangleClipping(float left, float top, float right, float bottom) {
@@ -224,7 +227,7 @@ public class SWTGraphics extends Graphics {
 
 		AA_MASK = 3 << AA_SHIFT;
 		FILL_RULE_MASK = 1 << FILL_RULE_SHIFT; // If changed to more than 1-bit,
-		// check references!
+												// check references!
 		INTERPOLATION_MASK = 3 << INTERPOLATION_SHIFT;
 		TEXT_AA_MASK = 3 << TEXT_AA_SHIFT;
 		XOR_MASK = 1 << XOR_SHIFT;
@@ -444,8 +447,7 @@ public class SWTGraphics extends Graphics {
 	public void drawPath(Path path) {
 		checkPaint();
 		initTransform(false);
-		// UNSUPPORTED - api is not implemented in RAP
-		// gc.drawPath(path);
+		gc.drawPath(path);
 	}
 
 	/**
@@ -579,8 +581,7 @@ public class SWTGraphics extends Graphics {
 	public void fillPath(Path path) {
 		checkFill();
 		initTransform(false);
-		// UNSUPPORTED - api is not implemented in RAP
-		// gc.fillPath(path);
+		gc.fillPath(path);
 	}
 
 	/**
@@ -893,10 +894,15 @@ public class SWTGraphics extends Graphics {
 			// - AA_WHOLE_NUMBER);
 			// }
 
-			// if ((changes & TEXT_AA_MASK) != 0) {
-			// gc.setTextAntialias(((hints & TEXT_AA_MASK) >> TEXT_AA_SHIFT)
-			// - AA_WHOLE_NUMBER);
-			// }
+			if ((changes & AA_MASK) != 0) {
+				gc.setAntialias(((hints & AA_MASK) >> AA_SHIFT)
+						- AA_WHOLE_NUMBER);
+			}
+
+			if ((changes & TEXT_AA_MASK) != 0) {
+				gc.setTextAntialias(((hints & TEXT_AA_MASK) >> TEXT_AA_SHIFT)
+						- AA_WHOLE_NUMBER);
+			}
 
 			// If advanced was flagged, but none of the conditions which trigger
 			// advanced
@@ -933,15 +939,13 @@ public class SWTGraphics extends Graphics {
 		sharedClipping = true;
 
 		// If the GC is currently advanced, but it was not when pushed, revert
-		// UNSUPPORTED - api is not implemented in RAP
-		// if (gc.getAdvanced() && (s.graphicHints & ADVANCED_GRAPHICS_MASK) ==
-		// 0) {
-		// // Set applied clip to null to force a re-setting of the clipping.
-		// appliedState.relativeClip = null;
-		// gc.setAdvanced(false);
-		// appliedState.graphicHints &= ~ADVANCED_HINTS_MASK;
-		// appliedState.graphicHints |= ADVANCED_HINTS_DEFAULTS;
-		// }
+		if (gc.getAdvanced() && (s.graphicHints & ADVANCED_GRAPHICS_MASK) == 0) {
+			// Set applied clip to null to force a re-setting of the clipping.
+			appliedState.relativeClip = null;
+			gc.setAdvanced(false);
+			appliedState.graphicHints &= ~ADVANCED_HINTS_MASK;
+			appliedState.graphicHints |= ADVANCED_HINTS_DEFAULTS;
+		}
 
 		setBackgroundColor(s.bgColor);
 		setBackgroundPattern(s.bgPattern);
@@ -1474,7 +1478,7 @@ public class SWTGraphics extends Graphics {
 		int start = 0, end = 0;
 		for (int i = 0; i < types.length; i++) {
 			switch (types[i]) {
-			case org.eclipse.draw2d.rap.swt.SWT.PATH_MOVE_TO: {
+			case SWT.PATH_MOVE_TO: {
 				if (start != end) {
 					int n = 0;
 					int[] temp = new int[end - start];
@@ -1487,11 +1491,11 @@ public class SWTGraphics extends Graphics {
 				end += 2;
 				break;
 			}
-			case org.eclipse.draw2d.rap.swt.SWT.PATH_LINE_TO: {
+			case SWT.PATH_LINE_TO: {
 				end += 2;
 				break;
 			}
-			case org.eclipse.draw2d.rap.swt.SWT.PATH_CLOSE: {
+			case SWT.PATH_CLOSE: {
 				if (start != end) {
 					int n = 0;
 					int[] temp = new int[end - start];

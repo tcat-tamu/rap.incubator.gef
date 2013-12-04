@@ -273,12 +273,8 @@ public class Thumbnail extends Figure implements UpdateListener {
 				thumbnailImage.dispose();
 
 			if (!targetSize.isEmpty()) {
-				// UNSUPPORTED - original image constructor not implemented in
-				// RAP
-				// Image creation as supported in RAP
-				thumbnailImage = new Image(Display.getDefault(), new ImageData(
-						targetSize.width, targetSize.height, 32,
-						new PaletteData(127, 127, 127)));
+				thumbnailImage = new Image(Display.getDefault(),
+						targetSize.width, targetSize.height);
 				thumbnailImageSize = new Dimension(targetSize);
 			} else {
 				thumbnailImage = null;
@@ -292,13 +288,13 @@ public class Thumbnail extends Figure implements UpdateListener {
 		 */
 		public void stop() {
 			isRunning = false;
-			if (thumbnailGC != null) {
-				thumbnailGC.dispose();
-				thumbnailGC = null;
-			}
 			if (thumbnailGraphics != null) {
 				thumbnailGraphics.dispose();
 				thumbnailGraphics = null;
+			}
+			if (thumbnailGC != null) {
+				thumbnailGC.dispose();
+				thumbnailGC = null;
 			}
 			// Don't dispose of the thumbnail image since it is needed to paint
 			// the

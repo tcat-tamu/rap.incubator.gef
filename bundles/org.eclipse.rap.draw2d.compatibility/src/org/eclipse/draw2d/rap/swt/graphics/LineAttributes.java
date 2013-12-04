@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.draw2d.rap.swt.graphics;
 
+import java.util.Arrays;
+
 import org.eclipse.swt.*;
 
 /**
@@ -28,6 +30,48 @@ import org.eclipse.swt.*;
  * @since 1.3
  */
 public class LineAttributes extends org.eclipse.swt.graphics.LineAttributes {
+
+	private static int hashCode(float[] array) {
+		int prime = 31;
+		if (array == null)
+			return 0;
+		int result = 1;
+		for (int index = 0; index < array.length; index++) {
+			result = prime * result + Float.floatToIntBits(array[index]);
+		}
+		return result;
+	}
+
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + LineAttributes.hashCode(dash);
+		result = prime * result + Float.floatToIntBits(dashOffset);
+		result = prime * result + Float.floatToIntBits(miterLimit);
+		result = prime * result + style;
+		return result;
+	}
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		LineAttributes other = (LineAttributes) obj;
+		if (!Arrays.equals(dash, other.dash))
+			return false;
+		if (Float.floatToIntBits(dashOffset) != Float
+				.floatToIntBits(other.dashOffset))
+			return false;
+		if (Float.floatToIntBits(miterLimit) != Float
+				.floatToIntBits(other.miterLimit))
+			return false;
+		if (style != other.style)
+			return false;
+		return true;
+	}
 
 	/**
    * The line style.

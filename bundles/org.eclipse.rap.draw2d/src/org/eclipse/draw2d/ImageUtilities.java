@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2003, 2010 IBM Corporation and others.
+ * Copyright (c) 2003, 2011 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -21,7 +21,6 @@ import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.swt.SWT;
 
 /**
  * @author Pratik Shah
@@ -33,8 +32,7 @@ public class ImageUtilities {
 	 * Returns a new Image with the given String rotated left (by 90 degrees).
 	 * The String will be rendered using the provided colors and fonts. The
 	 * client is responsible for disposing the returned Image. Strings cannot
-	 * contain newline or tab characters. This method MUST be invoked from the
-	 * user-interface (Display) thread.
+	 * contain newline or tab characters.
 	 * 
 	 * @param string
 	 *            the String to be rendered
@@ -48,9 +46,7 @@ public class ImageUtilities {
 	 */
 	public static Image createRotatedImageOfString(String string, Font font,
 			Color foreground, Color background) {
-		Display display = Display.getCurrent();
-		if (display == null)
-			SWT.error(SWT.ERROR_THREAD_INVALID_ACCESS);
+		Display display = Display.getDefault();
 
 		FontMetrics metrics = FigureUtilities.getFontMetrics(font);
 		Dimension strSize = FigureUtilities.getStringExtents(string, font);
@@ -64,8 +60,6 @@ public class ImageUtilities {
 		gc.setForeground(foreground);
 		gc.setBackground(background);
 		gc.fillRectangle(srcImage.getBounds());
-		// UNSUPPORTED - getLeading() not implemented in RAP
-//		gc.drawString(string, 0, 0 - metrics.getLeading());
 		gc.drawString(string, 0, 0);
 		Image result = createRotatedImage(srcImage);
 		gc.dispose();
@@ -75,17 +69,14 @@ public class ImageUtilities {
 
 	/**
 	 * Returns a new Image that is the given Image rotated left by 90 degrees.
-	 * The client is responsible for disposing the returned Image. This method
-	 * MUST be invoked from the user-interface (Display) thread.
+	 * The client is responsible for disposing the returned Image.
 	 * 
 	 * @param srcImage
 	 *            the Image that is to be rotated left
 	 * @return the rotated Image (the client is responsible for disposing it)
 	 */
 	public static Image createRotatedImage(Image srcImage) {
-		Display display = Display.getCurrent();
-		if (display == null)
-			SWT.error(SWT.ERROR_THREAD_INVALID_ACCESS);
+		Display display = Display.getDefault();
 
 		ImageData srcData = srcImage.getImageData();
 		ImageData destData;

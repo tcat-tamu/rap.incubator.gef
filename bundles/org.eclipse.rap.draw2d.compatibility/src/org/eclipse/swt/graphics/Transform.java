@@ -12,9 +12,10 @@ package org.eclipse.swt.graphics;
 
 import org.eclipse.swt.SWT;
 
-public class Transform extends Resource {
+public class Transform /*extends Resource*/ {
 
 //	public Matrix object;
+private Device device;
 
 public Transform (Device device) {
 	this(device, 1, 0, 0, 1, 0, 0);
@@ -25,7 +26,7 @@ public Transform (Device device, float[] elements) {
 }
 
 public Transform (Device device, float m11, float m12, float m21, float m22, float dx, float dy) {
-	super(device);
+	this.device = device;
 //	object = new Matrix(m11, m12, m21, m22, dx, dy);
 //	if (object == null) SWT.error(SWT.ERROR_NO_HANDLES);
 //	init();
@@ -35,6 +36,10 @@ static float[] checkTransform(float[] elements) {
 	if (elements == null) SWT.error(SWT.ERROR_NULL_ARGUMENT);
 	if (elements.length < 6) SWT.error(SWT.ERROR_INVALID_ARGUMENT);
 	return elements;
+}
+
+public void dispose(){
+	destroy();
 }
 
 void destroy () {
