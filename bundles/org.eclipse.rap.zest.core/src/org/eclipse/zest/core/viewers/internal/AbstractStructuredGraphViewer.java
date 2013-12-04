@@ -64,12 +64,12 @@ public abstract class AbstractStructuredGraphViewer extends AbstractZoomableView
 	private HashMap connectionsMap = new HashMap();
 
 	/**
-	 * The constraint adatpers
+	 * The constraint adapters
 	 */
 	private List constraintAdapters = new ArrayList();
 
 	/**
-	 * A simple graph comparator that orders graph elements based on thier type
+	 * A simple graph comparator that orders graph elements based on their type
 	 * (connection or node), and their unique object identification.
 	 */
 	private class SimpleGraphComparator implements Comparator {
@@ -372,15 +372,9 @@ public abstract class AbstractStructuredGraphViewer extends AbstractZoomableView
 		List internalSelection = getWidgetSelection();
 		LinkedList externalSelection = new LinkedList();
 		for (Iterator i = internalSelection.iterator(); i.hasNext();) {
-			// @tag zest.todo : should there be a method on IGraphItem to get
-			// the external data?
-			GraphItem item = (GraphItem) i.next();
-			if (item instanceof GraphNode) {
-				externalSelection.add(((GraphNode) item).getData());
-			} else if (item instanceof GraphConnection) {
-				externalSelection.add(((GraphConnection) item).getExternalConnection());
-			} else if (item instanceof Widget) {
-				externalSelection.add(((Widget) item).getData());
+			Object data = ((GraphItem) i.next()).getData();
+			if (data != null) {
+				externalSelection.add(data);
 			}
 		}
 		return externalSelection;
