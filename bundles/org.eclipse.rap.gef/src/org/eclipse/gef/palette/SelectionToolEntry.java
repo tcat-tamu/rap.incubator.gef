@@ -51,7 +51,7 @@ public class SelectionToolEntry extends ToolEntry {
 		super(label, shortDesc, SharedImages.DESC_SELECTION_TOOL_16,
 				SharedImages.DESC_SELECTION_TOOL_24, SelectionTool.class);
 		if (label == null || label.length() == 0)
-			setLabel(GEFMessages.SelectionTool_Label);
+			setLabel(GEFMessages.get().SelectionTool_Label);
 		setUserModificationPermission(PERMISSION_NO_MODIFICATION);
 	}
 

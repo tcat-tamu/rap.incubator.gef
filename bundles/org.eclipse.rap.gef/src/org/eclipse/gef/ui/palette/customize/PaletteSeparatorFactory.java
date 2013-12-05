@@ -28,7 +28,7 @@ public class PaletteSeparatorFactory extends PaletteEntryFactory {
 	 * Constructor
 	 */
 	public PaletteSeparatorFactory() {
-		setLabel(PaletteMessages.MODEL_TYPE_SEPARATOR);
+		setLabel(PaletteMessages.get().MODEL_TYPE_SEPARATOR);
 	}
 
 	/**

@@ -36,7 +36,7 @@ public class CustomizeAction extends Action {
 	 */
 	public CustomizeAction(PaletteViewer palette) {
 		super();
-		setText(PaletteMessages.MENU_OPEN_CUSTOMIZE_DIALOG);
+		setText(PaletteMessages.get().MENU_OPEN_CUSTOMIZE_DIALOG);
 		paletteViewer = palette;
 	}
 

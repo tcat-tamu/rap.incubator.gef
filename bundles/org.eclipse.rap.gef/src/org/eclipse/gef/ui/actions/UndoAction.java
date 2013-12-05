@@ -60,9 +60,10 @@ public class UndoAction extends StackAction {
 	 */
 	protected void init() {
 		super.init();
-		setToolTipText(MessageFormat.format(GEFMessages.UndoAction_Tooltip,
-				new Object[] { "" }).trim()); //$NON-NLS-1$
-		setText(MessageFormat.format(GEFMessages.UndoAction_Label,
+		setToolTipText(MessageFormat
+				.format(GEFMessages.get().UndoAction_Tooltip,
+						new Object[] { "" }).trim()); //$NON-NLS-1$
+		setText(MessageFormat.format(GEFMessages.get().UndoAction_Label,
 				new Object[] { "" }).trim() //$NON-NLS-1$
 		);
 		setId(ActionFactory.UNDO.getId());
@@ -80,9 +81,10 @@ public class UndoAction extends StackAction {
 	 */
 	protected void refresh() {
 		Command undoCmd = getCommandStack().getUndoCommand();
-		setToolTipText(MessageFormat.format(GEFMessages.UndoAction_Tooltip,
+		setToolTipText(MessageFormat.format(
+				GEFMessages.get().UndoAction_Tooltip,
 				new Object[] { getLabelForCommand(undoCmd) }).trim());
-		setText(MessageFormat.format(GEFMessages.UndoAction_Label,
+		setText(MessageFormat.format(GEFMessages.get().UndoAction_Label,
 				new Object[] { getLabelForCommand(undoCmd) }).trim());
 		super.refresh();
 	}

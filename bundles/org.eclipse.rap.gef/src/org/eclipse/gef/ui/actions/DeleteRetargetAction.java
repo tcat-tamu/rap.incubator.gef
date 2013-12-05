@@ -27,8 +27,9 @@ public class DeleteRetargetAction extends RetargetAction {
 	 * image.
 	 */
 	public DeleteRetargetAction() {
-		super(ActionFactory.DELETE.getId(), GEFMessages.DeleteAction_Label);
-		setToolTipText(GEFMessages.DeleteAction_Tooltip);
+		super(ActionFactory.DELETE.getId(),
+				GEFMessages.get().DeleteAction_Label);
+		setToolTipText(GEFMessages.get().DeleteAction_Tooltip);
 		ISharedImages sharedImages = PlatformUI.getWorkbench()
 				.getSharedImages();
 		setImageDescriptor(sharedImages

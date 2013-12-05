@@ -25,10 +25,10 @@ public class MatchWidthRetargetAction extends LabelRetargetAction {
 	 */
 	public MatchWidthRetargetAction() {
 		super(GEFActionConstants.MATCH_WIDTH,
-				GEFMessages.MatchWidthAction_Label);
+				GEFMessages.get().MatchWidthAction_Label);
 		setImageDescriptor(InternalImages.DESC_MATCH_WIDTH);
 		setDisabledImageDescriptor(InternalImages.DESC_MATCH_WIDTH_DIS);
-		setToolTipText(GEFMessages.MatchWidthAction_Tooltip);
+		setToolTipText(GEFMessages.get().MatchWidthAction_Tooltip);
 	}
 
 }

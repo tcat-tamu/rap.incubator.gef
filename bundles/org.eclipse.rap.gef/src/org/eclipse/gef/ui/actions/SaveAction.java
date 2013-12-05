@@ -44,8 +44,8 @@ public class SaveAction extends EditorPartAction {
 	 */
 	protected void init() {
 		setId(ActionFactory.SAVE.getId());
-		setText(GEFMessages.SaveAction_Label);
-		setToolTipText(GEFMessages.SaveAction_Tooltip);
+		setText(GEFMessages.get().SaveAction_Label);
+		setToolTipText(GEFMessages.get().SaveAction_Tooltip);
 	}
 
 	/**

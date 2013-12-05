@@ -32,10 +32,10 @@ public class MatchHeightAction extends MatchSizeAction {
 	 */
 	public MatchHeightAction(IWorkbenchPart part) {
 		super(part);
-		setText(GEFMessages.MatchHeightAction_Label);
+		setText(GEFMessages.get().MatchHeightAction_Label);
 		setImageDescriptor(InternalImages.DESC_MATCH_HEIGHT);
 		setDisabledImageDescriptor(InternalImages.DESC_MATCH_HEIGHT_DIS);
-		setToolTipText(GEFMessages.MatchHeightAction_Tooltip);
+		setToolTipText(GEFMessages.get().MatchHeightAction_Tooltip);
 		setId(GEFActionConstants.MATCH_HEIGHT);
 	}
 

@@ -66,7 +66,7 @@ public class PaletteView extends PageBookView {
 		MessagePage page = new MessagePage();
 		initPage(page);
 		page.createControl(book);
-		page.setMessage(GEFMessages.Palette_Not_Available);
+		page.setMessage(GEFMessages.get().Palette_Not_Available);
 		return page;
 	}
 

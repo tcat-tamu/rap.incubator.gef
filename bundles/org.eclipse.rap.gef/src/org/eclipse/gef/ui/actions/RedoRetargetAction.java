@@ -29,7 +29,7 @@ public class RedoRetargetAction extends LabelRetargetAction {
 	 */
 	public RedoRetargetAction() {
 		super(ActionFactory.REDO.getId(), MessageFormat.format(
-				GEFMessages.RedoAction_Label, new Object[] { "" }).trim()); //$NON-NLS-1$
+				GEFMessages.get().RedoAction_Label, new Object[] { "" }).trim()); //$NON-NLS-1$
 		ISharedImages sharedImages = PlatformUI.getWorkbench()
 				.getSharedImages();
 		setImageDescriptor(sharedImages

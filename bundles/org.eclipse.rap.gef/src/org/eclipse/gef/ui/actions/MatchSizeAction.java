@@ -43,10 +43,10 @@ public class MatchSizeAction extends SelectionAction {
 	 */
 	public MatchSizeAction(IWorkbenchPart part) {
 		super(part);
-		setText(GEFMessages.MatchSizeAction_Label);
+		setText(GEFMessages.get().MatchSizeAction_Label);
 		setImageDescriptor(InternalImages.DESC_MATCH_SIZE);
 		setDisabledImageDescriptor(InternalImages.DESC_MATCH_SIZE_DIS);
-		setToolTipText(GEFMessages.MatchSizeAction_Tooltip);
+		setToolTipText(GEFMessages.get().MatchSizeAction_Tooltip);
 		setId(GEFActionConstants.MATCH_SIZE);
 	}
 

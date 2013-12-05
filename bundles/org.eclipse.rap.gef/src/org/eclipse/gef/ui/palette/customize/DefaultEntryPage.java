@@ -77,10 +77,10 @@ public class DefaultEntryPage implements EntryPage {
 		panel.setLayout(gridLayout);
 		Control[] tablist = new Control[3];
 
-		createLabel(panel, SWT.NONE, PaletteMessages.NAME_LABEL);
+		createLabel(panel, SWT.NONE, PaletteMessages.get().NAME_LABEL);
 		tablist[0] = createNameText(panel);
 
-		createLabel(panel, SWT.NONE, PaletteMessages.DESCRIPTION_LABEL);
+		createLabel(panel, SWT.NONE, PaletteMessages.get().DESCRIPTION_LABEL);
 		tablist[1] = createDescText(panel);
 
 		tablist[2] = createHiddenCheckBox(panel);
@@ -127,7 +127,7 @@ public class DefaultEntryPage implements EntryPage {
 	protected Button createHiddenCheckBox(Composite panel) {
 		Button hidden = new Button(panel, SWT.CHECK);
 		hidden.setFont(panel.getFont());
-		hidden.setText(PaletteMessages.HIDDEN_LABEL);
+		hidden.setText(PaletteMessages.get().HIDDEN_LABEL);
 		hidden.setSelection(!entry.isVisible());
 
 		if (getPermission() == PaletteEntry.PERMISSION_NO_MODIFICATION) {

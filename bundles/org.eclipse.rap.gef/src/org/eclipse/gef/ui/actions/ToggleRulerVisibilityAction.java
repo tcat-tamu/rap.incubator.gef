@@ -39,9 +39,9 @@ public class ToggleRulerVisibilityAction extends Action {
 	 *            the viewer whose ruler visibility property is to be toggled
 	 */
 	public ToggleRulerVisibilityAction(GraphicalViewer diagramViewer) {
-		super(GEFMessages.ToggleRulerVisibility_Label, AS_CHECK_BOX);
+		super(GEFMessages.get().ToggleRulerVisibility_Label, AS_CHECK_BOX);
 		this.diagramViewer = diagramViewer;
-		setToolTipText(GEFMessages.ToggleRulerVisibility_Tooltip);
+		setToolTipText(GEFMessages.get().ToggleRulerVisibility_Tooltip);
 		setId(GEFActionConstants.TOGGLE_RULER_VISIBILITY);
 		setActionDefinitionId(GEFActionConstants.TOGGLE_RULER_VISIBILITY);
 		setChecked(isChecked());

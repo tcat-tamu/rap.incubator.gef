@@ -264,7 +264,7 @@ public class PaletteCustomizerDialog extends Dialog implements
 	 * @see org.eclipse.jface.window.Window#configureShell(Shell)
 	 */
 	protected void configureShell(Shell newShell) {
-		newShell.setText(PaletteMessages.CUSTOMIZE_DIALOG_TITLE);
+		newShell.setText(PaletteMessages.get().CUSTOMIZE_DIALOG_TITLE);
 		super.configureShell(newShell);
 	}
 
@@ -333,7 +333,7 @@ public class PaletteCustomizerDialog extends Dialog implements
 	 */
 	protected void createButtonsForButtonBar(Composite parent) {
 		super.createButtonsForButtonBar(parent);
-		createButton(parent, APPLY_ID, PaletteMessages.APPLY_LABEL, false);
+		createButton(parent, APPLY_ID, PaletteMessages.get().APPLY_LABEL, false);
 	}
 
 	/**
@@ -681,7 +681,7 @@ public class PaletteCustomizerDialog extends Dialog implements
 		layout.verticalSpacing = 0;
 		titlePage.setLayout(layout);
 		title = createSectionTitle(titlePage,
-				PaletteMessages.NO_SELECTION_TITLE);
+				PaletteMessages.get().NO_SELECTION_TITLE);
 
 		errorPage = new Composite(book, SWT.NONE);
 		errorPage.setFont(book.getFont());
@@ -944,9 +944,9 @@ public class PaletteCustomizerDialog extends Dialog implements
 
 		if (errorMessage != null) {
 			MessageDialog dialog = new MessageDialog(getShell(),
-					PaletteMessages.ERROR,
+					PaletteMessages.get().ERROR,
 					null,
-					PaletteMessages.ABORT_PAGE_FLIPPING_MESSAGE
+					PaletteMessages.get().ABORT_PAGE_FLIPPING_MESSAGE
 							+ "\n" + errorMessage, //$NON-NLS-1$
 					MessageDialog.ERROR,
 					new String[] { IDialogConstants.get().OK_LABEL }, 0);
@@ -1006,7 +1006,7 @@ public class PaletteCustomizerDialog extends Dialog implements
 			setActiveEntryPage(panel);
 		} else {
 			title.setImage(null);
-			title.setText(PaletteMessages.NO_SELECTION_TITLE);
+			title.setText(PaletteMessages.get().NO_SELECTION_TITLE);
 			// Lazy creation
 			if (noSelectionPage == null) {
 				noSelectionPage = new EntryPage() {
@@ -1019,7 +1019,7 @@ public class PaletteCustomizerDialog extends Dialog implements
 							PaletteEntry entry) {
 						text = new Text(parent, SWT.READ_ONLY);
 						text.setFont(parent.getFont());
-						text.setText(PaletteMessages.NO_SELECTION_MADE);
+						text.setText(PaletteMessages.get().NO_SELECTION_MADE);
 					}
 
 					public Control getControl() {
@@ -1165,7 +1165,7 @@ public class PaletteCustomizerDialog extends Dialog implements
 	private class MoveDownAction extends PaletteCustomizationAction {
 		public MoveDownAction() {
 			setEnabled(false);
-			setText(PaletteMessages.MOVE_DOWN_LABEL);
+			setText(PaletteMessages.get().MOVE_DOWN_LABEL);
 			setImageDescriptor(ImageDescriptor.createFromFile(Internal.class,
 					"icons/next_nav.gif"));//$NON-NLS-1$
 			setDisabledImageDescriptor(ImageDescriptor.createFromFile(
@@ -1192,7 +1192,7 @@ public class PaletteCustomizerDialog extends Dialog implements
 	private class MoveUpAction extends PaletteCustomizationAction {
 		public MoveUpAction() {
 			setEnabled(false);
-			setText(PaletteMessages.MOVE_UP_LABEL);
+			setText(PaletteMessages.get().MOVE_UP_LABEL);
 			setImageDescriptor(ImageDescriptor.createFromFile(Internal.class,
 					"icons/prev_nav.gif"));//$NON-NLS-1$
 			setDisabledImageDescriptor(ImageDescriptor.createFromFile(
@@ -1229,7 +1229,7 @@ public class PaletteCustomizerDialog extends Dialog implements
 				setMenuCreator(this);
 			}
 
-			setText(PaletteMessages.NEW_LABEL);
+			setText(PaletteMessages.get().NEW_LABEL);
 			setImageDescriptor(ImageDescriptor.createFromFile(Internal.class,
 					"icons/add.gif")); //$NON-NLS-1$
 			setDisabledImageDescriptor(ImageDescriptor.createFromFile(

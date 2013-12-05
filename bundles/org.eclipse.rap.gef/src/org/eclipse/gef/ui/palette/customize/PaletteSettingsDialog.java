@@ -205,7 +205,7 @@ public class PaletteSettingsDialog extends Dialog {
 	 * @see org.eclipse.jface.window.Window#configureShell(Shell)
 	 */
 	protected void configureShell(Shell newShell) {
-		newShell.setText(PaletteMessages.SETTINGS_DIALOG_TITLE);
+		newShell.setText(PaletteMessages.get().SETTINGS_DIALOG_TITLE);
 		super.configureShell(newShell);
 	}
 
@@ -284,20 +284,20 @@ public class PaletteSettingsDialog extends Dialog {
 
 		Label label = new Label(composite, SWT.NONE);
 		label.setFont(composite.getFont());
-		label.setText(PaletteMessages.COLLAPSE_OPTIONS_TITLE);
+		label.setText(PaletteMessages.get().COLLAPSE_OPTIONS_TITLE);
 		GridData data = new GridData();
 		label.setLayoutData(data);
 
 		Button b = createButton(composite, COLLAPSE_ALWAYS_ID,
-				PaletteMessages.COLLAPSE_ALWAYS_LABEL, SWT.RADIO, null);
+				PaletteMessages.get().COLLAPSE_ALWAYS_LABEL, SWT.RADIO, null);
 		((GridData) b.getLayoutData()).horizontalIndent = 5;
 
 		b = createButton(composite, COLLAPSE_NEEDED_ID,
-				PaletteMessages.COLLAPSE_AS_NEEDED_LABEL, SWT.RADIO, null);
+				PaletteMessages.get().COLLAPSE_AS_NEEDED_LABEL, SWT.RADIO, null);
 		((GridData) b.getLayoutData()).horizontalIndent = 5;
 
 		b = createButton(composite, COLLAPSE_NEVER_ID,
-				PaletteMessages.COLLAPSE_NEVER_LABEL, SWT.RADIO, null);
+				PaletteMessages.get().COLLAPSE_NEVER_LABEL, SWT.RADIO, null);
 		((GridData) b.getLayoutData()).horizontalIndent = 5;
 
 		// Load auto - collapse settings
@@ -328,7 +328,7 @@ public class PaletteSettingsDialog extends Dialog {
 	 */
 	protected Control createDetailsOptions(Composite parent) {
 		Control contents = createOptionsPage(parent,
-				PaletteMessages.SETTINGS_OPTIONS_DETAILS,
+				PaletteMessages.get().SETTINGS_OPTIONS_DETAILS,
 				LAYOUT_DETAILS_ICON_SIZE_ID);
 		getButton(LAYOUT_DETAILS_ICON_SIZE_ID).setSelection(
 				prefs.useLargeIcons(PaletteViewerPreferences.LAYOUT_DETAILS));
@@ -393,7 +393,7 @@ public class PaletteSettingsDialog extends Dialog {
 	 */
 	protected Control createColumnsOptions(Composite parent) {
 		Composite contents = (Composite) createOptionsPage(parent,
-				PaletteMessages.SETTINGS_OPTIONS_COLUMNS,
+				PaletteMessages.get().SETTINGS_OPTIONS_COLUMNS,
 				LAYOUT_COLUMNS_ICON_SIZE_ID);
 		getButton(LAYOUT_COLUMNS_ICON_SIZE_ID).setSelection(
 				prefs.useLargeIcons(PaletteViewerPreferences.LAYOUT_COLUMNS));
@@ -464,10 +464,10 @@ public class PaletteSettingsDialog extends Dialog {
 		updateFontName();
 
 		createButton(container, FONT_CHANGE_ID,
-				PaletteMessages.SETTINGS_FONT_CHANGE, SWT.PUSH, null);
+				PaletteMessages.get().SETTINGS_FONT_CHANGE, SWT.PUSH, null);
 
 		createButton(container, DEFAULT_FONT_ID,
-				PaletteMessages.SETTINGS_DEFAULT_FONT, SWT.PUSH, null);
+				PaletteMessages.get().SETTINGS_DEFAULT_FONT, SWT.PUSH, null);
 
 		return container;
 	}
@@ -482,7 +482,7 @@ public class PaletteSettingsDialog extends Dialog {
 	 */
 	protected Control createIconsOnlyOptions(Composite parent) {
 		Control contents = createOptionsPage(parent,
-				PaletteMessages.SETTINGS_OPTIONS_ICONS_ONLY,
+				PaletteMessages.get().SETTINGS_OPTIONS_ICONS_ONLY,
 				LAYOUT_ICONS_ICON_SIZE_ID);
 		getButton(LAYOUT_ICONS_ICON_SIZE_ID).setSelection(
 				prefs.useLargeIcons(PaletteViewerPreferences.LAYOUT_ICONS));
@@ -507,7 +507,7 @@ public class PaletteSettingsDialog extends Dialog {
 
 		Label label = new Label(composite, SWT.NONE);
 		label.setFont(composite.getFont());
-		label.setText(PaletteMessages.SETTINGS_LAYOUT_TITLE);
+		label.setText(PaletteMessages.get().SETTINGS_LAYOUT_TITLE);
 		GridData data = new GridData();
 		label.setLayoutData(data);
 
@@ -517,26 +517,26 @@ public class PaletteSettingsDialog extends Dialog {
 			switch (modes[i]) {
 			case PaletteViewerPreferences.LAYOUT_COLUMNS:
 				b = createButton(composite, LAYOUT_COLUMNS_VIEW_ID,
-						PaletteMessages.SETTINGS_COLUMNS_VIEW_LABEL, SWT.RADIO,
-						null);
+						PaletteMessages.get().SETTINGS_COLUMNS_VIEW_LABEL,
+						SWT.RADIO, null);
 				((GridData) b.getLayoutData()).horizontalIndent = 5;
 				break;
 			case PaletteViewerPreferences.LAYOUT_LIST:
 				b = createButton(composite, LAYOUT_LIST_VIEW_ID,
-						PaletteMessages.SETTINGS_LIST_VIEW_LABEL, SWT.RADIO,
-						null);
+						PaletteMessages.get().SETTINGS_LIST_VIEW_LABEL,
+						SWT.RADIO, null);
 				((GridData) b.getLayoutData()).horizontalIndent = 5;
 				break;
 			case PaletteViewerPreferences.LAYOUT_ICONS:
 				b = createButton(composite, LAYOUT_ICONS_VIEW_ID,
-						PaletteMessages.SETTINGS_ICONS_VIEW_LABEL, SWT.RADIO,
-						null);
+						PaletteMessages.get().SETTINGS_ICONS_VIEW_LABEL,
+						SWT.RADIO, null);
 				((GridData) b.getLayoutData()).horizontalIndent = 5;
 				break;
 			case PaletteViewerPreferences.LAYOUT_DETAILS:
 				b = createButton(composite, LAYOUT_DETAILS_VIEW_ID,
-						PaletteMessages.SETTINGS_DETAILS_VIEW_LABEL, SWT.RADIO,
-						null);
+						PaletteMessages.get().SETTINGS_DETAILS_VIEW_LABEL,
+						SWT.RADIO, null);
 				((GridData) b.getLayoutData()).horizontalIndent = 5;
 				break;
 			}
@@ -608,7 +608,8 @@ public class PaletteSettingsDialog extends Dialog {
 	 */
 	protected Control createListOptions(Composite parent) {
 		Control composite = createOptionsPage(parent,
-				PaletteMessages.SETTINGS_OPTIONS_LIST, LAYOUT_LIST_ICON_SIZE_ID);
+				PaletteMessages.get().SETTINGS_OPTIONS_LIST,
+				LAYOUT_LIST_ICON_SIZE_ID);
 		getButton(LAYOUT_LIST_ICON_SIZE_ID).setSelection(
 				prefs.useLargeIcons(PaletteViewerPreferences.LAYOUT_LIST));
 		return composite;
@@ -642,7 +643,8 @@ public class PaletteSettingsDialog extends Dialog {
 		contents.setText(title);
 
 		createButton(contents, buttonId,
-				PaletteMessages.SETTINGS_USE_LARGE_ICONS_LABEL, SWT.CHECK, null);
+				PaletteMessages.get().SETTINGS_USE_LARGE_ICONS_LABEL,
+				SWT.CHECK, null);
 
 		return contents;
 	}
@@ -822,11 +824,11 @@ public class PaletteSettingsDialog extends Dialog {
 		String name;
 		if (prefs.getFontData().equals(
 				(JFaceResources.getDialogFont().getFontData()[0]))) {
-			name = PaletteMessages.SETTINGS_WORKBENCH_FONT_LABEL;
+			name = PaletteMessages.get().SETTINGS_WORKBENCH_FONT_LABEL;
 		} else {
 			name = StringConverter.asString(prefs.getFontData());
 		}
-		fontName.setText(PaletteMessages.SETTINGS_FONT_CURRENT + name);
+		fontName.setText(PaletteMessages.get().SETTINGS_FONT_CURRENT + name);
 	}
 
 }

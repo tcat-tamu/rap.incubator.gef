@@ -27,14 +27,15 @@ public class PaletteGroupFactory extends PaletteContainerFactory {
 	 * Constructor
 	 */
 	public PaletteGroupFactory() {
-		setLabel(PaletteMessages.MODEL_TYPE_GROUP);
+		setLabel(PaletteMessages.get().MODEL_TYPE_GROUP);
 	}
 
 	/**
 	 * @see org.eclipse.gef.ui.palette.customize.PaletteEntryFactory#createNewEntry(Shell)
 	 */
 	protected PaletteEntry createNewEntry(Shell shell) {
-		PaletteGroup group = new PaletteGroup(PaletteMessages.NEW_GROUP_LABEL);
+		PaletteGroup group = new PaletteGroup(
+				PaletteMessages.get().NEW_GROUP_LABEL);
 		group.setUserModificationPermission(PaletteEntry.PERMISSION_FULL_MODIFICATION);
 		return group;
 	}

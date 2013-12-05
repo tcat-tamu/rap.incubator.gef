@@ -32,7 +32,7 @@ public class SettingsAction extends Action {
 	 */
 	public SettingsAction(PaletteViewer palette) {
 		super();
-		setText(PaletteMessages.MENU_OPEN_SETTINGS_DIALOG);
+		setText(PaletteMessages.get().MENU_OPEN_SETTINGS_DIALOG);
 		paletteViewer = palette;
 	}
 

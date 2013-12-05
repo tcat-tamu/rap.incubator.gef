@@ -76,19 +76,19 @@ public class ZoomManager {
 	 * manager will adopt a zoom setting such that the entire height of the
 	 * diagram will be visible on the screen.
 	 */
-	public static final String FIT_HEIGHT = SharedMessages.FitHeightAction_Label;
+	public final String FIT_HEIGHT = SharedMessages.getFitHeightAction_Label();
 	/**
 	 * String constant for the "Width" zoom level. At this zoom level, the zoom
 	 * manager will adopt a zoom setting such that the entire width of the
 	 * diagram will be visible on the screen.
 	 */
-	public static final String FIT_WIDTH = SharedMessages.FitWidthAction_Label;
+	public final String FIT_WIDTH = SharedMessages.getFitWidthAction_Label();
 	/**
 	 * String constant for the "Page" zoom level. At this zoom level, the zoom
 	 * manager will adopt a zoom setting such that the entire diagram will be
 	 * visible on the screen.
 	 */
-	public static final String FIT_ALL = SharedMessages.FitAllAction_Label;
+	public final String FIT_ALL = SharedMessages.getFitAllAction_Label();
 	private List zoomLevelContributions = Collections.EMPTY_LIST;
 
 	DecimalFormat format = new DecimalFormat("####%"); //$NON-NLS-1$

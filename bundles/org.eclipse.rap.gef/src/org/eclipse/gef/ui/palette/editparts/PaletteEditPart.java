@@ -300,7 +300,7 @@ public abstract class PaletteEditPart extends AbstractGraphicalEditPart
 			if (needName)
 				text = entry.getLabel()
 						+ " " //$NON-NLS-1$
-						+ PaletteMessages.NAME_DESCRIPTION_SEPARATOR
+						+ PaletteMessages.get().NAME_DESCRIPTION_SEPARATOR
 						+ " " + desc; //$NON-NLS-1$
 			else
 				text = desc;

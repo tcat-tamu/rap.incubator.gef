@@ -25,9 +25,9 @@ public class ZoomOutRetargetAction extends RetargetAction {
 	 */
 	public ZoomOutRetargetAction() {
 		super(null, null);
-		setText(GEFMessages.ZoomOut_Label);
+		setText(GEFMessages.get().ZoomOut_Label);
 		setId(GEFActionConstants.ZOOM_OUT);
-		setToolTipText(GEFMessages.ZoomOut_Tooltip);
+		setToolTipText(GEFMessages.get().ZoomOut_Tooltip);
 		setImageDescriptor(InternalImages.DESC_ZOOM_OUT);
 		setActionDefinitionId(GEFActionConstants.ZOOM_OUT);
 	}

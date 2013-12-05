@@ -902,7 +902,7 @@ public class FlyoutPaletteComposite extends Composite {
 
 	private class ResizeAction extends Action {
 		public ResizeAction() {
-			super(PaletteMessages.RESIZE_LABEL);
+			super(PaletteMessages.get().RESIZE_LABEL);
 		}
 
 		public boolean isEnabled() {
@@ -1156,7 +1156,7 @@ public class FlyoutPaletteComposite extends Composite {
 				0, 2);
 
 		public TitleLabel(boolean isHorizontal) {
-			super(GEFMessages.Palette_Label, InternalImages
+			super(GEFMessages.get().Palette_Label, InternalImages
 					.get(InternalImages.IMG_PALETTE));
 			setLabelAlignment(PositionConstants.LEFT);
 			setBorder(BORDER);
@@ -1238,8 +1238,8 @@ public class FlyoutPaletteComposite extends Composite {
 
 		private String getButtonTooltipText() {
 			if (isInState(STATE_COLLAPSED))
-				return PaletteMessages.PALETTE_SHOW;
-			return PaletteMessages.PALETTE_HIDE;
+				return PaletteMessages.get().PALETTE_SHOW;
+			return PaletteMessages.get().PALETTE_HIDE;
 		}
 
 		private void init() {
@@ -1274,7 +1274,7 @@ public class FlyoutPaletteComposite extends Composite {
 		private void provideAccSupport() {
 			getAccessible().addAccessibleListener(new AccessibleAdapter() {
 				public void getDescription(AccessibleEvent e) {
-					e.result = PaletteMessages.ACC_DESC_PALETTE_BUTTON;
+					e.result = PaletteMessages.get().ACC_DESC_PALETTE_BUTTON;
 				}
 
 				public void getHelp(AccessibleEvent e) {
@@ -1389,10 +1389,10 @@ public class FlyoutPaletteComposite extends Composite {
 			FONT_MGR.register(this);
 			new TitleDragManager(this);
 			final MenuManager manager = new MenuManager();
-			MenuManager mgr = new MenuManager(PaletteMessages.DOCK_LABEL);
-			mgr.add(new ChangeDockAction(PaletteMessages.LEFT_LABEL,
+			MenuManager mgr = new MenuManager(PaletteMessages.get().DOCK_LABEL);
+			mgr.add(new ChangeDockAction(PaletteMessages.get().LEFT_LABEL,
 					PositionConstants.WEST));
-			mgr.add(new ChangeDockAction(PaletteMessages.RIGHT_LABEL,
+			mgr.add(new ChangeDockAction(PaletteMessages.get().RIGHT_LABEL,
 					PositionConstants.EAST));
 			manager.add(new ResizeAction());
 			manager.add(mgr);
@@ -1417,7 +1417,7 @@ public class FlyoutPaletteComposite extends Composite {
 		private void provideAccSupport() {
 			getAccessible().addAccessibleListener(new AccessibleAdapter() {
 				public void getDescription(AccessibleEvent e) {
-					e.result = PaletteMessages.ACC_DESC_PALETTE_TITLE;
+					e.result = PaletteMessages.get().ACC_DESC_PALETTE_TITLE;
 				}
 
 				public void getHelp(AccessibleEvent e) {
@@ -1425,7 +1425,7 @@ public class FlyoutPaletteComposite extends Composite {
 				}
 
 				public void getName(AccessibleEvent e) {
-					e.result = GEFMessages.Palette_Label;
+					e.result = GEFMessages.get().Palette_Label;
 				}
 			});
 			getAccessible().addAccessibleControlListener(

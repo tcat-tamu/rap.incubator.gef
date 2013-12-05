@@ -46,7 +46,7 @@ public class PinFigure extends Toggle {
 		super(new ImageFigure(InternalImages.get(InternalImages.IMG_UNPINNED)));
 		setRolloverEnabled(true);
 		setRequestFocusEnabled(false);
-		Label tooltip = new Label(PaletteMessages.TOOLTIP_PIN_FIGURE);
+		Label tooltip = new Label(PaletteMessages.get().TOOLTIP_PIN_FIGURE);
 		tooltip.setBorder(TOOLTIP_BORDER);
 		setToolTip(tooltip);
 		setOpaque(false);
@@ -60,13 +60,13 @@ public class PinFigure extends Toggle {
 								.setImage(InternalImages
 										.get(InternalImages.IMG_PINNED));
 						((Label) getToolTip())
-								.setText(PaletteMessages.TOOLTIP_UNPIN_FIGURE);
+								.setText(PaletteMessages.get().TOOLTIP_UNPIN_FIGURE);
 					} else {
 						((ImageFigure) (getChildren().get(0)))
 								.setImage(InternalImages
 										.get(InternalImages.IMG_UNPINNED));
 						((Label) getToolTip())
-								.setText(PaletteMessages.TOOLTIP_PIN_FIGURE);
+								.setText(PaletteMessages.get().TOOLTIP_PIN_FIGURE);
 					}
 				}
 			}

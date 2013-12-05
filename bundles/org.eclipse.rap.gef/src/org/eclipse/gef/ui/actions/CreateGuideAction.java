@@ -38,9 +38,9 @@ public class CreateGuideAction extends Action {
 	 *            the viewer for the ruler on which the guide is to be created
 	 */
 	public CreateGuideAction(EditPartViewer ruler) {
-		super(GEFMessages.Create_Guide_Label);
+		super(GEFMessages.get().Create_Guide_Label);
 		viewer = ruler;
-		setToolTipText(GEFMessages.Create_Guide_Tooltip);
+		setToolTipText(GEFMessages.get().Create_Guide_Tooltip);
 	}
 
 	/**

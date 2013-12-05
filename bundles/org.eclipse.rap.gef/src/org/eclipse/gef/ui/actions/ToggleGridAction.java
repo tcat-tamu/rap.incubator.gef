@@ -38,9 +38,9 @@ public class ToggleGridAction extends Action {
 	 *            properties are to be toggled
 	 */
 	public ToggleGridAction(GraphicalViewer diagramViewer) {
-		super(GEFMessages.ToggleGrid_Label, AS_CHECK_BOX);
+		super(GEFMessages.get().ToggleGrid_Label, AS_CHECK_BOX);
 		this.diagramViewer = diagramViewer;
-		setToolTipText(GEFMessages.ToggleGrid_Tooltip);
+		setToolTipText(GEFMessages.get().ToggleGrid_Tooltip);
 		setId(GEFActionConstants.TOGGLE_GRID_VISIBILITY);
 		setActionDefinitionId(GEFActionConstants.TOGGLE_GRID_VISIBILITY);
 		setChecked(isChecked());

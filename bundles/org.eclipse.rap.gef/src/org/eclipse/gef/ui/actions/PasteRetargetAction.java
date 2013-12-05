@@ -28,7 +28,7 @@ public class PasteRetargetAction extends RetargetAction {
 	 * image.
 	 */
 	public PasteRetargetAction() {
-		super(ActionFactory.PASTE.getId(), GEFMessages.PasteAction_Label);
+		super(ActionFactory.PASTE.getId(), GEFMessages.get().PasteAction_Label);
 		ISharedImages sharedImages = PlatformUI.getWorkbench()
 				.getSharedImages();
 		setImageDescriptor(sharedImages

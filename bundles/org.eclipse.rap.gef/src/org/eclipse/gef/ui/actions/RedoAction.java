@@ -60,9 +60,10 @@ public class RedoAction extends StackAction {
 	 */
 	protected void init() {
 		super.init();
-		setToolTipText(MessageFormat.format(GEFMessages.RedoAction_Tooltip,
-				new Object[] { "" }).trim()); //$NON-NLS-1$
-		setText(MessageFormat.format(GEFMessages.RedoAction_Label,
+		setToolTipText(MessageFormat
+				.format(GEFMessages.get().RedoAction_Tooltip,
+						new Object[] { "" }).trim()); //$NON-NLS-1$
+		setText(MessageFormat.format(GEFMessages.get().RedoAction_Label,
 				new Object[] { "" }).trim() //$NON-NLS-1$
 		);
 		setId(ActionFactory.REDO.getId());
@@ -80,9 +81,10 @@ public class RedoAction extends StackAction {
 	 */
 	protected void refresh() {
 		Command redoCmd = getCommandStack().getRedoCommand();
-		setToolTipText(MessageFormat.format(GEFMessages.RedoAction_Tooltip,
+		setToolTipText(MessageFormat.format(
+				GEFMessages.get().RedoAction_Tooltip,
 				new Object[] { getLabelForCommand(redoCmd) }).trim());
-		setText(MessageFormat.format(GEFMessages.RedoAction_Label,
+		setText(MessageFormat.format(GEFMessages.get().RedoAction_Label,
 				new Object[] { getLabelForCommand(redoCmd) }).trim());
 		super.refresh();
 	}

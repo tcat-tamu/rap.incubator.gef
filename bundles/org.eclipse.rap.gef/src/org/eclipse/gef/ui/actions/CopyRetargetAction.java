@@ -27,7 +27,7 @@ public class CopyRetargetAction extends RetargetAction {
 	 * Constructs a new CopyRetargetAction with the default ID, label and image.
 	 */
 	public CopyRetargetAction() {
-		super(ActionFactory.COPY.getId(), GEFMessages.CopyAction_Label);
+		super(ActionFactory.COPY.getId(), GEFMessages.get().CopyAction_Label);
 		ISharedImages sharedImages = PlatformUI.getWorkbench()
 				.getSharedImages();
 		setImageDescriptor(sharedImages

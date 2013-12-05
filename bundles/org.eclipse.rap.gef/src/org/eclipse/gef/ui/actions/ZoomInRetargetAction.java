@@ -25,9 +25,9 @@ public class ZoomInRetargetAction extends RetargetAction {
 	 */
 	public ZoomInRetargetAction() {
 		super(null, null);
-		setText(GEFMessages.ZoomIn_Label);
+		setText(GEFMessages.get().ZoomIn_Label);
 		setId(GEFActionConstants.ZOOM_IN);
-		setToolTipText(GEFMessages.ZoomIn_Tooltip);
+		setToolTipText(GEFMessages.get().ZoomIn_Tooltip);
 		setImageDescriptor(InternalImages.DESC_ZOOM_IN);
 		setActionDefinitionId(GEFActionConstants.ZOOM_IN);
 	}

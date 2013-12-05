@@ -63,7 +63,8 @@ public class SetPropertyValueCommand extends Command {
 	 */
 	public SetPropertyValueCommand(String propertyLabel,
 			IPropertySource propertySource, Object propertyId, Object newValue) {
-		super(MessageFormat.format(GEFMessages.SetPropertyValueCommand_Label,
+		super(MessageFormat.format(
+				GEFMessages.get().SetPropertyValueCommand_Label,
 				new Object[] { propertyLabel }).trim());
 		this.propertySource = propertySource;
 		this.propertyId = propertyId;

@@ -51,8 +51,8 @@ public class PrintAction extends WorkbenchPartAction {
 	 */
 	protected void init() {
 		super.init();
-		setText(GEFMessages.PrintAction_Label);
-		setToolTipText(GEFMessages.PrintAction_Tooltip);
+		setText(GEFMessages.get().PrintAction_Label);
+		setToolTipText(GEFMessages.get().PrintAction_Tooltip);
 		setId(ActionFactory.PRINT.getId());
 	}
 

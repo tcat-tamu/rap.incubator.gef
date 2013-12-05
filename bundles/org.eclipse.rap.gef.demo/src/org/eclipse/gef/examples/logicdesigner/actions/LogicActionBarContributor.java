@@ -18,9 +18,8 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.actions.RetargetAction;
-
 import org.eclipse.draw2d.PositionConstants;
-
+import org.eclipse.gef.SharedMessages;
 import org.eclipse.gef.editparts.ZoomManager;
 import org.eclipse.gef.internal.GEFMessages;
 import org.eclipse.gef.ui.actions.ActionBarContributor;
@@ -33,7 +32,6 @@ import org.eclipse.gef.ui.actions.UndoRetargetAction;
 import org.eclipse.gef.ui.actions.ZoomComboContributionItem;
 import org.eclipse.gef.ui.actions.ZoomInRetargetAction;
 import org.eclipse.gef.ui.actions.ZoomOutRetargetAction;
-
 import org.eclipse.gef.examples.logicdesigner.LogicMessages;
 
 public class LogicActionBarContributor extends ActionBarContributor {
@@ -63,15 +61,15 @@ public class LogicActionBarContributor extends ActionBarContributor {
 
 		addRetargetAction(new RetargetAction(
 				GEFActionConstants.TOGGLE_RULER_VISIBILITY,
-				GEFMessages.ToggleRulerVisibility_Label, IAction.AS_CHECK_BOX));
+				GEFMessages.get().ToggleRulerVisibility_Label, IAction.AS_CHECK_BOX));
 
 		addRetargetAction(new RetargetAction(
 				GEFActionConstants.TOGGLE_SNAP_TO_GEOMETRY,
-				GEFMessages.ToggleSnapToGeometry_Label, IAction.AS_CHECK_BOX));
+				GEFMessages.get().ToggleSnapToGeometry_Label, IAction.AS_CHECK_BOX));
 
 		addRetargetAction(new RetargetAction(
 				GEFActionConstants.TOGGLE_GRID_VISIBILITY,
-				GEFMessages.ToggleGrid_Label, IAction.AS_CHECK_BOX));
+				GEFMessages.get().ToggleGrid_Label, IAction.AS_CHECK_BOX));
 	}
 
 	/**
@@ -109,8 +107,8 @@ public class LogicActionBarContributor extends ActionBarContributor {
 		tbm.add(getAction(GEFActionConstants.MATCH_HEIGHT));
 
 		tbm.add(new Separator());
-		String[] zoomStrings = new String[] { ZoomManager.FIT_ALL,
-				ZoomManager.FIT_HEIGHT, ZoomManager.FIT_WIDTH };
+		String[] zoomStrings = new String[] { SharedMessages.getFitAllAction_Label(),
+				SharedMessages.getFitHeightAction_Label(), SharedMessages.getFitWidthAction_Label() };
 		tbm.add(new ZoomComboContributionItem(getPage(), zoomStrings));
 	}
 

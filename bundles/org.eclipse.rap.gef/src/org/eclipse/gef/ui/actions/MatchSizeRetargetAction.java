@@ -26,10 +26,11 @@ public class MatchSizeRetargetAction extends LabelRetargetAction {
 	 * Constructs a <code>MatchSizeRetargetAction</code>.
 	 */
 	public MatchSizeRetargetAction() {
-		super(GEFActionConstants.MATCH_SIZE, GEFMessages.MatchSizeAction_Label);
+		super(GEFActionConstants.MATCH_SIZE,
+				GEFMessages.get().MatchSizeAction_Label);
 		setImageDescriptor(InternalImages.DESC_MATCH_SIZE);
 		setDisabledImageDescriptor(InternalImages.DESC_MATCH_SIZE_DIS);
-		setToolTipText(GEFMessages.MatchSizeAction_Tooltip);
+		setToolTipText(GEFMessages.get().MatchSizeAction_Tooltip);
 	}
 
 }

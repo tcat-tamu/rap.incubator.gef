@@ -75,7 +75,7 @@ public class DrawerEntryPage extends DefaultEntryPage {
 	protected Button createOpenDrawerInitiallyOption(Composite panel) {
 		Button b = new Button(panel, SWT.CHECK);
 		b.setFont(panel.getFont());
-		b.setText(PaletteMessages.EXPAND_DRAWER_AT_STARTUP_LABEL);
+		b.setText(PaletteMessages.get().EXPAND_DRAWER_AT_STARTUP_LABEL);
 		b.setSelection(getDrawer().isInitiallyOpen());
 		if (getPermission() >= PaletteEntry.PERMISSION_LIMITED_MODIFICATION) {
 			b.addSelectionListener(new SelectionAdapter() {
@@ -101,7 +101,7 @@ public class DrawerEntryPage extends DefaultEntryPage {
 	protected Button createPinDrawerInitiallyOption(Composite panel) {
 		Button pinOption = new Button(panel, SWT.CHECK);
 		pinOption.setFont(panel.getFont());
-		pinOption.setText(PaletteMessages.DRAWER_PIN_AT_STARTUP);
+		pinOption.setText(PaletteMessages.get().DRAWER_PIN_AT_STARTUP);
 		GridData data = new GridData();
 		data.horizontalIndent = 15;
 		pinOption.setLayoutData(data);

@@ -113,12 +113,12 @@ public class RulerEditPart extends AbstractGraphicalEditPart {
 		if (accPart == null)
 			accPart = new AccessibleGraphicalEditPart() {
 				public void getName(AccessibleEvent e) {
-					e.result = isHorizontal() ? GEFMessages.Ruler_Horizontal_Label
-							: GEFMessages.Ruler_Vertical_Label;
+					e.result = isHorizontal() ? GEFMessages.get().Ruler_Horizontal_Label
+							: GEFMessages.get().Ruler_Vertical_Label;
 				}
 
 				public void getDescription(AccessibleEvent e) {
-					e.result = GEFMessages.Ruler_Desc;
+					e.result = GEFMessages.get().Ruler_Desc;
 				}
 			};
 		return accPart;

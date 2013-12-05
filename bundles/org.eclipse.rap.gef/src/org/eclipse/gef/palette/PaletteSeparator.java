@@ -42,7 +42,8 @@ public class PaletteSeparator extends PaletteEntry {
 	 *            This Separator's unique ID
 	 */
 	public PaletteSeparator(String id) {
-		super(PaletteMessages.NEW_SEPARATOR_LABEL, "", PALETTE_TYPE_SEPARATOR);//$NON-NLS-1$
+		super(PaletteMessages.get().NEW_SEPARATOR_LABEL,
+				"", PALETTE_TYPE_SEPARATOR);//$NON-NLS-1$
 		setId(id);
 	}
 

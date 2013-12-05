@@ -57,7 +57,7 @@ public class LayoutAction extends Action implements IMenuCreator {
 	 *            saved
 	 */
 	public LayoutAction(PaletteViewerPreferences prefs, boolean hasIcon) {
-		super(PaletteMessages.LAYOUT_MENU_LABEL);
+		super(PaletteMessages.get().LAYOUT_MENU_LABEL);
 		this.prefs = prefs;
 		actions = createActions();
 		setMenuCreator(this);
@@ -66,7 +66,7 @@ public class LayoutAction extends Action implements IMenuCreator {
 			setImageDescriptor(ImageDescriptor.createFromFile(Internal.class,
 					"icons/palette_layout.gif")); //$NON-NLS-1$
 
-		setToolTipText(PaletteMessages.LAYOUT_MENU_LABEL);
+		setToolTipText(PaletteMessages.get().LAYOUT_MENU_LABEL);
 	}
 
 	/**
@@ -97,25 +97,25 @@ public class LayoutAction extends Action implements IMenuCreator {
 			case PaletteViewerPreferences.LAYOUT_COLUMNS:
 				action = new LayoutChangeAction(
 						PaletteViewerPreferences.LAYOUT_COLUMNS);
-				action.setText(PaletteMessages.SETTINGS_COLUMNS_VIEW_LABEL);
+				action.setText(PaletteMessages.get().SETTINGS_COLUMNS_VIEW_LABEL);
 				list.add(action);
 				break;
 			case PaletteViewerPreferences.LAYOUT_LIST:
 				action = new LayoutChangeAction(
 						PaletteViewerPreferences.LAYOUT_LIST);
-				action.setText(PaletteMessages.SETTINGS_LIST_VIEW_LABEL);
+				action.setText(PaletteMessages.get().SETTINGS_LIST_VIEW_LABEL);
 				list.add(action);
 				break;
 			case PaletteViewerPreferences.LAYOUT_ICONS:
 				action = new LayoutChangeAction(
 						PaletteViewerPreferences.LAYOUT_ICONS);
-				action.setText(PaletteMessages.SETTINGS_ICONS_VIEW_LABEL_CAPS);
+				action.setText(PaletteMessages.get().SETTINGS_ICONS_VIEW_LABEL_CAPS);
 				list.add(action);
 				break;
 			case PaletteViewerPreferences.LAYOUT_DETAILS:
 				action = new LayoutChangeAction(
 						PaletteViewerPreferences.LAYOUT_DETAILS);
-				action.setText(PaletteMessages.SETTINGS_DETAILS_VIEW_LABEL);
+				action.setText(PaletteMessages.get().SETTINGS_DETAILS_VIEW_LABEL);
 				list.add(action);
 				break;
 			}

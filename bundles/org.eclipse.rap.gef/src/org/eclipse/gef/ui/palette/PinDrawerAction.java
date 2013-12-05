@@ -35,7 +35,7 @@ public class PinDrawerAction extends Action {
 		this.pinnableEditPart = drawer;
 		setChecked(drawer.isPinnedOpen());
 		setEnabled(drawer.isExpanded());
-		setText(PaletteMessages.PINNED);
+		setText(PaletteMessages.get().PINNED);
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class PinDrawerAction extends Action {
 		this.pinnableEditPart = pinnableEditPart;
 		setChecked(pinnableEditPart.isPinnedOpen());
 		setEnabled(pinnableEditPart.isExpanded());
-		setText(PaletteMessages.PINNED);
+		setText(PaletteMessages.get().PINNED);
 	}
 
 	/**

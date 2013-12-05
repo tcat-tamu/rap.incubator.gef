@@ -29,7 +29,7 @@ public class UndoRetargetAction extends LabelRetargetAction {
 	 */
 	public UndoRetargetAction() {
 		super(ActionFactory.UNDO.getId(), MessageFormat.format(
-				GEFMessages.UndoAction_Label, new Object[] { "" }).trim()); //$NON-NLS-1$
+				GEFMessages.get().UndoAction_Label, new Object[] { "" }).trim()); //$NON-NLS-1$
 		ISharedImages sharedImages = PlatformUI.getWorkbench()
 				.getSharedImages();
 		setImageDescriptor(sharedImages

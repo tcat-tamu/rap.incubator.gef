@@ -38,6 +38,7 @@ import org.eclipse.gef.LayerConstants;
 import org.eclipse.gef.MouseWheelHandler;
 import org.eclipse.gef.MouseWheelZoomHandler;
 import org.eclipse.gef.RootEditPart;
+import org.eclipse.gef.SharedMessages;
 import org.eclipse.gef.SnapToGeometry;
 import org.eclipse.gef.SnapToGrid;
 import org.eclipse.gef.dnd.TemplateTransferDragSourceListener;
@@ -411,9 +412,9 @@ public class LogicEditor extends GraphicalEditorWithFlyoutPalette {
 						connectionLayer));
 
 		List zoomLevels = new ArrayList(3);
-		zoomLevels.add(ZoomManager.FIT_ALL);
-		zoomLevels.add(ZoomManager.FIT_WIDTH);
-		zoomLevels.add(ZoomManager.FIT_HEIGHT);
+		zoomLevels.add(SharedMessages.getFitAllAction_Label());
+		zoomLevels.add(SharedMessages.getFitWidthAction_Label());
+		zoomLevels.add(SharedMessages.getFitHeightAction_Label());
 		root.getZoomManager().setZoomLevelContributions(zoomLevels);
 
 		IAction zoomIn = new ZoomInAction(root.getZoomManager());

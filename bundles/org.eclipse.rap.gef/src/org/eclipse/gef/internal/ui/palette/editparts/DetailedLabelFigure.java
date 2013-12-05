@@ -142,7 +142,7 @@ public class DetailedLabelFigure extends Figure {
 		String str = ""; //$NON-NLS-1$
 		if (s != null && !s.trim().equals("") //$NON-NLS-1$
 				&& !s.trim().equals(nameText.getText().trim())) {
-			str = " " + PaletteMessages.NAME_DESCRIPTION_SEPARATOR //$NON-NLS-1$
+			str = " " + PaletteMessages.get().NAME_DESCRIPTION_SEPARATOR //$NON-NLS-1$
 					+ " " + s; //$NON-NLS-1$
 		}
 		if (descText.getText().equals(str)) {

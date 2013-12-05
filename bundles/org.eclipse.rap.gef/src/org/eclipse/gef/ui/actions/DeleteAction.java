@@ -98,7 +98,7 @@ public class DeleteAction extends SelectionAction {
 		deleteReq.setEditParts(objects);
 
 		CompoundCommand compoundCmd = new CompoundCommand(
-				GEFMessages.DeleteAction_ActionDeleteCommandName);
+				GEFMessages.get().DeleteAction_ActionDeleteCommandName);
 		for (int i = 0; i < objects.size(); i++) {
 			EditPart object = (EditPart) objects.get(i);
 			Command cmd = object.getCommand(deleteReq);
@@ -114,8 +114,8 @@ public class DeleteAction extends SelectionAction {
 	 */
 	protected void init() {
 		super.init();
-		setText(GEFMessages.DeleteAction_Label);
-		setToolTipText(GEFMessages.DeleteAction_Tooltip);
+		setText(GEFMessages.get().DeleteAction_Label);
+		setToolTipText(GEFMessages.get().DeleteAction_Tooltip);
 		setId(ActionFactory.DELETE.getId());
 		ISharedImages sharedImages = PlatformUI.getWorkbench()
 				.getSharedImages();

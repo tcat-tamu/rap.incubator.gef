@@ -108,7 +108,7 @@ public abstract class RulerProvider {
 	 * @see org.eclipse.swt.accessibility.AccessibleAdapter#getDescription(AccessibleEvent)
 	 */
 	public void getAccGuideDescription(AccessibleEvent e, Object guide) {
-		e.result = GEFMessages.Guide_Desc;
+		e.result = GEFMessages.get().Guide_Desc;
 	}
 
 	/**
@@ -122,7 +122,7 @@ public abstract class RulerProvider {
 	 * @see org.eclipse.swt.accessibility.AccessibleAdapter#getName(AccessibleEvent)
 	 */
 	public void getAccGuideName(AccessibleEvent e, Object guide) {
-		e.result = GEFMessages.Guide_Label;
+		e.result = GEFMessages.get().Guide_Label;
 	}
 
 	/**

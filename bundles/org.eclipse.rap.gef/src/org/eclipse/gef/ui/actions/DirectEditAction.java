@@ -120,8 +120,8 @@ public class DirectEditAction extends SelectionAction {
 	 */
 	protected void init() {
 		super.init();
-		setText(GEFMessages.RenameAction_Label);
-		setToolTipText(GEFMessages.RenameAction_Tooltip);
+		setText(GEFMessages.get().RenameAction_Label);
+		setToolTipText(GEFMessages.get().RenameAction_Tooltip);
 		setId(GEFActionConstants.DIRECT_EDIT);
 	}
 

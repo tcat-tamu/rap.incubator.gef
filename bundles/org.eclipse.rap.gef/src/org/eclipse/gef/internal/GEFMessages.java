@@ -10,7 +10,7 @@
  *******************************************************************************/
 package org.eclipse.gef.internal;
 
-import org.eclipse.osgi.util.NLS;
+import org.eclipse.rap.rwt.RWT;
 
 /**
  * Internal Messages
@@ -18,100 +18,104 @@ import org.eclipse.osgi.util.NLS;
  * @author hudsonr
  * @since 2.0
  */
-public class GEFMessages extends NLS {
+public class GEFMessages /* extends NLS */{
 
-	public static String AlignBottomAction_Label;
-	public static String AlignBottomAction_Tooltip;
-	public static String AlignCenterAction_Label;
-	public static String AlignCenterAction_Tooltip;
-	public static String AlignLeftAction_Label;
-	public static String AlignLeftAction_Tooltip;
-	public static String AlignMiddleAction_Label;
-	public static String AlignMiddleAction_Tooltip;
-	public static String AlignRightAction_Label;
-	public static String AlignRightAction_Tooltip;
-	public static String AlignTopAction_Label;
-	public static String AlignTopAction_Tooltip;
+	public String AlignBottomAction_Label;
+	public String AlignBottomAction_Tooltip;
+	public String AlignCenterAction_Label;
+	public String AlignCenterAction_Tooltip;
+	public String AlignLeftAction_Label;
+	public String AlignLeftAction_Tooltip;
+	public String AlignMiddleAction_Label;
+	public String AlignMiddleAction_Tooltip;
+	public String AlignRightAction_Label;
+	public String AlignRightAction_Tooltip;
+	public String AlignTopAction_Label;
+	public String AlignTopAction_Tooltip;
 
-	public static String CopyAction_ActionDeleteCommandName;
-	public static String CopyAction_Label;
-	public static String CopyAction_Tooltip;
+	public String CopyAction_ActionDeleteCommandName;
+	public String CopyAction_Label;
+	public String CopyAction_Tooltip;
 
-	public static String DeleteAction_ActionDeleteCommandName;
-	public static String DeleteAction_Label;
-	public static String DeleteAction_Tooltip;
+	public String DeleteAction_ActionDeleteCommandName;
+	public String DeleteAction_Label;
+	public String DeleteAction_Tooltip;
 
-	public static String PasteAction_Label;
-	public static String PasteAction_Tooltip;
+	public String PasteAction_Label;
+	public String PasteAction_Tooltip;
 
-	public static String PrintAction_ActionDeleteCommandName;
-	public static String PrintAction_Label;
-	public static String PrintAction_Tooltip;
+	public String PrintAction_ActionDeleteCommandName;
+	public String PrintAction_Label;
+	public String PrintAction_Tooltip;
 
-	public static String RedoAction_Label;
-	public static String RedoAction_Tooltip;
-	public static String RenameAction_Label;
-	public static String RenameAction_Tooltip;
-	public static String SaveAction_Label;
-	public static String SaveAction_Tooltip;
-	public static String SetPropertyValueCommand_Label;
+	public String RedoAction_Label;
+	public String RedoAction_Tooltip;
+	public String RenameAction_Label;
+	public String RenameAction_Tooltip;
+	public String SaveAction_Label;
+	public String SaveAction_Tooltip;
+	public String SetPropertyValueCommand_Label;
 
-	public static String SelectAllAction_Label;
-	public static String SelectAllAction_Tooltip;
+	public String SelectAllAction_Label;
+	public String SelectAllAction_Tooltip;
 
-	public static String MatchSizeAction_Label;
-	public static String MatchSizeAction_Tooltip;
+	public String MatchSizeAction_Label;
+	public String MatchSizeAction_Tooltip;
 
-	public static String MatchWidthAction_Label;
-	public static String MatchWidthAction_Tooltip;
+	public String MatchWidthAction_Label;
+	public String MatchWidthAction_Tooltip;
 
-	public static String MatchHeightAction_Label;
-	public static String MatchHeightAction_Tooltip;
+	public String MatchHeightAction_Label;
+	public String MatchHeightAction_Tooltip;
 
-	public static String SelectionTool_Label;
-	public static String MarqueeTool_Label;
-	public static String MarqueeTool_Connections_Touched_Desc;
-	public static String MarqueeTool_Connections_Contained_Desc;
-	public static String MarqueeTool_Nodes_Touched_Desc;
-	public static String MarqueeTool_Nodes_Contained_Desc;
-	public static String MarqueeTool_Nodes_Touched_And_Related_Connections_Desc;
-	public static String MarqueeTool_Nodes_Contained_And_Related_Connections_Desc;
-	public static String UndoAction_Label;
-	public static String UndoAction_Tooltip;
+	public String SelectionTool_Label;
+	public String MarqueeTool_Label;
+	public String MarqueeTool_Connections_Touched_Desc;
+	public String MarqueeTool_Connections_Contained_Desc;
+	public String MarqueeTool_Nodes_Touched_Desc;
+	public String MarqueeTool_Nodes_Contained_Desc;
+	public String MarqueeTool_Nodes_Touched_And_Related_Connections_Desc;
+	public String MarqueeTool_Nodes_Contained_And_Related_Connections_Desc;
+	public String UndoAction_Label;
+	public String UndoAction_Tooltip;
 
 	// Zoom strings
-	public static String ZoomIn_Label;
-	public static String ZoomIn_Tooltip;
-	public static String ZoomOut_Label;
-	public static String ZoomOut_Tooltip;
-	public static String FitAllAction_Label;
-	public static String FitWidthAction_Label;
-	public static String FitHeightAction_Label;
+	public String ZoomIn_Label;
+	public String ZoomIn_Tooltip;
+	public String ZoomOut_Label;
+	public String ZoomOut_Tooltip;
+	public String FitAllAction_Label;
+	public String FitWidthAction_Label;
+	public String FitHeightAction_Label;
 
 	// View menu actions
-	public static String ToggleRulerVisibility_Label;
-	public static String ToggleRulerVisibility_Tooltip;
-	public static String ToggleSnapToGeometry_Label;
-	public static String ToggleSnapToGeometry_Tooltip;
-	public static String ToggleGrid_Label;
-	public static String ToggleGrid_Tooltip;
+	public String ToggleRulerVisibility_Label;
+	public String ToggleRulerVisibility_Tooltip;
+	public String ToggleSnapToGeometry_Label;
+	public String ToggleSnapToGeometry_Tooltip;
+	public String ToggleGrid_Label;
+	public String ToggleGrid_Tooltip;
 
 	// Palette view Strings
-	public static String Palette_Label;
-	public static String Palette_Not_Available;
+	public String Palette_Label;
+	public String Palette_Not_Available;
 
 	// Rulers and guides
-	public static String Ruler_Horizontal_Label;
-	public static String Ruler_Vertical_Label;
-	public static String Ruler_Desc;
-	public static String Guide_Label;
-	public static String Guide_Desc;
-	public static String Create_Guide_Label;
-	public static String Create_Guide_Tooltip;
+	public String Ruler_Horizontal_Label;
+	public String Ruler_Vertical_Label;
+	public String Ruler_Desc;
+	public String Guide_Label;
+	public String Guide_Desc;
+	public String Create_Guide_Label;
+	public String Create_Guide_Tooltip;
 
-	static {
-		NLS.initializeMessages(
-				"org.eclipse.gef.internal.messages", GEFMessages.class); //$NON-NLS-1$
+	// static {
+	// NLS.initializeMessages(
+	//				"org.eclipse.gef.internal.messages", GEFMessages.class); //$NON-NLS-1$
+	// }
+	public static GEFMessages get() {
+		Object result = RWT.NLS.getISO8859_1Encoded(
+				"org.eclipse.gef.internal.messages", GEFMessages.class);
+		return (GEFMessages) result;
 	}
-
 }

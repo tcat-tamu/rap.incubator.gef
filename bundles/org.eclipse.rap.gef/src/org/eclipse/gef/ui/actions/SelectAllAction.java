@@ -39,8 +39,8 @@ public class SelectAllAction extends Action {
 	 */
 	public SelectAllAction(IWorkbenchPart part) {
 		this.part = part;
-		setText(GEFMessages.SelectAllAction_Label);
-		setToolTipText(GEFMessages.SelectAllAction_Tooltip);
+		setText(GEFMessages.get().SelectAllAction_Label);
+		setToolTipText(GEFMessages.get().SelectAllAction_Tooltip);
 		setId(ActionFactory.SELECT_ALL.getId());
 	}
 

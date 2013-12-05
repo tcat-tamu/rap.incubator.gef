@@ -197,48 +197,48 @@ public final class AlignmentAction extends SelectionAction {
 		switch (alignment) {
 		case PositionConstants.LEFT:
 			setId(GEFActionConstants.ALIGN_LEFT);
-			setText(GEFMessages.AlignLeftAction_Label);
-			setToolTipText(GEFMessages.AlignLeftAction_Tooltip);
+			setText(GEFMessages.get().AlignLeftAction_Label);
+			setToolTipText(GEFMessages.get().AlignLeftAction_Tooltip);
 			setImageDescriptor(InternalImages.DESC_HORZ_ALIGN_LEFT);
 			setDisabledImageDescriptor(InternalImages.DESC_HORZ_ALIGN_LEFT_DIS);
 			break;
 
 		case PositionConstants.RIGHT:
 			setId(GEFActionConstants.ALIGN_RIGHT);
-			setText(GEFMessages.AlignRightAction_Label);
-			setToolTipText(GEFMessages.AlignRightAction_Tooltip);
+			setText(GEFMessages.get().AlignRightAction_Label);
+			setToolTipText(GEFMessages.get().AlignRightAction_Tooltip);
 			setImageDescriptor(InternalImages.DESC_HORZ_ALIGN_RIGHT);
 			setDisabledImageDescriptor(InternalImages.DESC_HORZ_ALIGN_RIGHT_DIS);
 			break;
 
 		case PositionConstants.TOP:
 			setId(GEFActionConstants.ALIGN_TOP);
-			setText(GEFMessages.AlignTopAction_Label);
-			setToolTipText(GEFMessages.AlignTopAction_Tooltip);
+			setText(GEFMessages.get().AlignTopAction_Label);
+			setToolTipText(GEFMessages.get().AlignTopAction_Tooltip);
 			setImageDescriptor(InternalImages.DESC_VERT_ALIGN_TOP);
 			setDisabledImageDescriptor(InternalImages.DESC_VERT_ALIGN_TOP_DIS);
 			break;
 
 		case PositionConstants.BOTTOM:
 			setId(GEFActionConstants.ALIGN_BOTTOM);
-			setText(GEFMessages.AlignBottomAction_Label);
-			setToolTipText(GEFMessages.AlignBottomAction_Tooltip);
+			setText(GEFMessages.get().AlignBottomAction_Label);
+			setToolTipText(GEFMessages.get().AlignBottomAction_Tooltip);
 			setImageDescriptor(InternalImages.DESC_VERT_ALIGN_BOTTOM);
 			setDisabledImageDescriptor(InternalImages.DESC_VERT_ALIGN_BOTTOM_DIS);
 			break;
 
 		case PositionConstants.CENTER:
 			setId(GEFActionConstants.ALIGN_CENTER);
-			setText(GEFMessages.AlignCenterAction_Label);
-			setToolTipText(GEFMessages.AlignCenterAction_Tooltip);
+			setText(GEFMessages.get().AlignCenterAction_Label);
+			setToolTipText(GEFMessages.get().AlignCenterAction_Tooltip);
 			setImageDescriptor(InternalImages.DESC_HORZ_ALIGN_CENTER);
 			setDisabledImageDescriptor(InternalImages.DESC_HORZ_ALIGN_CENTER_DIS);
 			break;
 
 		case PositionConstants.MIDDLE:
 			setId(GEFActionConstants.ALIGN_MIDDLE);
-			setText(GEFMessages.AlignMiddleAction_Label);
-			setToolTipText(GEFMessages.AlignMiddleAction_Tooltip);
+			setText(GEFMessages.get().AlignMiddleAction_Label);
+			setToolTipText(GEFMessages.get().AlignMiddleAction_Tooltip);
 			setImageDescriptor(InternalImages.DESC_VERT_ALIGN_MIDDLE);
 			setDisabledImageDescriptor(InternalImages.DESC_VERT_ALIGN_MIDDLE_DIS);
 			break;

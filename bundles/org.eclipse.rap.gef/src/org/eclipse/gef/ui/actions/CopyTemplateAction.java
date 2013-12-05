@@ -45,7 +45,7 @@ public class CopyTemplateAction extends WorkbenchPartAction implements
 	public CopyTemplateAction(IEditorPart editor) {
 		super(editor);
 		setId(ActionFactory.COPY.getId());
-		setText(GEFMessages.CopyAction_Label);
+		setText(GEFMessages.get().CopyAction_Label);
 	}
 
 	/**

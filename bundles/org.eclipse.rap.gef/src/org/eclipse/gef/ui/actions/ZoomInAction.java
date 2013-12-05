@@ -26,9 +26,9 @@ public class ZoomInAction extends ZoomAction {
 	 *            the zoom manager
 	 */
 	public ZoomInAction(ZoomManager zoomManager) {
-		super(GEFMessages.ZoomIn_Label, InternalImages.DESC_ZOOM_IN,
+		super(GEFMessages.get().ZoomIn_Label, InternalImages.DESC_ZOOM_IN,
 				zoomManager);
-		setToolTipText(GEFMessages.ZoomIn_Tooltip);
+		setToolTipText(GEFMessages.get().ZoomIn_Tooltip);
 		setId(GEFActionConstants.ZOOM_IN);
 		setActionDefinitionId(GEFActionConstants.ZOOM_IN);
 	}

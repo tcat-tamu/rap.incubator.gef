@@ -32,10 +32,10 @@ public class MatchWidthAction extends MatchSizeAction {
 	 */
 	public MatchWidthAction(IWorkbenchPart part) {
 		super(part);
-		setText(GEFMessages.MatchWidthAction_Label);
+		setText(GEFMessages.get().MatchWidthAction_Label);
 		setImageDescriptor(InternalImages.DESC_MATCH_WIDTH);
 		setDisabledImageDescriptor(InternalImages.DESC_MATCH_WIDTH_DIS);
-		setToolTipText(GEFMessages.MatchWidthAction_Tooltip);
+		setToolTipText(GEFMessages.get().MatchWidthAction_Tooltip);
 		setId(GEFActionConstants.MATCH_WIDTH);
 	}
 
