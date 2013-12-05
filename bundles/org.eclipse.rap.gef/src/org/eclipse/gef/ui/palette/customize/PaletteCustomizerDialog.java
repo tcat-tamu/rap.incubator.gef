@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- * IBM Corporation - initial API and implementation
+ *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 package org.eclipse.gef.ui.palette.customize;
 
@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.StackLayout;
 import org.eclipse.swt.events.DisposeEvent;
@@ -74,7 +75,6 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.PageBook;
 
 import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.swt.SWT;
 import org.eclipse.draw2d.widgets.MultiLineLabel;
 
 import org.eclipse.gef.internal.Internal;
@@ -787,7 +787,7 @@ public class PaletteCustomizerDialog extends Dialog implements
 
 	/**
 	 * Returns the <code>EntryPage</code> for the given
-	 * <code>PaletteEntry</code> . The <code>EntryPage</code> is retrieved from
+	 * <code>PaletteEntry</code>. The <code>EntryPage</code> is retrieved from
 	 * the customizer. If the given entry is <code>null</code>,
 	 * <code>null</code> will be returned. If the customizer returns
 	 * <code>null</code> for the valid entry, a default page will be created and

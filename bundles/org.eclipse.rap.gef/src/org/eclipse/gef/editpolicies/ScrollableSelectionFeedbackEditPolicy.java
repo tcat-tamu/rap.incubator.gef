@@ -68,12 +68,12 @@ public class ScrollableSelectionFeedbackEditPolicy extends SelectionEditPolicy {
 
 	private final LayoutListener layoutListener = new LayoutListener.Stub() {
 
-		public void invalidate(IFigure container) {
-			// react on host figure resize
+		public void postLayout(IFigure container) {
+			// react to host figure layout changes
 			if (getHost().getSelected() == EditPart.SELECTED_PRIMARY) {
 				updateFeedback();
 			}
-		}
+		};
 	};
 
 	private final PropertyChangeListener viewportViewLocationChangeListener = new PropertyChangeListener() {
@@ -129,6 +129,7 @@ public class ScrollableSelectionFeedbackEditPolicy extends SelectionEditPolicy {
 		getFeedbackLayer().translateToRelative(feedbackFigureAbsoluteBounds);
 		getFeedbackLayer().translateFromParent(feedbackFigureAbsoluteBounds);
 		feedbackFigure.setBounds(feedbackFigureAbsoluteBounds);
+		feedbackFigure.validate();
 		addFeedback(feedbackFigure);
 		feedbackFigures.add(feedbackFigure);
 	}
@@ -268,8 +269,7 @@ public class ScrollableSelectionFeedbackEditPolicy extends SelectionEditPolicy {
 	}
 
 	/**
-	 * @see org.eclipse.gef.editpolicies.AbstractEditPolicy#setHost(org.eclipse.gef
-	 *      .EditPart)
+	 * @see org.eclipse.gef.editpolicies.AbstractEditPolicy#setHost(EditPart)
 	 */
 	public void setHost(EditPart host) {
 		Assert.isLegal(host instanceof IScrollableEditPart);
@@ -287,8 +287,8 @@ public class ScrollableSelectionFeedbackEditPolicy extends SelectionEditPolicy {
 		// so the bounds of all their child figures, which are
 		// used to calculate the feedback figure constraints,
 		// are valid
-		getLayer(LayerConstants.CONNECTION_LAYER).validate();
 		getLayer(LayerConstants.PRIMARY_LAYER).validate();
+		getLayer(LayerConstants.CONNECTION_LAYER).validate();
 
 		// check if there is a node child exceeding the client are
 		Rectangle clientArea = getAbsoluteClientArea(getHostFigure());

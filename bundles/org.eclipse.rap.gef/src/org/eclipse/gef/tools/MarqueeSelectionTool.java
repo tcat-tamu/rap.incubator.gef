@@ -17,10 +17,10 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.widgets.Display;
 
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.StructuredSelection;
 
 import org.eclipse.draw2d.ColorConstants;
@@ -30,7 +30,6 @@ import org.eclipse.draw2d.FigureUtilities;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.swt.SWT;
 
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
@@ -92,7 +91,7 @@ public class MarqueeSelectionTool extends AbstractTool {
 			Rectangle bounds = getBounds().getCopy();
 			graphics.translate(getLocation());
 
-		   graphics.setXORMode(true);
+			graphics.setXORMode(true);
 			graphics.setForegroundColor(ColorConstants.white);
 			graphics.setBackgroundColor(ColorConstants.black);
 			graphics.setLineStyle(Graphics.LINE_DOT);
@@ -790,8 +789,10 @@ public class MarqueeSelectionTool extends AbstractTool {
 
 	private void showMarqueeFeedback() {
 		Rectangle rect = getCurrentMarqueeSelectionRectangle().getCopy();
-		getMarqueeFeedbackFigure().translateToRelative(rect);
-		getMarqueeFeedbackFigure().setBounds(rect);
+		IFigure marqueeFeedbackFigure = getMarqueeFeedbackFigure();
+		marqueeFeedbackFigure.translateToRelative(rect);
+		marqueeFeedbackFigure.setBounds(rect);
+		marqueeFeedbackFigure.validate();
 	}
 
 	private void showTargetFeedback() {

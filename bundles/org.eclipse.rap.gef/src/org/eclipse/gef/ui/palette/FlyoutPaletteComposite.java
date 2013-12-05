@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- * IBM Corporation - initial API and implementation
+ *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 package org.eclipse.gef.ui.palette;
 
@@ -192,7 +192,8 @@ public class FlyoutPaletteComposite extends Composite {
 	public FlyoutPaletteComposite(Composite parent, int style,
 			IWorkbenchPage page, PaletteViewerProvider pvProvider,
 			FlyoutPreferences preferences) {
-		super(parent, style & SWT.BORDER);
+		super(parent, style | SWT.NO_BACKGROUND | SWT.NO_REDRAW_RESIZE
+				| SWT.DOUBLE_BUFFERED);
 		provider = pvProvider;
 		prefs = preferences;
 		sash = createSash();
@@ -284,7 +285,8 @@ public class FlyoutPaletteComposite extends Composite {
 	}
 
 	private Composite createPaletteContainer() {
-		return new PaletteComposite(this, SWT.NONE);
+		return new PaletteComposite(this, SWT.NO_BACKGROUND
+				| SWT.NO_REDRAW_RESIZE | SWT.DOUBLE_BUFFERED);
 	}
 
 	private Composite createSash() {
@@ -390,53 +392,53 @@ public class FlyoutPaletteComposite extends Composite {
 			paletteContainer.setVisible(false);
 			sash.setBounds(area.x + area.width - sashWidth, area.y, sashWidth,
 					area.height);
+			sash.setVisible(true);
 			graphicalControl.setBounds(area.x, area.y, area.width - sashWidth,
 					area.height);
-			sash.setVisible(true);
 		} else if (isInState(STATE_EXPANDED)) {
 			paletteContainer.moveAbove(graphicalControl);
 			sash.moveAbove(paletteContainer);
-			paletteContainer.setBounds(area.x + area.width - pWidth, area.y,
-					pWidth, area.height);
 			sash.setBounds(area.x + area.width - pWidth - sashWidth, area.y,
 					sashWidth, area.height);
+			paletteContainer.setBounds(area.x + area.width - pWidth, area.y,
+					pWidth, area.height);
+			sash.setVisible(true);
+			paletteContainer.setVisible(true);
 			graphicalControl.setBounds(area.x, area.y, area.width - sashWidth,
 					area.height);
-			sash.setVisible(true);
-			paletteContainer.setVisible(true);
 		} else if (isInState(STATE_PINNED_OPEN)) {
-			paletteContainer.setBounds(area.x + area.width - pWidth, area.y,
-					pWidth, area.height);
 			sash.setBounds(area.x + area.width - pWidth - sashWidth, area.y,
 					sashWidth, area.height);
-			graphicalControl.setBounds(area.x, area.y, area.width - sashWidth
-					- pWidth, area.height);
+			paletteContainer.setBounds(area.x + area.width - pWidth, area.y,
+					pWidth, area.height);
 			sash.setVisible(true);
 			paletteContainer.setVisible(true);
+			graphicalControl.setBounds(area.x, area.y, area.width - sashWidth
+					- pWidth, area.height);
 		}
 	}
 
 	private void layoutComponentsWest(Rectangle area, int sashWidth, int pWidth) {
 		if (isInState(STATE_COLLAPSED)) {
-			sash.setVisible(true);
 			paletteContainer.setVisible(false);
 			sash.setBounds(area.x, area.y, sashWidth, area.height);
+			sash.setVisible(true);
 			graphicalControl.setBounds(area.x + sashWidth, area.y, area.width
 					- sashWidth, area.height);
 		} else if (isInState(STATE_EXPANDED)) {
-			sash.setVisible(true);
 			paletteContainer.setVisible(true);
 			paletteContainer.moveAbove(graphicalControl);
 			sash.moveAbove(paletteContainer);
-			paletteContainer.setBounds(area.x, area.y, pWidth, area.height);
 			sash.setBounds(area.x + pWidth, area.y, sashWidth, area.height);
+			paletteContainer.setBounds(area.x, area.y, pWidth, area.height);
+			sash.setVisible(true);
 			graphicalControl.setBounds(area.x + sashWidth, area.y, area.width
 					- sashWidth, area.height);
 		} else if (isInState(STATE_PINNED_OPEN)) {
-			sash.setVisible(true);
 			paletteContainer.setVisible(true);
-			paletteContainer.setBounds(area.x, area.y, pWidth, area.height);
 			sash.setBounds(area.x + pWidth, area.y, sashWidth, area.height);
+			paletteContainer.setBounds(area.x, area.y, pWidth, area.height);
+			sash.setVisible(true);
 			graphicalControl.setBounds(area.x + pWidth + sashWidth, area.y,
 					area.width - sashWidth - pWidth, area.height);
 		}
@@ -951,7 +953,7 @@ public class FlyoutPaletteComposite extends Composite {
 				bounds = bounds.union(paletteContainer.getBounds());
 			final Rectangle origBounds = Display.getCurrent().map(flyout, null,
 					bounds);
-			final Tracker tracker = new Tracker(Display.getDefault(), SWT.NULL);
+			final Tracker tracker = new Tracker(flyout, SWT.NULL);
 			tracker.setRectangles(new Rectangle[] { origBounds });
 			final Display display = Display.getCurrent();
 			tracker.setStippled(true);

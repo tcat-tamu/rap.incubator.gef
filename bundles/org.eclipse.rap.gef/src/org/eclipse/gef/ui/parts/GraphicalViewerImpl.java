@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- * IBM Corporation - initial API and implementation
+ *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 package org.eclipse.gef.ui.parts;
 
@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DragSource;
 import org.eclipse.swt.dnd.DragSourceAdapter;
 import org.eclipse.swt.dnd.DragSourceEvent;
@@ -34,10 +35,10 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 
 import org.eclipse.draw2d.ExclusionSearch;
+import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LightweightSystem;
 import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.swt.SWT;
 
 import org.eclipse.gef.AccessibleEditPart;
 import org.eclipse.gef.EditDomain;
@@ -263,6 +264,7 @@ public class GraphicalViewerImpl extends AbstractEditPartViewer implements
 	}
 
 	/**
+	 * 
 	 * Extended to tell the lightweight system what its control is.
 	 * 
 	 * @see org.eclipse.gef.ui.parts.AbstractEditPartViewer#hookControl()
@@ -416,9 +418,19 @@ public class GraphicalViewerImpl extends AbstractEditPartViewer implements
 	 * 
 	 * @param figure
 	 *            the root figure
+	 * @deprecated This method should no longer be used.
 	 */
 	protected void setRootFigure(IFigure figure) {
 		rootFigure = figure;
+		hookRootFigure();
+	}
+
+	/**
+	 * Hook the root figure into this viewer's {@link LightweightSystem}.
+	 * 
+	 * @since 3.8
+	 */
+	protected void hookRootFigure() {
 		getLightweightSystem().setContents(rootFigure);
 	}
 

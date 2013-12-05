@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.gef.ui.stackview;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -21,8 +22,6 @@ import org.eclipse.ui.part.IPage;
 import org.eclipse.ui.part.Page;
 import org.eclipse.ui.part.PageBook;
 import org.eclipse.ui.part.PageBookView;
-
-import org.eclipse.swt.SWT;
 
 /**
  * Internal class used for a debug view.

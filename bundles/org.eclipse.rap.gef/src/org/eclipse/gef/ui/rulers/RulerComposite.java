@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- * IBM Corporation - initial API and implementation
+ *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 package org.eclipse.gef.ui.rulers;
 
@@ -22,11 +22,11 @@ import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.ScrollBar;
 
 import org.eclipse.core.runtime.Assert;
 
@@ -116,7 +116,7 @@ public class RulerComposite extends Composite {
 	 *            The canvas.
 	 * @since 3.6
 	 */
-	public static Rectangle calculateEditorTrim(Composite canvas) {
+	public static Rectangle calculateEditorTrim(FigureCanvas canvas) {
 		/*
 		 * Workaround for Bug# 87712 Calculating the trim using the clientArea.
 		 */
@@ -139,7 +139,7 @@ public class RulerComposite extends Composite {
 	 *            The canvas.
 	 * @since 3.6
 	 */
-	public static Rectangle calculateRulerTrim(Composite canvas) {
+	public static Rectangle calculateRulerTrim(Canvas canvas) {
 		// IMPORTANT: As stated in bug #314750, this is a Mac Carbon related
 		// workaround that is not needed on Cocoa.
 		if ("carbon".equals(SWT.getPlatform())) { //$NON-NLS-1$
@@ -236,14 +236,14 @@ public class RulerComposite extends Composite {
 		int leftWidth = 0, topHeight = 0;
 		Rectangle leftTrim = null, topTrim = null;
 		if (left != null) {
-			leftTrim = calculateRulerTrim((Composite) left.getControl());
+			leftTrim = calculateRulerTrim((Canvas) left.getControl());
 			// Adding the trim width here because FigureCanvas#computeSize()
 			// does not
 			leftWidth = left.getControl().computeSize(SWT.DEFAULT, SWT.DEFAULT).x
 					+ leftTrim.width;
 		}
 		if (top != null) {
-			topTrim = calculateRulerTrim((Composite) top.getControl());
+			topTrim = calculateRulerTrim((Canvas) top.getControl());
 			topHeight = top.getControl().computeSize(SWT.DEFAULT, SWT.DEFAULT).y
 					+ topTrim.height;
 		}
@@ -340,16 +340,10 @@ public class RulerComposite extends Composite {
 			}
 		};
 		addListener(SWT.Resize, layoutListener);
-		ScrollBar horizontalBar = editor.getHorizontalBar();
-		if (horizontalBar != null) {
-			horizontalBar.addListener(SWT.Show, layoutListener);
-			horizontalBar.addListener(SWT.Hide, layoutListener);
-		}
-		ScrollBar verticalBar = editor.getVerticalBar();
-		if (verticalBar != null) {
-			verticalBar.addListener(SWT.Show, layoutListener);
-			verticalBar.addListener(SWT.Hide, layoutListener);
-		}
+		editor.getHorizontalBar().addListener(SWT.Show, layoutListener);
+		editor.getHorizontalBar().addListener(SWT.Hide, layoutListener);
+		editor.getVerticalBar().addListener(SWT.Show, layoutListener);
+		editor.getVerticalBar().addListener(SWT.Hide, layoutListener);
 
 		propertyListener = new PropertyChangeListener() {
 			public void propertyChange(PropertyChangeEvent evt) {

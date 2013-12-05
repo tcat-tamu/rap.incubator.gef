@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- * IBM Corporation - initial API and implementation
+ *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 package org.eclipse.gef.tools;
 
@@ -280,9 +280,10 @@ public class CreationTool extends TargetingTool {
 		if (model == null || viewer == null)
 			return;
 		Object editpart = viewer.getEditPartRegistry().get(model);
-		if (editpart instanceof EditPart) {
+		viewer.flush();
+		if (editpart != null && editpart instanceof EditPart
+				&& ((EditPart) editpart).isSelectable()) {
 			// Force the new object to get positioned in the viewer.
-			viewer.flush();
 			viewer.select((EditPart) editpart);
 		}
 	}
@@ -369,7 +370,7 @@ public class CreationTool extends TargetingTool {
 	 */
 	protected Dimension getMaximumSizeFor(CreateRequest request) {
 		return IFigure.MAX_DIMENSION;
-		}
+	}
 
 	/**
 	 * Determines the <em>minimum</em> size for CreateRequest's size on drop. It

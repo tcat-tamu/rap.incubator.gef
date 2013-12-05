@@ -60,6 +60,7 @@ public class Tracker extends Widget {
 	final static int STEPSIZE_SMALL = 1;
 	final static int STEPSIZE_LARGE = 9;
   private DropTarget trackerDropTarget;
+  private int internalStyle;
 
 /**
  * Constructs a new instance of this class given its parent
@@ -96,6 +97,7 @@ public class Tracker extends Widget {
 public Tracker (Composite parent, int style) {
 	super (parent, checkStyle (style));
 	this.parent = parent;
+	internalStyle = getStyle();
 }
 
 /**
@@ -133,15 +135,15 @@ public Tracker (Composite parent, int style) {
  * @see SWT#DOWN
  * @see SWT#RESIZE
  */
-public Tracker (Display display, int style) {
-	if (display == null) display = Display.getCurrent ();
-	if (display == null) display = Display.getDefault ();
-//	if (!display.isValidThread ()) {
-//		error (SWT.ERROR_THREAD_INVALID_ACCESS);
-//	}
-	this.style = checkStyle (style);
-	this.display = display;
-}
+//public Tracker (Display display, int style) {
+//	if (display == null) display = Display.getCurrent ();
+//	if (display == null) display = Display.getDefault ();
+////	if (!display.isValidThread ()) {
+////		error (SWT.ERROR_THREAD_INVALID_ACCESS);
+////	}
+//	this.style = checkStyle (style);
+//	this.display = display;
+//}
 
 /**
  * Adds the listener to the collection of listeners who will
@@ -486,11 +488,11 @@ public boolean open () {
 	* If exactly one of UP/DOWN is specified as a style then set the cursor
 	* orientation accordingly (the same is done for LEFT/RIGHT styles below).
 	*/
-	int vStyle = style & (SWT.UP | SWT.DOWN);
+	int vStyle = internalStyle & (SWT.UP | SWT.DOWN);
 	if (vStyle == SWT.UP || vStyle == SWT.DOWN) {
 		cursorOrientation |= vStyle;
 	}
-	int hStyle = style & (SWT.LEFT | SWT.RIGHT);
+	int hStyle = internalStyle & (SWT.LEFT | SWT.RIGHT);
 	if (hStyle == SWT.LEFT || hStyle == SWT.RIGHT) {
 		cursorOrientation |= hStyle;
 	}
@@ -572,6 +574,7 @@ public boolean open () {
 //		MSG msg = new MSG ();
 	  long timeout = 0;
 	  long refreshRate = 200;
+	  tracking = false;
 		while (tracking && !cancelled) {
 		  final Display display = this.getDisplay();
 		  if (display != null && !display.isDisposed()) {

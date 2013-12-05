@@ -13,6 +13,7 @@ package org.eclipse.gef.tools;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DragSourceEvent;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.MouseEvent;
@@ -20,7 +21,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 
 import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.swt.SWT;
 
 import org.eclipse.gef.AccessibleHandleProvider;
 import org.eclipse.gef.DragTracker;

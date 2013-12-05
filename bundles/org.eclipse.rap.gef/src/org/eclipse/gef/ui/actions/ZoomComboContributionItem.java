@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.gef.ui.actions;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.SWTException;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
@@ -27,8 +28,6 @@ import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IPartService;
 import org.eclipse.ui.IWorkbenchPart;
-
-import org.eclipse.swt.SWT;
 
 import org.eclipse.gef.editparts.ZoomListener;
 import org.eclipse.gef.editparts.ZoomManager;

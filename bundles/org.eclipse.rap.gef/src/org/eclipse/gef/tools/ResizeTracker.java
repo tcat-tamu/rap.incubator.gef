@@ -12,7 +12,10 @@ package org.eclipse.gef.tools;
 
 import java.util.List;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Cursor;
+
+import org.eclipse.core.runtime.Platform;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
@@ -21,7 +24,6 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PrecisionDimension;
 import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.draw2d.geometry.PrecisionRectangle;
-import org.eclipse.swt.SWT;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
@@ -44,7 +46,8 @@ import org.eclipse.gef.requests.ChangeBoundsRequest;
 public class ResizeTracker extends SimpleDragTracker {
 
 	/**
-	 * Key modifier for centered resizing. It's ALT on all platforms.
+	 * Key modifier for centered resizing. It's ALT on the Mac and MOD1 on all
+	 * other platforms.
 	 */
 	static final int MODIFIER_CENTERED_RESIZE = SWT.ALT;
 
