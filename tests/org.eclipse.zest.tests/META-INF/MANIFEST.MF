@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Graphical Editing Framework Zest Tests
+Bundle-SymbolicName: org.eclipse.rap.zest.test;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.junit,
+ org.eclipse.rap.zest.core;bundle-version="0.1.0",
+ org.eclipse.rap.rwt;bundle-version="[2.1.0,3.0.0)",
+ org.eclipse.rap.zest.layouts;bundle-version="0.1.0",
+ org.eclipse.rap.jface;bundle-version="[2.1.0,3.0.0)",
+ org.eclipse.rap.draw2d.compatibility;bundle-version="0.1.0",
+ org.eclipse.rap.rwt.testfixture;bundle-version="[2.1.0,3.0.0)"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.4
+

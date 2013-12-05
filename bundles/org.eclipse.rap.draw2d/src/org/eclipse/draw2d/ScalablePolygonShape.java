@@ -25,7 +25,11 @@ import org.eclipse.draw2d.geometry.Rectangle;
  */
 public class ScalablePolygonShape extends AbstractPointListShape {
 
-	private static final Rectangle TEMPLATEBOUNDS = Rectangle.getSINGLETON();
+	private Rectangle TEMPLATEBOUNDS ;
+	
+	public ScalablePolygonShape(){
+		TEMPLATEBOUNDS = Rectangle.getSINGLETON();
+	}
 
 	private PointList scaledPoints;
 
