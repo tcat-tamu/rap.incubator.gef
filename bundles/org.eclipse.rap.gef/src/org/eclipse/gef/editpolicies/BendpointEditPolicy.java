@@ -223,7 +223,7 @@ public abstract class BendpointEditPolicy extends SelectionHandlesEditPolicy
 
 	private boolean lineContainsPoint(Point p1, Point p2, Point p) {
 		int tolerance = 7;
-		Rectangle rect = Rectangle.SINGLETON;
+		Rectangle rect = Rectangle.getSINGLETON();
 		rect.setSize(0, 0);
 		rect.setLocation(p1.x, p1.y);
 		rect.union(p2.x, p2.y);

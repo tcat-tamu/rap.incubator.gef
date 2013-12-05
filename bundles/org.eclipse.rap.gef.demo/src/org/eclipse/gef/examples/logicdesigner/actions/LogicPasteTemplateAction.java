@@ -38,7 +38,7 @@ public class LogicPasteTemplateAction extends PasteTemplateAction {
 	protected Point getPasteLocation(GraphicalEditPart container) {
 		Point result = new Point(10, 10);
 		IFigure fig = container.getContentPane();
-		result.translate(fig.getClientArea(Rectangle.SINGLETON).getLocation());
+		result.translate(fig.getClientArea(Rectangle.getSINGLETON()).getLocation());
 		fig.translateToAbsolute(result);
 		return result;
 	}

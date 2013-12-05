@@ -168,7 +168,7 @@ class HangingLayout extends BranchLayout {
 		cachedContourRight = new int[getDepth()];
 
 		Rectangle clientArea = transposer.t(branch
-				.getClientArea(Rectangle.SINGLETON));
+				.getClientArea(Rectangle.getSINGLETON()));
 		Rectangle nodeBounds = transposer.t(branch.getNodeBounds());
 		int rightEdge = clientArea.right();
 

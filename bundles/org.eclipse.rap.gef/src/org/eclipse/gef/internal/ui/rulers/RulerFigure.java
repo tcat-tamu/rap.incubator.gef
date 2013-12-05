@@ -149,7 +149,8 @@ public class RulerFigure extends Figure {
 		 * sub-classes could customize certain parts.
 		 */
 		double dotsPerUnit = getDPU();
-		Rectangle clip = transposer.t(graphics.getClip(Rectangle.SINGLETON));
+		Rectangle clip = transposer
+				.t(graphics.getClip(Rectangle.getSINGLETON()));
 		Rectangle figClientArea = transposer.t(getClientArea());
 		// Use the x and width of the client area, but the y and height of the
 		// clip as the

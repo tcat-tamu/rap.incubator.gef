@@ -28,7 +28,7 @@ public class PlusMinus extends Toggle {
  */
 protected void paintFigure(Graphics g) {
 	super.paintFigure(g);
-	Rectangle r = Rectangle.SINGLETON;
+	Rectangle r = Rectangle.getSINGLETON();
 	r.setBounds(getBounds()).resize(-1, -1);
 	g.drawRectangle(r);
 	int xMid = r.x + r.width / 2;

@@ -59,7 +59,7 @@ public class SubgraphFigure extends Figure {
 
 	public void setBounds(Rectangle rect) {
 		super.setBounds(rect);
-		rect = Rectangle.SINGLETON;
+		rect = Rectangle.getSINGLETON();
 		getClientArea(rect);
 		contents.setBounds(rect);
 		Dimension size = footer.getPreferredSize();

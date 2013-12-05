@@ -309,7 +309,7 @@ public class FigureUtilities {
 	public static void paintGrid(Graphics g, IFigure f,
 			org.eclipse.draw2d.geometry.Point origin, int distanceX,
 			int distanceY) {
-		Rectangle clip = g.getClip(Rectangle.SINGLETON);
+		Rectangle clip = g.getClip(Rectangle.getSINGLETON());
 
 		if (distanceX > 0) {
 			if (origin.x >= clip.x)

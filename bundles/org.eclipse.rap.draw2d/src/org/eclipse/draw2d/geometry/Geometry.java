@@ -135,7 +135,7 @@ public class Geometry {
 		 * Point should be located inside Rectangle(x1 -+ tolerance, y1 -+
 		 * tolerance, x2 +- tolerance, y2 +- tolerance)
 		 */
-		Rectangle lineBounds = Rectangle.SINGLETON;
+		Rectangle lineBounds = Rectangle.getSINGLETON();
 		lineBounds.setSize(0, 0);
 		lineBounds.setLocation(x1, y1);
 		lineBounds.union(x2, y2);

@@ -298,9 +298,9 @@ public class ToolbarLayout extends OrderedLayout {
 		int wHint = -1;
 		int hHint = -1;
 		if (isHorizontal()) {
-			hHint = parent.getClientArea(Rectangle.SINGLETON).height;
+			hHint = parent.getClientArea(Rectangle.getSINGLETON()).height;
 		} else {
-			wHint = parent.getClientArea(Rectangle.SINGLETON).width;
+			wHint = parent.getClientArea(Rectangle.getSINGLETON()).width;
 		}
 
 		/*

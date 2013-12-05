@@ -146,7 +146,7 @@ public class RulerRootEditPart extends SimpleRootEditPart {
 					rModel = getHorizontalRangeModel();
 				else
 					rModel = getVerticalRangeModel();
-				Rectangle contentBounds = Rectangle.SINGLETON;
+				Rectangle contentBounds = Rectangle.getSINGLETON();
 				if (horizontal) {
 					contentBounds.y = 0;
 					contentBounds.x = rModel.getMinimum();

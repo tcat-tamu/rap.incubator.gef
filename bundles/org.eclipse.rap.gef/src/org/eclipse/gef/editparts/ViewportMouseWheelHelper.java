@@ -80,10 +80,9 @@ public class ViewportMouseWheelHelper extends ViewportHelper implements
 			int currentPos = rModel.getValue();
 			int scrollHeight = lineHeight;
 			if (event.detail == org.eclipse.draw2d.rap.swt.SWT.SCROLL_PAGE)
-				scrollHeight = pageHeight > lineHeight ? pageHeight
-						: Math.max(
-								lineHeight,
-								viewport.getClientArea(Rectangle.SINGLETON).height - 26);
+				scrollHeight = pageHeight > lineHeight ? pageHeight : Math
+						.max(lineHeight, viewport.getClientArea(Rectangle
+								.getSINGLETON()).height - 26);
 			scrollHeight *= event.count;
 			viewport.setVerticalLocation(currentPos - scrollHeight);
 			if (rModel.getValue() != currentPos)

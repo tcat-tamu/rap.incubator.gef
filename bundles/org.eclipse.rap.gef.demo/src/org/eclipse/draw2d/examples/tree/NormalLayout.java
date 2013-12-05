@@ -104,7 +104,7 @@ public void layout(IFigure f) {
 	
 	int adjust =
 		branchBounds.width
-			- Rectangle.SINGLETON.setBounds(contentsLocation).union(nodeLocation).width;
+			- Rectangle.getSINGLETON().setBounds(contentsLocation).union(nodeLocation).width;
 	adjust /= 2;
 	nodeLocation.x += adjust;
 	contentsLocation.x += adjust;

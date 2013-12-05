@@ -41,7 +41,7 @@ public class EllipseAnchor extends AbstractConnectionAnchor {
 	 * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(Point)
 	 */
 	public Point getLocation(Point reference) {
-		Rectangle r = Rectangle.SINGLETON;
+		Rectangle r = Rectangle.getSINGLETON();
 		r.setBounds(getOwner().getBounds());
 		r.translate(-1, -1);
 		r.resize(1, 1);

@@ -541,7 +541,7 @@ public class ToolEntryEditPart extends PaletteEditPart {
 
 	static Rectangle getSelectionRectangle(int layoutMode,
 			DetailedLabelFigure labelFigure) {
-		Rectangle rect = Rectangle.SINGLETON;
+		Rectangle rect = Rectangle.getSINGLETON();
 		rect.setBounds(labelFigure.getBounds());
 		if (layoutMode == PaletteViewerPreferences.LAYOUT_LIST
 				|| layoutMode == PaletteViewerPreferences.LAYOUT_DETAILS) {

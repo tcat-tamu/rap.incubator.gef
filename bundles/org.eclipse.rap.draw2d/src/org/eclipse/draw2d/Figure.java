@@ -343,7 +343,7 @@ public class Figure implements IFigure {
 	protected IFigure findDescendantAtExcluding(int x, int y, TreeSearch search) {
 		PRIVATE_POINT.setLocation(x, y);
 		translateFromParent(PRIVATE_POINT);
-		if (!getClientArea(Rectangle.SINGLETON).contains(PRIVATE_POINT))
+		if (!getClientArea(Rectangle.getSINGLETON()).contains(PRIVATE_POINT))
 			return null;
 
 		x = PRIVATE_POINT.x;
@@ -443,7 +443,7 @@ public class Figure implements IFigure {
 		PRIVATE_POINT.setLocation(x, y);
 		translateFromParent(PRIVATE_POINT);
 
-		if (!getClientArea(Rectangle.SINGLETON).contains(PRIVATE_POINT))
+		if (!getClientArea(Rectangle.getSINGLETON()).contains(PRIVATE_POINT))
 			return null;
 
 		IFigure fig;
@@ -1162,7 +1162,7 @@ public class Figure implements IFigure {
 				// child may now paint inside the clipping areas
 				for (int j = 0; j < clipping.length; j++) {
 					if (clipping[j].intersects(graphics
-							.getClip(Rectangle.SINGLETON))) {
+							.getClip(Rectangle.getSINGLETON()))) {
 						graphics.clipRect(clipping[j]);
 						child.paint(graphics);
 						graphics.restoreState();

@@ -199,8 +199,9 @@ public class PaletteContainerFlowLayout extends FlowLayout {
 
 		if (child instanceof PinnablePaletteStackFigure
 				&& ((PinnablePaletteStackFigure) child).isExpanded()) {
-			parent.getClientArea(Rectangle.SINGLETON);
-			bounds.translate(Rectangle.SINGLETON.x, Rectangle.SINGLETON.y);
+			parent.getClientArea(Rectangle.getSINGLETON());
+			bounds.translate(Rectangle.getSINGLETON().x,
+					Rectangle.getSINGLETON().y);
 			((PinnablePaletteStackFigure) child)
 					.setHeaderBoundsLayoutHint(bounds);
 		} else {

@@ -123,15 +123,15 @@ public class GuideLayer extends FreeformLayer {
 			Boolean isHorizontal = (Boolean) getConstraint(child);
 			if (isHorizontal != null) {
 				if (isHorizontal.booleanValue()) {
-					Rectangle.SINGLETON.setLocation(getBounds().x,
+					Rectangle.getSINGLETON().setLocation(getBounds().x,
 							child.getBounds().y);
-					Rectangle.SINGLETON.setSize(getBounds().width, 1);
+					Rectangle.getSINGLETON().setSize(getBounds().width, 1);
 				} else {
-					Rectangle.SINGLETON.setLocation(child.getBounds().x,
+					Rectangle.getSINGLETON().setLocation(child.getBounds().x,
 							getBounds().y);
-					Rectangle.SINGLETON.setSize(1, getBounds().height);
+					Rectangle.getSINGLETON().setSize(1, getBounds().height);
 				}
-				child.setBounds(Rectangle.SINGLETON);
+				child.setBounds(Rectangle.getSINGLETON());
 			}
 		}
 	}

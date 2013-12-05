@@ -48,7 +48,7 @@ public class ChopboxAnchor extends AbstractConnectionAnchor {
 	 * @return The anchor location
 	 */
 	public Point getLocation(Point reference) {
-		Rectangle r = Rectangle.SINGLETON;
+		Rectangle r = Rectangle.getSINGLETON();
 		r.setBounds(getBox());
 		r.translate(-1, -1);
 		r.resize(1, 1);

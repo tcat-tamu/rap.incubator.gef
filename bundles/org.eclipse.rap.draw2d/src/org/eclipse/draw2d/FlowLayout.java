@@ -392,8 +392,8 @@ public class FlowLayout extends OrderedLayout {
 	 */
 	protected void setBoundsOfChild(IFigure parent, IFigure child,
 			Rectangle bounds) {
-		parent.getClientArea(Rectangle.SINGLETON);
-		bounds.translate(Rectangle.SINGLETON.x, Rectangle.SINGLETON.y);
+		parent.getClientArea(Rectangle.getSINGLETON());
+		bounds.translate(Rectangle.getSINGLETON().x, Rectangle.getSINGLETON().y);
 		child.setBounds(bounds);
 	}
 

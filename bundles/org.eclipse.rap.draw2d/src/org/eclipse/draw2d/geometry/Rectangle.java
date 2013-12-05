@@ -12,6 +12,7 @@
 package org.eclipse.draw2d.geometry;
 
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.rap.rwt.SingletonUtil;
 
 /**
  * Represents a Rectangle(x, y, width, height). This class provides various
@@ -26,7 +27,9 @@ public class Rectangle implements Cloneable, java.io.Serializable, Translatable 
 	 * A singleton for use in short calculations. Use to avoid newing
 	 * unnecessary objects.
 	 */
-	public static final Rectangle SINGLETON = new Rectangle();
+	public static final Rectangle getSINGLETON(){
+		return SingletonUtil.getSessionInstance(Rectangle.class);
+	}
 
 	/**
 	 * The height

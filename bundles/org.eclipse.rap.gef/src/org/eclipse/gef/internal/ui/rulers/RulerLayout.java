@@ -55,15 +55,15 @@ public class RulerLayout extends XYLayout {
 			int position = ((Integer) getConstraint(child)).intValue();
 			if (((RulerFigure) container).isHorizontal()) {
 				childSize.height = rulerSize.height - 1;
-				Rectangle.SINGLETON.setLocation(position
-						- (childSize.width / 2), rulerSize.y);
+				Rectangle.getSINGLETON().setLocation(
+						position - (childSize.width / 2), rulerSize.y);
 			} else {
 				childSize.width = rulerSize.width - 1;
-				Rectangle.SINGLETON.setLocation(rulerSize.x, position
-						- (childSize.height / 2));
+				Rectangle.getSINGLETON().setLocation(rulerSize.x,
+						position - (childSize.height / 2));
 			}
-			Rectangle.SINGLETON.setSize(childSize);
-			child.setBounds(Rectangle.SINGLETON);
+			Rectangle.getSINGLETON().setSize(childSize);
+			child.setBounds(Rectangle.getSINGLETON());
 		}
 	}
 

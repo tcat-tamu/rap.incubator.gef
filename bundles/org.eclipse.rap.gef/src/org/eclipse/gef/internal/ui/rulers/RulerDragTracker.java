@@ -156,7 +156,7 @@ public class RulerDragTracker extends SimpleDragTracker {
 		}
 		source.setLayoutConstraint(null, guide, new Integer(
 				getCurrentPositionZoomed()));
-		Rectangle bounds = Rectangle.SINGLETON;
+		Rectangle bounds = Rectangle.getSINGLETON();
 		if (source.isHorizontal()) {
 			bounds.x = getCurrentPositionZoomed();
 			bounds.y = source.getGuideLayer().getBounds().y;

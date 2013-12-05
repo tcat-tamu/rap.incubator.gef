@@ -591,7 +591,7 @@ public class MarqueeSelectionTool extends AbstractTool {
 					// children will contain ConnectionEditParts only in case
 					// behavior is BEHAVIOR_CONNECTIONS_TOUCHED or
 					// BEHAVIOR_CONNECTIONS_CONTAINED
-					Rectangle relMarqueeRect = Rectangle.SINGLETON;
+					Rectangle relMarqueeRect = Rectangle.getSINGLETON();
 					figure.translateToRelative(relMarqueeRect
 							.setBounds(marqueeSelectionRectangle));
 					if (marqueeBehavior == BEHAVIOR_CONNECTIONS_TOUCHED) {

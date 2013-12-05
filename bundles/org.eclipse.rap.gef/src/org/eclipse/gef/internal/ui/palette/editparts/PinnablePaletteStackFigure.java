@@ -183,10 +183,10 @@ public class PinnablePaletteStackFigure extends Figure {
 					: EMPTY_DIMENSION;
 
 			// layout the pin figure
-			Rectangle.SINGLETON.setSize(pinSize);
-			Rectangle.SINGLETON.setLocation(r.right() - pinSize.width,
+			Rectangle.getSINGLETON().setSize(pinSize);
+			Rectangle.getSINGLETON().setLocation(r.right() - pinSize.width,
 					r.getCenter().y - (pinSize.height / 2));
-			pinFigure.setBounds(Rectangle.SINGLETON);
+			pinFigure.setBounds(Rectangle.getSINGLETON());
 
 			if (activeToolFigure != null) {
 				activeToolFigure.setBounds(r.getResized(-pinSize.width, 0));
@@ -228,7 +228,7 @@ public class PinnablePaletteStackFigure extends Figure {
 				paneBounds.height -= headerBoundsLayoutHint.height;
 				expandablePane.setBounds(paneBounds);
 
-				Rectangle pinBounds = Rectangle.SINGLETON;
+				Rectangle pinBounds = Rectangle.getSINGLETON();
 				Dimension pinSize = pinFigure.getPreferredSize();
 				pinBounds.setSize(pinSize);
 				int pinFigureAreaHeight = expandablePane.getInsets().top;

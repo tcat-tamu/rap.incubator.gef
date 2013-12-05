@@ -114,7 +114,7 @@ public class DrawerFigure extends Figure {
 
 		protected void paintFigure(Graphics g) {
 			super.paintFigure(g);
-			Rectangle r = Rectangle.SINGLETON;
+			Rectangle r = Rectangle.getSINGLETON();
 			r.setBounds(getBounds());
 
 			// draw top border of drawer figure
@@ -263,7 +263,7 @@ public class DrawerFigure extends Figure {
 			}
 
 			protected void paintFigure(Graphics graphics) {
-				Rectangle r = Rectangle.SINGLETON;
+				Rectangle r = Rectangle.getSINGLETON();
 				r.setBounds(getBounds());
 				graphics.pushState();
 				paintToggleGradient(graphics, getBounds());

@@ -82,7 +82,7 @@ public class ViewportAutoexposeHelper extends ViewportHelper implements
 	public boolean detect(Point where) {
 		lastStepTime = 0;
 		Viewport port = findViewport(owner);
-		Rectangle rect = Rectangle.SINGLETON;
+		Rectangle rect = Rectangle.getSINGLETON();
 		port.getClientArea(rect);
 		port.translateToParent(rect);
 		port.translateToAbsolute(rect);
@@ -102,7 +102,7 @@ public class ViewportAutoexposeHelper extends ViewportHelper implements
 	public boolean step(Point where) {
 		Viewport port = findViewport(owner);
 
-		Rectangle rect = Rectangle.SINGLETON;
+		Rectangle rect = Rectangle.getSINGLETON();
 		port.getClientArea(rect);
 		port.translateToParent(rect);
 		port.translateToAbsolute(rect);

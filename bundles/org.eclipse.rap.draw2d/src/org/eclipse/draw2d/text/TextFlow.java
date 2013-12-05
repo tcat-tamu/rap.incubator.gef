@@ -546,9 +546,9 @@ public class TextFlow extends InlineFlow {
 	 */
 	protected void paintFigure(Graphics g) {
 		TextFragmentBox frag;
-		g.getClip(Rectangle.SINGLETON);
-		int yStart = Rectangle.SINGLETON.y;
-		int yEnd = Rectangle.SINGLETON.bottom();
+		g.getClip(Rectangle.getSINGLETON());
+		int yStart = Rectangle.getSINGLETON().y;
+		int yEnd = Rectangle.getSINGLETON().bottom();
 
 		for (int i = 0; i < fragments.size(); i++) {
 			frag = (TextFragmentBox) fragments.get(i);

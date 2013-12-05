@@ -537,7 +537,7 @@ public class GraphicalViewerKeyHandler extends KeyHandler {
 		FigureCanvas figCanvas = (FigureCanvas) getViewer().getControl();
 		Point loc = figCanvas.getViewport().getViewLocation();
 		Rectangle area = figCanvas.getViewport()
-				.getClientArea(Rectangle.SINGLETON).scale(.1);
+				.getClientArea(Rectangle.getSINGLETON()).scale(.1);
 		switch (event.keyCode) {
 		case SWT.ARROW_DOWN:
 			figCanvas.scrollToY(loc.y + area.height);

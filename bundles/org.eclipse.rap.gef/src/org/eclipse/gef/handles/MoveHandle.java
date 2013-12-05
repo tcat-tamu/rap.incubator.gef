@@ -82,7 +82,7 @@ public class MoveHandle extends AbstractHandle {
 	public boolean containsPoint(int x, int y) {
 		if (!super.containsPoint(x, y))
 			return false;
-		return !Rectangle.SINGLETON.setBounds(getBounds())
+		return !Rectangle.getSINGLETON().setBounds(getBounds())
 				.shrink(INNER_PAD, INNER_PAD).contains(x, y);
 	}
 
