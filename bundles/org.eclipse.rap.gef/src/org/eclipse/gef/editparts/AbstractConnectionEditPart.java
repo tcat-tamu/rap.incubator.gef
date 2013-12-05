@@ -37,9 +37,9 @@ import org.eclipse.gef.tools.SelectEditPartTracker;
 public abstract class AbstractConnectionEditPart extends
 		AbstractGraphicalEditPart implements ConnectionEditPart, LayerConstants {
 
-	private static final ConnectionAnchor DEFAULT_SOURCE_ANCHOR = new XYAnchor(
+	private final ConnectionAnchor DEFAULT_SOURCE_ANCHOR = new XYAnchor(
 			new Point(10, 10));
-	private static final ConnectionAnchor DEFAULT_TARGET_ANCHOR = new XYAnchor(
+	private final ConnectionAnchor DEFAULT_TARGET_ANCHOR = new XYAnchor(
 			new Point(100, 100));
 
 	/**
