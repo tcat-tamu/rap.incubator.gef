@@ -29,7 +29,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 public class Polyline extends AbstractPointListShape {
 
 	private int tolerance = 2;
-	private static final Rectangle LINEBOUNDS = Rectangle.getSINGLETON();
+	private final Rectangle LINEBOUNDS = Rectangle.getSINGLETON();
 
 	{
 		setFill(false);

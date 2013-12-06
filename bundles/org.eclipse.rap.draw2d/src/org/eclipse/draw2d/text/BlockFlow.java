@@ -303,11 +303,11 @@ public class BlockFlow extends FlowFigure {
 	 */
 	public void validate() {
 		if (!bidiValid) {
-			BidiProcessor.INSTANCE.setOrientation(getOrientation());
+			BidiProcessor.INSTANCE().setOrientation(getOrientation());
 			if (getOrientation() == SWT.LEFT_TO_RIGHT && isMirrored())
-				BidiProcessor.INSTANCE.addControlChar(BidiChars.LRE);
-			super.contributeBidi(BidiProcessor.INSTANCE);
-			BidiProcessor.INSTANCE.process();
+				BidiProcessor.INSTANCE().addControlChar(BidiChars.LRE);
+			super.contributeBidi(BidiProcessor.INSTANCE());
+			BidiProcessor.INSTANCE().process();
 			bidiValid = true;
 		}
 		super.validate();

@@ -12,11 +12,12 @@ package org.eclipse.draw2d.text;
 
 import com.ibm.icu.text.BreakIterator;
 
+import org.eclipse.rap.rwt.RWT;
+import org.eclipse.rap.rwt.SingletonUtil;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.graphics.TextLayout;
 import org.eclipse.swt.widgets.Display;
-
 import org.eclipse.draw2d.FigureUtilities;
 import org.eclipse.draw2d.TextUtilities;
 import org.eclipse.swt.SWT;
@@ -36,15 +37,17 @@ public class FlowUtilities {
 	/**
 	 * a singleton default instance
 	 */
-	public static FlowUtilities INSTANCE = new FlowUtilities();
+	public static FlowUtilities INSTANCE(){
+		return SingletonUtil.getSessionInstance(FlowUtilities.class);
+	}
 
-	private static final BreakIterator INTERNAL_LINE_BREAK = BreakIterator
-			.getLineInstance();
-	private static TextLayout layout;
+	private final BreakIterator INTERNAL_LINE_BREAK = BreakIterator
+			.getLineInstance(RWT.getLocale());
+	private TextLayout layout;
 
-	static final BreakIterator LINE_BREAK = BreakIterator.getLineInstance();
+	final BreakIterator LINE_BREAK = BreakIterator.getLineInstance(RWT.getLocale());
 
-	static boolean canBreakAfter(char c) {
+	boolean canBreakAfter(char c) {
 		boolean result = Character.isWhitespace(c) || c == '-';
 		if (!result && (c < 'a' || c > 'z')) {
 			// chinese characters and such would be caught in here
@@ -126,7 +129,7 @@ public class FlowUtilities {
 	 * @return an SWT TextLayout that can be used for Bidi
 	 * @since 3.1
 	 */
-	static TextLayout getTextLayout() {
+	TextLayout getTextLayout() {
 		if (layout == null)
 			layout = new TextLayout(Display.getDefault());
 		layout.setOrientation(SWT.LEFT_TO_RIGHT);
@@ -139,7 +142,7 @@ public class FlowUtilities {
 	 * @param font
 	 * @since 3.1
 	 */
-	private static void initBidi(TextFragmentBox frag, String string, Font font) {
+	private void initBidi(TextFragmentBox frag, String string, Font font) {
 		if (frag.requiresBidi()) {
 			TextLayout textLayout = getTextLayout();
 			textLayout.setFont(font);
@@ -391,7 +394,7 @@ public class FlowUtilities {
 	 * @since 3.4
 	 */
 	protected TextUtilities getTextUtilities() {
-		return TextUtilities.INSTANCE;
+		return TextUtilities.INSTANCE();
 	}
 
 	/**

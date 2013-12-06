@@ -15,6 +15,7 @@ package org.eclipse.draw2d.text;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.rap.rwt.SingletonUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.TextLayout;
 
@@ -50,7 +51,9 @@ public final class BidiProcessor {
 	/**
 	 * A singleton instance.
 	 */
-	public static final BidiProcessor INSTANCE = new BidiProcessor();
+	public static final BidiProcessor INSTANCE(){
+		return SingletonUtil.getSessionInstance(BidiProcessor.class);
+	}
 
 	private StringBuffer bidiText;
 	private List list = new ArrayList();
@@ -206,7 +209,7 @@ public final class BidiProcessor {
 			// return;
 
 			int[] levels = new int[15];
-			TextLayout layout = FlowUtilities.getTextLayout();
+			TextLayout layout = FlowUtilities.INSTANCE().getTextLayout();
 
 			layout.setOrientation(orientation);
 			layout.setText(bidiText.toString());

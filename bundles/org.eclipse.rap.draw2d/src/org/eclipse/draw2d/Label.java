@@ -687,7 +687,7 @@ public class Label extends Figure implements PositionConstants {
 	 * @since 3.4
 	 */
 	public TextUtilities getTextUtilities() {
-		return TextUtilities.INSTANCE;
+		return TextUtilities.INSTANCE();
 	}
 
 	/**

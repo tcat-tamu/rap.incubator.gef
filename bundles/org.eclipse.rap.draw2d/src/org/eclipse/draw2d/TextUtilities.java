@@ -11,9 +11,9 @@
 
 package org.eclipse.draw2d;
 
+import org.eclipse.rap.rwt.SingletonUtil;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontMetrics;
-
 import org.eclipse.draw2d.geometry.Dimension;
 
 /**
@@ -28,7 +28,9 @@ public class TextUtilities {
 	/**
 	 * a singleton default instance
 	 */
-	public static TextUtilities INSTANCE = new TextUtilities();
+	public static TextUtilities INSTANCE(){
+		return SingletonUtil.getSessionInstance(TextUtilities.class);
+	}
 
 	/**
 	 * Returns the Dimensions of <i>s</i> in Font <i>f</i>.

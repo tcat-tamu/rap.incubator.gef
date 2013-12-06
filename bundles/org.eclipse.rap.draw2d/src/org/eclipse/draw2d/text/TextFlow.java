@@ -89,8 +89,8 @@ public class TextFlow extends InlineFlow {
 			return true;
 
 		text = 'a' + text + 'a';
-		FlowUtilities.LINE_BREAK.setText(text);
-		int index = FlowUtilities.LINE_BREAK.next() - 1;
+		FlowUtilities.INSTANCE().LINE_BREAK.setText(text);
+		int index = FlowUtilities.INSTANCE().LINE_BREAK.next() - 1;
 		if (index == 0)
 			return true;
 		while (Character.isWhitespace(text.charAt(index)))
@@ -106,7 +106,7 @@ public class TextFlow extends InlineFlow {
 		if (bidiInfo == null)
 			width[0] += getTextUtilities().getTextExtents(text, getFont()).width;
 		else {
-			TextLayout textLayout = FlowUtilities.getTextLayout();
+			TextLayout textLayout = FlowUtilities.INSTANCE().getTextLayout();
 			textLayout.setFont(getFont());
 			textLayout.setText(text);
 			width[0] += textLayout.getBounds().width;
@@ -156,7 +156,7 @@ public class TextFlow extends InlineFlow {
 			int boxIndex) {
 		if (box == null)
 			return -1;
-		TextLayout layout = FlowUtilities.getTextLayout();
+		TextLayout layout = FlowUtilities.INSTANCE().getTextLayout();
 		layout.setFont(getFont());
 		layout.setText(getBidiSubstring(box, boxIndex));
 		int x = p.x - box.getX();
@@ -290,7 +290,7 @@ public class TextFlow extends InlineFlow {
 					box.offset + offset);
 			result.x = getTextUtilities().getTextExtents(substring, getFont()).width;
 		} else {
-			TextLayout layout = FlowUtilities.getTextLayout();
+			TextLayout layout = FlowUtilities.INSTANCE().getTextLayout();
 			layout.setFont(getFont());
 			String fragString = getBidiSubstring(box, index);
 			layout.setText(fragString);
@@ -633,7 +633,7 @@ public class TextFlow extends InlineFlow {
 		if (bidiLevel == -1) {
 			g.drawText(draw, x, y);
 		} else {
-			TextLayout tl = FlowUtilities.getTextLayout();
+			TextLayout tl = FlowUtilities.INSTANCE().getTextLayout();
 			if (isMirrored())
 				tl.setOrientation(org.eclipse.draw2d.rap.swt.SWT.RIGHT_TO_LEFT);
 			tl.setFont(g.getFont());
@@ -712,7 +712,7 @@ public class TextFlow extends InlineFlow {
 	 * @since 3.4
 	 */
 	protected FlowUtilities getFlowUtilities() {
-		return FlowUtilities.INSTANCE;
+		return FlowUtilities.INSTANCE();
 	}
 
 	/**
@@ -723,7 +723,7 @@ public class TextFlow extends InlineFlow {
 	 * @since 3.4
 	 */
 	protected TextUtilities getTextUtilities() {
-		return TextUtilities.INSTANCE;
+		return TextUtilities.INSTANCE();
 	}
 
 }
