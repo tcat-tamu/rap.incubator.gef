@@ -36,9 +36,11 @@ class ClickableEventHandler extends MouseMotionListener.Stub implements
 
 	public void handleStateChanged(ChangeEvent change) {
 		Clickable clickable = (Clickable) change.getSource();
-		if (change.getPropertyName() == ButtonModel.MOUSEOVER_PROPERTY
-				&& !clickable.isRolloverEnabled())
-			return;
+// RAP [am] no mouse over
+//		if (change.getPropertyName() == ButtonModel.MOUSEOVER_PROPERTY
+//				&& !clickable.isRolloverEnabled())
+//			return;
+// RAPEND: [am]
 		clickable.repaint();
 	}
 

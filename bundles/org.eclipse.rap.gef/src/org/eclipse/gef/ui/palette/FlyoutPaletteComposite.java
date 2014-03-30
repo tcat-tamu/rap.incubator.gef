@@ -1176,7 +1176,8 @@ public class FlyoutPaletteComposite extends Composite {
 
 			// paint the gradient
 			graphics.pushState();
-			org.eclipse.draw2d.geometry.Rectangle r = org.eclipse.draw2d.geometry.Rectangle.getSINGLETON();
+			org.eclipse.draw2d.geometry.Rectangle r = org.eclipse.draw2d.geometry.Rectangle
+					.getSINGLETON();
 			r.setBounds(getBounds());
 			graphics.setForegroundColor(PaletteColorUtil.WIDGET_LIST_BACKGROUND);
 			graphics.setBackgroundColor(PaletteColorUtil.WIDGET_BACKGROUND);

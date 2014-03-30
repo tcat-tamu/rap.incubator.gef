@@ -31,8 +31,9 @@ public class ButtonModel {
 	/** Rollover Enabled property */
 	public static final String ROLLOVER_ENABLED_PROPERTY = "rollover enabled"; //$NON-NLS-1$
 	/** Mouseover property */
-	public static final String MOUSEOVER_PROPERTY = "mouseover"; //$NON-NLS-1$
-
+	// RAP [am] no mouse over
+	//public static final String MOUSEOVER_PROPERTY = "mouseover"; //$NON-NLS-1$
+	// RAPEND: [am]
 	/** Armed property */
 	public static final String ARMED_PROPERTY = "armed"; //$NON-NLS-1$
 
@@ -437,16 +438,19 @@ public class ButtonModel {
 	 * @since 2.0
 	 */
 	public void setMouseOver(boolean value) {
-		if (isMouseOver() == value)
-			return;
-		if (isPressed())
-			if (value)
-				fireResume();
-			else
-				fireSuspend();
-		setFlag(MOUSEOVER_FLAG, value);
-		fireStateChanged(MOUSEOVER_PROPERTY);
+// RAP [am] no mouse over
+//		if (isMouseOver() == value)
+//			return;
+//		if (isPressed())
+//			if (value)
+//				fireResume();
+//			else
+//				fireSuspend();
+//		setFlag(MOUSEOVER_FLAG, value);
+//		fireStateChanged(MOUSEOVER_PROPERTY);
+// RAPEND: [am]
 	}
+
 
 	/**
 	 * Sets the pressed property of this button.

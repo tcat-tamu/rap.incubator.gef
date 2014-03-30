@@ -34,7 +34,6 @@ import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.Rectangle;
 
 import org.eclipse.gef.internal.ui.palette.PaletteColorUtil;
-import org.eclipse.gef.internal.ui.palette.editparts.ToolEntryEditPart.ToolEntryToggle;
 import org.eclipse.gef.ui.palette.PaletteViewerPreferences;
 
 /**
@@ -250,12 +249,14 @@ public class PinnablePaletteStackFigure extends Figure {
 
 		public void handleStateChanged(ChangeEvent event) {
 			Clickable clickable = (Clickable) event.getSource();
-			if (event.getPropertyName() == ButtonModel.MOUSEOVER_PROPERTY
-					&& getActiveFigure() instanceof ToolEntryToggle) {
-				((ToolEntryToggle) getActiveFigure())
-						.setShowHoverFeedback(clickable.getModel()
-								.isMouseOver());
-			}
+			// RAP [am] no mouse over
+			// if (event.getPropertyName() == ButtonModel.MOUSEOVER_PROPERTY
+			// && getActiveFigure() instanceof ToolEntryToggle) {
+			// ((ToolEntryToggle) getActiveFigure())
+			// .setShowHoverFeedback(clickable.getModel()
+			// .isMouseOver());
+			// }
+			// RAPEND: [am]
 			if (event.getPropertyName() == ButtonModel.SELECTED_PROPERTY) {
 
 				Animation.markBegin();

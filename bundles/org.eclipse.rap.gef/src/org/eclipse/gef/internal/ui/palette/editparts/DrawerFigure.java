@@ -100,10 +100,13 @@ public class DrawerFigure extends Figure {
 						Animation.markBegin();
 						handleExpandStateChanged();
 						Animation.run(150);
-					} else if (e.getPropertyName().equals(
-							ButtonModel.MOUSEOVER_PROPERTY)) {
-						repaint();
 					}
+					// RAP [am] no mouse over
+					// } else if (e.getPropertyName().equals(
+					// ButtonModel.MOUSEOVER_PROPERTY)) {
+					// repaint();
+					// }
+					// RAPEND: [am]
 				}
 			});
 		}

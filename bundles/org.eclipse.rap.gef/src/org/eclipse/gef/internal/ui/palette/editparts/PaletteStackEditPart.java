@@ -63,10 +63,13 @@ public class PaletteStackEditPart extends PaletteEditPart implements
 	// listen to changes of clickable tool figure
 	private ChangeListener clickableListener = new ChangeListener() {
 		public void handleStateChanged(ChangeEvent event) {
-			if (event.getPropertyName().equals(ButtonModel.MOUSEOVER_PROPERTY))
-				arrowFigure.getModel().setMouseOver(
-						activeFigure.getModel().isMouseOver());
-			else if (event.getPropertyName().equals(ButtonModel.ARMED_PROPERTY))
+			// RAP [am] no mouse over
+			/*
+			 * if
+			 * (event.getPropertyName().equals(ButtonModel.MOUSEOVER_PROPERTY))
+			 * arrowFigure.getModel().setMouseOver(
+			 * activeFigure.getModel().isMouseOver()); else
+			 */if (event.getPropertyName().equals(ButtonModel.ARMED_PROPERTY))
 				arrowFigure.getModel().setArmed(
 						activeFigure.getModel().isArmed());
 		}
@@ -75,9 +78,12 @@ public class PaletteStackEditPart extends PaletteEditPart implements
 	// listen to changes of arrow figure
 	private ChangeListener clickableArrowListener = new ChangeListener() {
 		public void handleStateChanged(ChangeEvent event) {
-			if (event.getPropertyName().equals(ButtonModel.MOUSEOVER_PROPERTY))
-				activeFigure.getModel().setMouseOver(
-						arrowFigure.getModel().isMouseOver());
+			// RAP [am] no mouse over
+			// if
+			// (event.getPropertyName().equals(ButtonModel.MOUSEOVER_PROPERTY))
+			// activeFigure.getModel().setMouseOver(
+			// arrowFigure.getModel().isMouseOver());
+			// RAPEND: [am]
 			if (event.getPropertyName().equals(ButtonModel.ARMED_PROPERTY))
 				activeFigure.getModel().setArmed(
 						arrowFigure.getModel().isArmed());
