@@ -32,6 +32,8 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseMoveListener;
 import org.eclipse.swt.events.MouseTrackListener;
 import org.eclipse.swt.events.PaintListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.GC;
@@ -78,8 +80,6 @@ import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.Button;
 import org.eclipse.draw2d.ButtonBorder;
 import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.draw2d.FocusEvent;
-import org.eclipse.draw2d.FocusListener;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
@@ -142,7 +142,12 @@ public class FlyoutPaletteComposite extends Composite {
 	private PaletteViewer pViewer, externalViewer;
 	private IMemento capturedPaletteState;
 	private Control graphicalControl;
-	private Composite sash;
+
+	// RAP [am] not working in RAP use a real sash instead
+	// private Composite sash;
+	private Control sash;
+	// ENDRAP
+
 	private PaletteViewerProvider provider;
 	private FlyoutPreferences prefs;
 	private Point cachedBounds = new Point(0, 0);
@@ -289,9 +294,30 @@ public class FlyoutPaletteComposite extends Composite {
 				| SWT.NO_REDRAW_RESIZE | SWT.DOUBLE_BUFFERED);
 	}
 
-	private Composite createSash() {
-		return new Sash(this, SWT.NONE);
+	// RAP [am] not working in RAP use a real sash instead
+	// private Composite createSash() {
+	// return new Sash(this, SWT.NONE);
+	// }
+
+	private org.eclipse.swt.widgets.Sash createSash() {
+		final org.eclipse.swt.widgets.Sash s = new org.eclipse.swt.widgets.Sash(
+				this, SWT.NONE);
+		s.addSelectionListener(new SelectionAdapter() {
+
+			public void widgetSelected(SelectionEvent e) {
+				int newWidth = sash.getBounds().x - e.x;
+				if (dock == PositionConstants.EAST) {
+					setPaletteWidth(paletteWidth + newWidth);
+				} else {
+					setPaletteWidth(paletteWidth - newWidth);
+				}
+			}
+
+		});
+		return s;
 	}
+
+	// ENDRAP
 
 	private Control createTitle(Composite parent, boolean isHorizontal) {
 		return new TitleCanvas(parent, isHorizontal);
@@ -382,7 +408,9 @@ public class FlyoutPaletteComposite extends Composite {
 			layoutComponentsEast(area, sashWidth, pWidth);
 		else
 			layoutComponentsWest(area, sashWidth, pWidth);
-		sash.layout();
+		// RAP [am] not working in RAP use a real sash instead
+		// sash.layout();
+		// ENDRAP
 		setRedraw(true);
 		update();
 	}
@@ -1374,22 +1402,26 @@ public class FlyoutPaletteComposite extends Composite {
 			final IFigure contents = new TitleLabel(true);
 			contents.setRequestFocusEnabled(true);
 			contents.setFocusTraversable(true);
-			contents.addFocusListener(new FocusListener() {
-				public void focusGained(FocusEvent fe) {
-					fe.gainer.repaint();
-				}
-
-				public void focusLost(FocusEvent fe) {
-					fe.loser.repaint();
-				}
-			});
+			// RAP [am] - repaint make the title area to disappear
+			// contents.addFocusListener(new FocusListener() {
+			// public void focusGained(FocusEvent fe) {
+			// fe.gainer.repaint();
+			// }
+			//
+			// public void focusLost(FocusEvent fe) {
+			// fe.loser.repaint();
+			// }
+			// });
+			// ENDRAP
 
 			lws = new LightweightSystem();
 			lws.setControl(this);
 			lws.setContents(contents);
 			setCursor(SharedCursors.SIZEALL);
 			FONT_MGR.register(this);
-			new TitleDragManager(this);
+			// RAP [am] - Not yet supported
+			// new TitleDragManager(this);
+			// ENDRAP
 			final MenuManager manager = new MenuManager();
 			MenuManager mgr = new MenuManager(PaletteMessages.get().DOCK_LABEL);
 			mgr.add(new ChangeDockAction(PaletteMessages.get().LEFT_LABEL,
