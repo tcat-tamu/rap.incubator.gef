@@ -74,11 +74,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.XMLMemento;
 import org.eclipse.ui.internal.dnd.IDropTarget;
 
-import org.eclipse.draw2d.ActionEvent;
-import org.eclipse.draw2d.ActionListener;
 import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.Button;
-import org.eclipse.draw2d.ButtonBorder;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
@@ -307,6 +304,7 @@ public class FlyoutPaletteComposite extends Composite {
 			public void widgetSelected(SelectionEvent e) {
 				if (isInState(STATE_COLLAPSED)) {
 					setState(STATE_PINNED_OPEN);
+					sash.setToolTipText("");
 				} else {
 					int newWidth = sash.getBounds().x - e.x;
 					if (dock == PositionConstants.EAST) {
@@ -1238,20 +1236,30 @@ public class FlyoutPaletteComposite extends Composite {
 		}
 	}
 
-	private class ButtonCanvas extends Canvas {
-		private LightweightSystem lws;
+	// RAP [am] Button is not displayed for unknown reasons currently
+	// private class ButtonCanvas extends Canvas {
+	// private LightweightSystem lws;
+	private class ButtonCanvas extends org.eclipse.swt.widgets.Button {
+		// ENDRAP
 
 		public ButtonCanvas(Composite parent) {
-			super(parent, SWT.NO_REDRAW_RESIZE | SWT.NO_BACKGROUND);
+			// RAP [am] Button is not displayed for unknown reasons currently
+			// super(parent, SWT.NO_REDRAW_RESIZE | SWT.NO_BACKGROUND);
+			super(parent, SWT.PUSH | SWT.FLAT);
+			setBackground(parent.getBackground());
+			setForeground(parent.getForeground());
+			// ENDRAP
 			init();
 			provideAccSupport();
 		}
 
-		public Point computeSize(int wHint, int hHint, boolean changed) {
-			Dimension size = lws.getRootFigure().getPreferredSize(wHint, hHint);
-			size.union(new Dimension(wHint, hHint));
-			return new org.eclipse.swt.graphics.Point(size.width, size.height);
-		}
+		// RAP [am] Button is not displayed for unknown reasons currently
+		// public Point computeSize(int wHint, int hHint, boolean changed) {
+		// Dimension size = lws.getRootFigure().getPreferredSize(wHint, hHint);
+		// size.union(new Dimension(wHint, hHint));
+		// return new org.eclipse.swt.graphics.Point(size.width, size.height);
+		// }
+		// ENDRAP
 
 		private int getArrowDirection() {
 			int direction = PositionConstants.EAST;
@@ -1278,32 +1286,71 @@ public class FlyoutPaletteComposite extends Composite {
 
 		private void init() {
 			setCursor(SharedCursors.ARROW);
-			lws = new LightweightSystem();
-			lws.setControl(this);
-			final ArrowButton b = new ArrowButton(getArrowDirection());
-			b.setRolloverEnabled(true);
-			b.setBorder(new ButtonBorder(ButtonBorder.SCHEMES.TOOLBAR));
-			b.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent event) {
+			// RAP [am] Button is not displayed for unknown reasons currently
+			// lws = new LightweightSystem();
+			// lws.setControl(this);
+			// final ArrowButton b = new ArrowButton(getArrowDirection());
+			// b.setRolloverEnabled(true);
+			// b.setBorder(new ButtonBorder(ButtonBorder.SCHEMES.TOOLBAR));
+			// b.addActionListener(new ActionListener() {
+			// public void actionPerformed(ActionEvent event) {
+			// transferFocus = true;
+			// if (isInState(STATE_COLLAPSED))
+			// setState(STATE_PINNED_OPEN);
+			// else
+			// setState(STATE_COLLAPSED);
+			// }
+			// });
+			// listeners.addPropertyChangeListener(new PropertyChangeListener()
+			// {
+			// public void propertyChange(PropertyChangeEvent evt) {
+			// if (evt.getPropertyName().equals(PROPERTY_STATE)) {
+			// b.setDirection(getArrowDirection());
+			// setToolTipText(getButtonTooltipText());
+			// } else if (evt.getPropertyName().equals(
+			// PROPERTY_DOCK_LOCATION))
+			// b.setDirection(getArrowDirection());
+			// }
+			// });
+			// lws.setContents(b);
+
+			addSelectionListener(new SelectionAdapter() {
+
+				public void widgetSelected(SelectionEvent e) {
 					transferFocus = true;
-					if (isInState(STATE_COLLAPSED))
+					if (isInState(STATE_COLLAPSED)) {
 						setState(STATE_PINNED_OPEN);
-					else
+					} else {
 						setState(STATE_COLLAPSED);
+						sash.setToolTipText(getButtonTooltipText());
+					}
 				}
+
 			});
 			listeners.addPropertyChangeListener(new PropertyChangeListener() {
 				public void propertyChange(PropertyChangeEvent evt) {
 					if (evt.getPropertyName().equals(PROPERTY_STATE)) {
-						b.setDirection(getArrowDirection());
+						setDirection(getArrowDirection());
 						setToolTipText(getButtonTooltipText());
 					} else if (evt.getPropertyName().equals(
 							PROPERTY_DOCK_LOCATION))
-						b.setDirection(getArrowDirection());
+						setDirection(getArrowDirection());
 				}
 			});
-			lws.setContents(b);
+			// ENDRAP
+
 		}
+
+		// RAP [am] Button is not displayed for unknown reasons currently
+		void setDirection(int direction) {
+			if (direction == PositionConstants.EAST) {
+				setText(">");
+			} else {
+				setText("<");
+			}
+		}
+
+		// ENDRAP
 
 		private void provideAccSupport() {
 			getAccessible().addAccessibleListener(new AccessibleAdapter() {
