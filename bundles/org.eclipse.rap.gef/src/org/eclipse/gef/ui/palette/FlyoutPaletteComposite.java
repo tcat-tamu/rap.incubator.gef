@@ -305,11 +305,16 @@ public class FlyoutPaletteComposite extends Composite {
 		s.addSelectionListener(new SelectionAdapter() {
 
 			public void widgetSelected(SelectionEvent e) {
-				int newWidth = sash.getBounds().x - e.x;
-				if (dock == PositionConstants.EAST) {
-					setPaletteWidth(paletteWidth + newWidth);
+				if (isInState(STATE_COLLAPSED)) {
+					setState(STATE_PINNED_OPEN);
 				} else {
-					setPaletteWidth(paletteWidth - newWidth);
+					int newWidth = sash.getBounds().x - e.x;
+					if (dock == PositionConstants.EAST) {
+						setPaletteWidth(paletteWidth + newWidth);
+					} else {
+						setPaletteWidth(paletteWidth - newWidth);
+					}
+
 				}
 			}
 
