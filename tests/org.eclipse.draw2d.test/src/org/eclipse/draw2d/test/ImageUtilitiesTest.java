@@ -12,7 +12,6 @@ package org.eclipse.draw2d.test;
 
 import org.eclipse.draw2d.ImageUtilities;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.rap.rwt.internal.application.ApplicationContextHelper;
 import org.eclipse.swt.graphics.Image;
 
 /**
@@ -51,11 +50,6 @@ public class ImageUtilitiesTest extends AbstractFixtureTestCase {
 			if (result3 != null && !result3.isDisposed())
 				result3.dispose();
 		}
-	}
-
-	protected void setUp() throws Exception {
-		super.setUp();
-		ApplicationContextHelper.fakeResourceManager(null);
 	}
 
 	public void testRotatingImagesWithDifferentDepths() {
