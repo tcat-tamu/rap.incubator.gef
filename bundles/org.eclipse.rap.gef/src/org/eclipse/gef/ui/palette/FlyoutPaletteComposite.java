@@ -105,7 +105,12 @@ import org.eclipse.gef.ui.views.palette.PaletteView;
  */
 public class FlyoutPaletteComposite extends Composite {
 
-	private static final FontManager FONT_MGR = new FontManager();
+	// RAP [am] using static here can result in Graphic is disposed issue in RAP
+	// as Font retrieved from JFace registry are disposed at the end of the
+	// session
+	// private static final FontManager FONT_MGR = new FontManager();
+	private final FontManager FONT_MGR = new FontManager();
+	// ENDRAP
 
 	private static final String PROPERTY_PALETTE_WIDTH = "org.eclipse.gef.ui.palette.fpa.paletteWidth"; //$NON-NLS-1$
 	private static final String PROPERTY_STATE = "org.eclipse.gef.ui.palette.fpa.state"; //$NON-NLS-1$
@@ -236,6 +241,14 @@ public class FlyoutPaletteComposite extends Composite {
 			}
 		});
 	}
+
+	// RAP [am] we need to dispose FONT_MGR
+	public void dispose() {
+		FONT_MGR.dispose();
+		super.dispose();
+	}
+
+	// ENDRAP
 
 	private void addListenerToCtrlHierarchy(Control parent, int eventType,
 			Listener listener) {
