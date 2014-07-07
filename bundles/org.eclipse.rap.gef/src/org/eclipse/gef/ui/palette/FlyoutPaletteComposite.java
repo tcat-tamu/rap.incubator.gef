@@ -1345,6 +1345,11 @@ public class FlyoutPaletteComposite extends Composite {
 					if (evt.getPropertyName().equals(PROPERTY_STATE)) {
 						setDirection(getArrowDirection());
 						setToolTipText(getButtonTooltipText());
+						if (isInState(STATE_COLLAPSED)) {
+							sash.setToolTipText(PaletteMessages.get().PALETTE_SHOW);
+						} else {
+							sash.setToolTipText(null);
+						}
 					} else if (evt.getPropertyName().equals(
 							PROPERTY_DOCK_LOCATION))
 						setDirection(getArrowDirection());
