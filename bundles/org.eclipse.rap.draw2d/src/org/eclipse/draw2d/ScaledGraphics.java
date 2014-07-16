@@ -277,7 +277,7 @@ public class ScaledGraphics extends Graphics {
 		}
 
 		// Dispose fonts
-		Iterator<?> iter = fontCache.values().iterator();
+		Iterator iter = fontCache.values().iterator();
 		while (iter.hasNext()) {
 			Font font = ((Font) iter.next());
 			font.dispose();
@@ -529,7 +529,7 @@ public class ScaledGraphics extends Graphics {
 	FontData getCachedFontData(Font f) {
 		FontData data = (FontData) fontDataCache.get(f);
 		if (data == null) {
-			data = getLocalFont().getFontData()[0];
+			data = f.getFontData()[0];
 			fontDataCache.put(f, data);
 		}
 		return data;
@@ -914,7 +914,9 @@ public class ScaledGraphics extends Graphics {
 
 	Font zoomFont(Font f) {
 		if (f == null) {
-			f = Display.getCurrent().getSystemFont();
+			Font localFont = getLocalFont();
+			f = localFont != null ? localFont : Display.getCurrent()
+					.getSystemFont();
 		}
 		FontData data = getCachedFontData(f);
 		int zoomedFontHeight = zoomFontHeight(data.getHeight());
@@ -995,7 +997,9 @@ public class ScaledGraphics extends Graphics {
 		zoomed.setTabs(layout.getTabs());
 
 		zoomed.setWidth(zoomWidth);
+
 		int length = layout.getText().length();
+		// navigate through text
 		if (length > 0) {
 			int start = 0, offset = 1;
 			TextStyle style = null, lastStyle = layout.getStyle(0);
@@ -1013,7 +1017,11 @@ public class ScaledGraphics extends Graphics {
 					// zoomedStyle.metrics = lastStyle.metrics;
 					zoomedStyle.rise = lastStyle.rise;
 					zoomedStyle.strikeout = lastStyle.strikeout;
+					zoomedStyle.strikeoutColor = lastStyle.strikeoutColor;
 					zoomedStyle.underline = lastStyle.underline;
+					zoomedStyle.underlineColor = lastStyle.underlineColor;
+					zoomedStyle.underlineStyle = lastStyle.underlineStyle;
+
 					zoomed.setStyle(zoomedStyle, start, end);
 				}
 				lastStyle = style;
