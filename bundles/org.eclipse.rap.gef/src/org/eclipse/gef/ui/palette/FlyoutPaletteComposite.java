@@ -74,8 +74,11 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.XMLMemento;
 import org.eclipse.ui.internal.dnd.IDropTarget;
 
+import org.eclipse.draw2d.ActionEvent;
+import org.eclipse.draw2d.ActionListener;
 import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.Button;
+import org.eclipse.draw2d.ButtonBorder;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
@@ -317,7 +320,6 @@ public class FlyoutPaletteComposite extends Composite {
 			public void widgetSelected(SelectionEvent e) {
 				if (isInState(STATE_COLLAPSED)) {
 					setState(STATE_PINNED_OPEN);
-					sash.setToolTipText("");
 				} else {
 					int newWidth = sash.getBounds().x - e.x;
 					if (dock == PositionConstants.EAST) {
@@ -1124,7 +1126,11 @@ public class FlyoutPaletteComposite extends Composite {
 	}
 
 	private class PaletteComposite extends Composite {
-		protected Control button, title;
+		// RAP [am] disable state button as it does not work very well currently
+		// protected Control button, title;
+		protected Control title;
+
+		// ENDRAP
 
 		public PaletteComposite(Composite parent, int style) {
 			super(parent, style);
@@ -1152,7 +1158,10 @@ public class FlyoutPaletteComposite extends Composite {
 
 		protected void createComponents() {
 			title = createTitle(this, true);
-			button = createFlyoutControlButton(this);
+			// RAP [am] disable state button as it does not work very well
+			// currently
+			// button = createFlyoutControlButton(this);
+			// ENDRAP
 		}
 
 		public void layout(boolean changed) {
@@ -1161,21 +1170,26 @@ public class FlyoutPaletteComposite extends Composite {
 				return;
 
 			Rectangle area = getClientArea();
-			boolean buttonVisible = button.getVisible();
+			// RAP [am] disable state button as it does not work very well
+			// currently
+			boolean buttonVisible = false;
+			// boolean buttonVisible = button.getVisible();
 			Point titleSize = title.computeSize(-1, -1);
-			Point buttonSize = buttonVisible ? button.computeSize(-1, -1)
-					: new Point(0, 0);
+			Point buttonSize = /*
+								 * buttonVisible ? button.computeSize(-1, -1) :
+								 */new Point(0, 0);
 			cachedTitleHeight = Math.max(titleSize.y, buttonSize.y);
 			if (buttonVisible) {
 				buttonSize.x = Math.max(cachedTitleHeight, buttonSize.x);
 			}
 			if (dock == PositionConstants.EAST) {
 				int buttonX = area.width - buttonSize.x;
-				button.setBounds(buttonX, 0, buttonSize.x, cachedTitleHeight);
+				// button.setBounds(buttonX, 0, buttonSize.x,
+				// cachedTitleHeight);
 				title.setBounds(0, 0, buttonX, cachedTitleHeight);
 			} else {
 				int titleX = buttonSize.x;
-				button.setBounds(0, 0, buttonSize.x, cachedTitleHeight);
+				// button.setBounds(0, 0, buttonSize.x, cachedTitleHeight);
 				title.setBounds(titleX, 0, area.width - titleX,
 						cachedTitleHeight);
 			}
@@ -1185,11 +1199,12 @@ public class FlyoutPaletteComposite extends Composite {
 		}
 
 		protected void updateState() {
-			button.setVisible(isInState(STATE_PINNED_OPEN));
-			if (transferFocus && button.getVisible()) {
-				transferFocus = false;
-				button.setFocus();
-			}
+			// button.setVisible(isInState(STATE_PINNED_OPEN));
+			// if (transferFocus && button.getVisible()) {
+			// transferFocus = false;
+			// button.setFocus();
+			// }
+			// ENDRAP
 			layout(true);
 		}
 	}
@@ -1249,30 +1264,20 @@ public class FlyoutPaletteComposite extends Composite {
 		}
 	}
 
-	// RAP [am] Button is not displayed for unknown reasons currently
-	// private class ButtonCanvas extends Canvas {
-	// private LightweightSystem lws;
-	private class ButtonCanvas extends org.eclipse.swt.widgets.Button {
-		// ENDRAP
+	private class ButtonCanvas extends Canvas {
+		private LightweightSystem lws;
 
 		public ButtonCanvas(Composite parent) {
-			// RAP [am] Button is not displayed for unknown reasons currently
-			// super(parent, SWT.NO_REDRAW_RESIZE | SWT.NO_BACKGROUND);
-			super(parent, SWT.PUSH | SWT.FLAT);
-			setBackground(parent.getBackground());
-			setForeground(parent.getForeground());
-			// ENDRAP
+			super(parent, SWT.NO_REDRAW_RESIZE | SWT.NO_BACKGROUND);
 			init();
 			provideAccSupport();
 		}
 
-		// RAP [am] Button is not displayed for unknown reasons currently
-		// public Point computeSize(int wHint, int hHint, boolean changed) {
-		// Dimension size = lws.getRootFigure().getPreferredSize(wHint, hHint);
-		// size.union(new Dimension(wHint, hHint));
-		// return new org.eclipse.swt.graphics.Point(size.width, size.height);
-		// }
-		// ENDRAP
+		public Point computeSize(int wHint, int hHint, boolean changed) {
+			Dimension size = lws.getRootFigure().getPreferredSize(wHint, hHint);
+			size.union(new Dimension(wHint, hHint));
+			return new org.eclipse.swt.graphics.Point(size.width, size.height);
+		}
 
 		private int getArrowDirection() {
 			int direction = PositionConstants.EAST;
@@ -1299,76 +1304,32 @@ public class FlyoutPaletteComposite extends Composite {
 
 		private void init() {
 			setCursor(SharedCursors.ARROW);
-			// RAP [am] Button is not displayed for unknown reasons currently
-			// lws = new LightweightSystem();
-			// lws.setControl(this);
-			// final ArrowButton b = new ArrowButton(getArrowDirection());
-			// b.setRolloverEnabled(true);
-			// b.setBorder(new ButtonBorder(ButtonBorder.SCHEMES.TOOLBAR));
-			// b.addActionListener(new ActionListener() {
-			// public void actionPerformed(ActionEvent event) {
-			// transferFocus = true;
-			// if (isInState(STATE_COLLAPSED))
-			// setState(STATE_PINNED_OPEN);
-			// else
-			// setState(STATE_COLLAPSED);
-			// }
-			// });
-			// listeners.addPropertyChangeListener(new PropertyChangeListener()
-			// {
-			// public void propertyChange(PropertyChangeEvent evt) {
-			// if (evt.getPropertyName().equals(PROPERTY_STATE)) {
-			// b.setDirection(getArrowDirection());
-			// setToolTipText(getButtonTooltipText());
-			// } else if (evt.getPropertyName().equals(
-			// PROPERTY_DOCK_LOCATION))
-			// b.setDirection(getArrowDirection());
-			// }
-			// });
-			// lws.setContents(b);
-
-			addSelectionListener(new SelectionAdapter() {
-
-				public void widgetSelected(SelectionEvent e) {
+			lws = new LightweightSystem();
+			lws.setControl(this);
+			final ArrowButton b = new ArrowButton(getArrowDirection());
+			b.setRolloverEnabled(true);
+			b.setBorder(new ButtonBorder(ButtonBorder.SCHEMES.TOOLBAR));
+			b.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent event) {
 					transferFocus = true;
-					if (isInState(STATE_COLLAPSED)) {
+					if (isInState(STATE_COLLAPSED))
 						setState(STATE_PINNED_OPEN);
-					} else {
+					else
 						setState(STATE_COLLAPSED);
-						sash.setToolTipText(getButtonTooltipText());
-					}
 				}
-
 			});
 			listeners.addPropertyChangeListener(new PropertyChangeListener() {
 				public void propertyChange(PropertyChangeEvent evt) {
 					if (evt.getPropertyName().equals(PROPERTY_STATE)) {
-						setDirection(getArrowDirection());
+						b.setDirection(getArrowDirection());
 						setToolTipText(getButtonTooltipText());
-						if (isInState(STATE_COLLAPSED)) {
-							sash.setToolTipText(PaletteMessages.get().PALETTE_SHOW);
-						} else {
-							sash.setToolTipText(null);
-						}
 					} else if (evt.getPropertyName().equals(
 							PROPERTY_DOCK_LOCATION))
-						setDirection(getArrowDirection());
+						b.setDirection(getArrowDirection());
 				}
 			});
-			// ENDRAP
-
+			lws.setContents(b);
 		}
-
-		// RAP [am] Button is not displayed for unknown reasons currently
-		void setDirection(int direction) {
-			if (direction == PositionConstants.EAST) {
-				setText(">");
-			} else {
-				setText("<");
-			}
-		}
-
-		// ENDRAP
 
 		private void provideAccSupport() {
 			getAccessible().addAccessibleListener(new AccessibleAdapter() {
