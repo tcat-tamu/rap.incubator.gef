@@ -451,7 +451,6 @@ public class ButtonModel {
 // RAPEND: [am]
 	}
 
-
 	/**
 	 * Sets the pressed property of this button.
 	 * 

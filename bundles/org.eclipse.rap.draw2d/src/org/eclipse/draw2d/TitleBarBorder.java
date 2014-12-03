@@ -12,6 +12,7 @@
 package org.eclipse.draw2d;
 
 import org.eclipse.swt.graphics.Color;
+
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Rectangle;

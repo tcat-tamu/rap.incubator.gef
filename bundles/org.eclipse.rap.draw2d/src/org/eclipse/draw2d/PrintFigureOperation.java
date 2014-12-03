@@ -7,23 +7,23 @@
  *
  * Contributors:
  *     IBM Corporation - initial API and implementation
- *     Sven M�ller - Added tiling support
+ *     Sven Müller - Added tiling support
  *******************************************************************************/
 package org.eclipse.draw2d;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.printing.Printer;
 import org.eclipse.swt.widgets.Display;
 
 import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.swt.SWT;
 
 /**
  * Class responsible for printing Figures.
  * 
  * @author Dan Lee
  * @author Eric Bordeau
- * @author Sven M�ller
+ * @author Sven Müller
  */
 public class PrintFigureOperation extends PrintOperation {
 

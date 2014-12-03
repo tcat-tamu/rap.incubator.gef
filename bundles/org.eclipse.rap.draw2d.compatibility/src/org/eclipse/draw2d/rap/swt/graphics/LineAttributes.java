@@ -119,5 +119,23 @@ public class LineAttributes extends org.eclipse.swt.graphics.LineAttributes {
   public LineAttributes( final float width, final int cap, final int join ) {
     super(width,cap,join);
   }
-
+  
+  /**
+   * Create a new line attributes with the specified arguments.
+   * @param width
+   * @param cap
+   * @param join
+   * @param style
+   * @param dash
+   * @param dashOffset
+   * @param miterLimit
+   */
+  public LineAttributes(float width, int cap, int join, int style, float[] dash, float dashOffset, float miterLimit) {
+    this(width,cap,join);
+    this.style = style;
+    this.dash = dash;
+    this.dashOffset = dashOffset;
+    this.miterLimit = miterLimit;
+  }
+  
 }

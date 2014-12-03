@@ -16,12 +16,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.SWTException;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Display;
 
 import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.swt.SWT;
 
 /**
  * An UpdateManager that asynchronously updates the affected figures.
@@ -147,7 +147,10 @@ public class DeferredUpdateManager extends UpdateManager {
 		return graphicsSource.getGraphics(region);
 	}
 
-	void paint(GC gc) {
+	/**
+	 * @since 3.10
+	 */
+	protected void paint(GC gc) {
 		if (!validating) {
 			SWTGraphics graphics = new SWTGraphics(gc);
 			if (!updating) {

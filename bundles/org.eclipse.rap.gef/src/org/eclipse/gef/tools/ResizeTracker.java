@@ -49,7 +49,7 @@ public class ResizeTracker extends SimpleDragTracker {
 	 * Key modifier for centered resizing. It's ALT on the Mac and MOD1 on all
 	 * other platforms.
 	 */
-	static final int MODIFIER_CENTERED_RESIZE = SWT.ALT;
+	static final int MODIFIER_CENTERED_RESIZE = SWT.MOD1;
 
 	/**
 	 * Key modifier for constrained resizing. It's SHIFT on all platforms.

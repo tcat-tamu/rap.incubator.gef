@@ -6,19 +6,12 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- * IBM Corporation - initial API and implementation
+ *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 package org.eclipse.draw2d.parts;
 
 import java.util.Iterator;
 import java.util.Map;
-
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.GC;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.ImageData;
-import org.eclipse.swt.graphics.PaletteData;
-import org.eclipse.swt.widgets.Display;
 
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Graphics;
@@ -29,6 +22,10 @@ import org.eclipse.draw2d.UpdateListener;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 
 /**
  * A Thumbnail is a Figure that displays an image of its source Figure at a
@@ -47,12 +44,18 @@ public class Thumbnail extends Figure implements UpdateListener {
 		static final int MAX_BUFFER_SIZE = 256;
 		private int currentHTile, currentVTile;
 		private int hTiles, vTiles;
+		private Dimension tileSize;
 		private boolean isActive = true;
 
 		private boolean isRunning = false;
+		private Image tileImage;
+		private Dimension tileImageSize;
+		// GC and Graphics to let the source figure paint on the tile image
+		private GC tileGC;
+		private SWTGraphics tileGCGraphics;
+		private ScaledGraphics tileGraphics;
+		// GC used to copy from the tile image into the thumbnail image
 		private GC thumbnailGC;
-		private ScaledGraphics thumbnailGraphics;
-		private Dimension tileSize;
 
 		/**
 		 * Stops the updater and disposes of any resources.
@@ -146,7 +149,7 @@ public class Thumbnail extends Figure implements UpdateListener {
 		 * required, {@link #stop()} is called.
 		 */
 		public void run() {
-			if (!isActive() || !isRunning() || thumbnailGraphics == null)
+			if (!isActive() || !isRunning() || tileGraphics == null)
 				return;
 			int v = getCurrentVTile();
 			int sy1 = v * tileSize.height;
@@ -157,16 +160,29 @@ public class Thumbnail extends Figure implements UpdateListener {
 			int sx1 = h * tileSize.width;
 			int sx2 = Math.min((h + 1) * tileSize.width,
 					getSourceRectangle().width);
+
+			tileGraphics.pushState();
+			// clear the background (by filling with the background color)
+			Rectangle rect = new Rectangle(0, 0, sx2 - sx1, sy2 - sy1);
+			tileGraphics.fillRectangle(rect);
+
+			// let the source figure paint into the tile image
+			// IMPORTANT (fix for bug #309912): we do not let the source figure
+			// paint directly into the thumbnail image, because we cannot ensure
+			// that it paints completely inside the current tile area (it may
+			// set its own clip inside paint(Graphics) and overwrite areas of
+			// tile that have already been rendered. By providing an own tile
+			// image and copying from it into the thumbnail image, we are safe.
 			org.eclipse.draw2d.geometry.Point p = getSourceRectangle()
 					.getLocation();
+			tileGraphics.translate(-p.x - sx1, -p.y - sy1);
+			tileGraphics.scale(getScaleX());
+			sourceFigure.paint(tileGraphics);
+			tileGraphics.popState();
 
-			Rectangle rect = new Rectangle(sx1 + p.x, sy1 + p.y, sx2 - sx1, sy2
-					- sy1);
-			thumbnailGraphics.pushState();
-			thumbnailGraphics.setClip(rect);
-			thumbnailGraphics.fillRectangle(rect);
-			sourceFigure.paint(thumbnailGraphics);
-			thumbnailGraphics.popState();
+			// copy the painted tile image into the thumbnail image
+			thumbnailGC.drawImage(tileImage, 0, 0, sx2 - sx1, sy2 - sy1, sx1,
+					sy1, sx2 - sx1, sy2 - sy1);
 
 			if (getCurrentHTile() < (hTiles - 1))
 				setCurrentHTile(getCurrentHTile() + 1);
@@ -232,6 +248,7 @@ public class Thumbnail extends Figure implements UpdateListener {
 
 			isRunning = true;
 			setDirty(false);
+
 			resetTileValues();
 
 			if (!targetSize.equals(thumbnailImageSize)) {
@@ -240,23 +257,28 @@ public class Thumbnail extends Figure implements UpdateListener {
 
 			if (targetSize.isEmpty())
 				return;
+
 			// UNSUPPORTED - image constructor not implemented in RAP
-			// thumbnailGC = new GC(thumbnailImage,
-			// sourceFigure.isMirrored() ? SWT.RIGHT_TO_LEFT : SWT.NONE);
-			thumbnailGC = new GC(thumbnailImage.getDevice(),
+            // thumbnailGC = new GC(thumbnailImage, SWT.NONE);
+            thumbnailGC = new GC(thumbnailImage.getDevice(),SWT.NONE);
+			
+			if (!tileSize.equals(tileImageSize)) {
+				resetTileImage();
+			}
+
+			//tileGC = new GC(tileImage,
+			tileGC = new GC(tileImage.getDevice(),
 					sourceFigure.isMirrored() ? org.eclipse.draw2d.rap.swt.SWT.RIGHT_TO_LEFT : SWT.NONE);
-			thumbnailGraphics = new ScaledGraphics(new SWTGraphics(thumbnailGC));
-			thumbnailGraphics.scale(getScaleX());
-			thumbnailGraphics.translate(getSourceRectangle().getLocation()
-					.negate());
+			tileGCGraphics = new SWTGraphics(tileGC);
+			tileGraphics = new ScaledGraphics(tileGCGraphics);
 
 			Color color = sourceFigure.getForegroundColor();
 			if (color != null)
-				thumbnailGraphics.setForegroundColor(color);
+				tileGraphics.setForegroundColor(color);
 			color = sourceFigure.getBackgroundColor();
 			if (color != null)
-				thumbnailGraphics.setBackgroundColor(color);
-			thumbnailGraphics.setFont(sourceFigure.getFont());
+				tileGraphics.setBackgroundColor(color);
+			tileGraphics.setFont(sourceFigure.getFont());
 
 			setScales(targetSize.width / (float) getSourceRectangle().width,
 					targetSize.height / (float) getSourceRectangle().height);
@@ -264,10 +286,6 @@ public class Thumbnail extends Figure implements UpdateListener {
 			Display.getCurrent().asyncExec(this);
 		}
 
-		/**
-		 * 
-		 * @since 3.2
-		 */
 		private void resetThumbnailImage() {
 			if (thumbnailImage != null)
 				thumbnailImage.dispose();
@@ -282,23 +300,49 @@ public class Thumbnail extends Figure implements UpdateListener {
 			}
 		}
 
+		private void resetTileImage() {
+			if (tileImage != null)
+				tileImage.dispose();
+
+			if (!tileSize.isEmpty()) {
+				tileImage = new Image(Display.getDefault(), tileSize.width,
+						tileSize.height);
+				tileImageSize = new Dimension(tileSize);
+			} else {
+				tileImage = null;
+				tileImageSize = new Dimension(0, 0);
+			}
+		}
+
 		/**
 		 * Stops this updater. Also disposes of resources (except the thumbnail
 		 * image which is still needed for painting).
 		 */
 		public void stop() {
 			isRunning = false;
-			if (thumbnailGraphics != null) {
-				thumbnailGraphics.dispose();
-				thumbnailGraphics = null;
+			if (tileGraphics != null) {
+				tileGraphics.dispose();
+				tileGraphics = null;
+			}
+			if (tileGCGraphics != null) {
+				tileGCGraphics.dispose();
+				tileGCGraphics = null;
+			}
+			if (tileGC != null) {
+				tileGC.dispose();
+				tileGC = null;
 			}
 			if (thumbnailGC != null) {
 				thumbnailGC.dispose();
 				thumbnailGC = null;
 			}
+			if (tileImage != null) {
+				tileImage.dispose();
+				tileImage = null;
+				tileImageSize = null;
+			}
 			// Don't dispose of the thumbnail image since it is needed to paint
-			// the
-			// figure when the source is not dirty (i.e. showing/hiding the
+			// the figure when the source is not dirty (i.e. showing/hiding the
 			// dock).
 		}
 	}
@@ -310,6 +354,7 @@ public class Thumbnail extends Figure implements UpdateListener {
 	private IFigure sourceFigure;
 	Dimension targetSize = new Dimension(0, 0);
 	private Image thumbnailImage;
+
 	private Dimension thumbnailImageSize;
 	private ThumbnailUpdater updater = new ThumbnailUpdater();
 

@@ -363,7 +363,7 @@ public abstract class Shape extends Figure {
 		// synchronize line style which may have been assigned
 		// to lineStyle field for backwards compatibility
 		if (lineStyle != lastLineStyle) {
-		lineAttributes.style = lineStyle;
+			lineAttributes.style = lineStyle;
 			lastLineStyle = lineStyle;
 		}
 
