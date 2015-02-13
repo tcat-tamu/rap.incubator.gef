@@ -145,10 +145,9 @@ public class SWTGraphics extends Graphics {
 		public void setOn(GC gc, int translateX, int translateY) {
 			int xInt = (int) Math.floor(left);
 			int yInt = (int) Math.floor(top);
-			// UNSUPPORTED - api is not implemented in RAP
-			// gc.setClipping(xInt + translateX, yInt + translateY,
-			// (int) Math.ceil(right) - xInt, (int) Math.ceil(bottom)
-			// - yInt);
+			gc.setClipping(xInt + translateX, yInt + translateY,
+			 (int) Math.ceil(right) - xInt, (int) Math.ceil(bottom)
+			 - yInt);
 		}
 
 		public void translate(float dx, float dy) {
@@ -1111,8 +1110,7 @@ public class SWTGraphics extends Graphics {
 			// it works.
 			appliedState.graphicHints ^= FILL_RULE_MASK;
 		}
-		// UNSUPPORTED - api is not implemented in RAP
-		// gc.setClipping(path);
+		gc.setClipping(path);
 		appliedState.relativeClip = currentState.relativeClip = null;
 	}
 
@@ -1148,8 +1146,7 @@ public class SWTGraphics extends Graphics {
 			// loadPath(region, pathData.points, pathData.types);
 			region.intersect(new org.eclipse.swt.graphics.Rectangle(clipping.x,
 					clipping.y, clipping.width, clipping.height));
-			// UNSUPPORTED - api is not implemented in RAP
-			// gc.setClipping(region);
+			gc.setClipping(region.getBounds());
 			appliedState.relativeClip = currentState.relativeClip = null;
 			region.dispose();
 		}

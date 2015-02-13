@@ -13,13 +13,15 @@ package org.eclipse.draw2d;
 import java.util.ArrayList;
 
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontMetrics;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.widgets.Shell;
-
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.draw2d.rap.swt.graphics.ColorUtil;
+import org.eclipse.jface.resource.JFaceResources;
 
 /**
  * Provides miscellaneous Figure operations.
@@ -30,8 +32,12 @@ public class FigureUtilities {
 	private static GC gc;
 	private static Font appliedFont;
 	private static FontMetrics metrics;
-	private static Color ghostFillColor = new Color(null, 31, 31, 31);
-
+	//[RAP AM] remove static usage
+	//private static Color ghostFillColor = new Color(null, 31, 31, 31);
+	private static Color ghostFillColor() {
+	   return ColorUtil.getColor( 31, 31, 31 );
+    }
+	
 	/**
 	 * Returns a new Color the same as the passed color in a darker hue.
 	 * 
@@ -212,7 +218,7 @@ public class FigureUtilities {
 	 * @since 2.0
 	 */
 	public static Shape makeGhostShape(Shape s) {
-		s.setBackgroundColor(ghostFillColor);
+		s.setBackgroundColor(ghostFillColor());
 		s.setFillXOR(true);
 		s.setOutlineXOR(true);
 		return s;
