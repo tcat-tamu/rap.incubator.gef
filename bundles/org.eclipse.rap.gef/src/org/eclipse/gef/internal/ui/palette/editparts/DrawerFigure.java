@@ -72,7 +72,8 @@ public class DrawerFigure extends Figure {
 	protected static final Border TOGGLE_BUTTON_BORDER = new RaisedBorder();
 	/** Tooltip border constant **/
 	protected static final Border TOOLTIP_BORDER = new CompoundBorder(
-			new SchemeBorder(SchemeBorder.SCHEMES.RAISED), new MarginBorder(1));
+			new SchemeBorder(SchemeBorder.SCHEMES.RAISED()),
+			new MarginBorder(1));
 	private Toggle collapseToggle;
 	private Label drawerLabel, tipLabel;
 
@@ -123,7 +124,7 @@ public class DrawerFigure extends Figure {
 			// draw top border of drawer figure
 			g.setForegroundColor(PaletteColorUtil.WIDGET_NORMAL_SHADOW);
 			g.drawLine(r.getTopLeft(), r.getTopRight());
-			g.setForegroundColor(ColorConstants.white);
+			g.setForegroundColor(ColorConstants.white());
 			g.drawLine(r.getTopLeft().getTranslated(0, 1), r.getTopRight()
 					.getTranslated(0, 1));
 			r.crop(new Insets(2, 0, 0, 0));
@@ -135,7 +136,7 @@ public class DrawerFigure extends Figure {
 
 			// draw bottom border of drawer figure
 			if (!isExpanded()) {
-				g.setForegroundColor(ColorConstants.white);
+				g.setForegroundColor(ColorConstants.white());
 				g.drawLine(r.getBottomLeft().getTranslated(0, -1), r
 						.getBottomRight().getTranslated(0, -1));
 				r.crop(new Insets(0, 0, 1, 0));

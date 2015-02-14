@@ -110,7 +110,7 @@ public abstract class GraphicalEditor extends EditorPart implements
 	 */
 	protected void configureGraphicalViewer() {
 		getGraphicalViewer().getControl().setBackground(
-				ColorConstants.listBackground);
+				ColorConstants.listBackground());
 	}
 
 	/**

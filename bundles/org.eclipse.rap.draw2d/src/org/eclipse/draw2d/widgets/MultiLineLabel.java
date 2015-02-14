@@ -66,8 +66,8 @@ public final class MultiLineLabel extends FigureCanvas {
 		protected void paintBorder(Graphics graphics) {
 			super.paintBorder(graphics);
 			if (hasFocus()) {
-				graphics.setForegroundColor(ColorConstants.black);
-				graphics.setBackgroundColor(ColorConstants.white);
+				graphics.setForegroundColor(ColorConstants.black());
+				graphics.setBackgroundColor(ColorConstants.white());
 				graphics.drawFocus(getBounds().getResized(-1, -1));
 			}
 		}

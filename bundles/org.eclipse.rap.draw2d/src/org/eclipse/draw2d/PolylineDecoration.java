@@ -40,7 +40,7 @@ public class PolylineDecoration extends Polyline implements RotatableDecoration 
 	 * @since 2.0
 	 */
 	public PolylineDecoration() {
-		setBackgroundColor(ColorConstants.black);
+		setBackgroundColor(ColorConstants.black());
 		setScale(7, 3);
 	}
 

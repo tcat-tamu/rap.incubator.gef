@@ -32,7 +32,7 @@ private CompartmentFigure methodFigure = new CompartmentFigure();
 public UMLClassFigure(Label name) {
 	ToolbarLayout layout = new ToolbarLayout();
 	setLayoutManager(layout);	
-	setBorder(new LineBorder(ColorConstants.black,1));
+	setBorder(new LineBorder(ColorConstants.black(),1));
 	setBackgroundColor(classColor);
 	setOpaque(true);
 	

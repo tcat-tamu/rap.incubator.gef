@@ -115,8 +115,8 @@ public PageNode() {
 protected void paintFigure(Graphics g) {
 	super.paintFigure(g);
 	if (selected) {
-		g.setForegroundColor(ColorConstants.menuBackgroundSelected);
-		g.setBackgroundColor(ColorConstants.titleGradient);
+		g.setForegroundColor(ColorConstants.menuBackgroundSelected());
+		g.setBackgroundColor(ColorConstants.titleGradient());
 	} else {
 		g.setForegroundColor(gradient1);
 		g.setBackgroundColor(gradient2);
@@ -127,7 +127,7 @@ protected void paintFigure(Graphics g) {
 public void setSelected(boolean value) {
 	this.selected = value;
 	if (selected)
-		label.setForegroundColor(ColorConstants.white);
+		label.setForegroundColor(ColorConstants.white());
 	else
 		label.setForegroundColor(null);
 	repaint();

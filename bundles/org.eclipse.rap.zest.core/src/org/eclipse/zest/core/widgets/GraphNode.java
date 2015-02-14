@@ -133,10 +133,10 @@ public class GraphNode extends GraphItem {
 		this.backColor = parent.getGraph().LIGHT_BLUE;
 		this.highlightColor = parent.getGraph().HIGHLIGHT_COLOR;
 		// @tag ADJACENT : Removed highlight adjacent
-		//this.highlightAdjacentColor = ColorConstants.orange;
+		//this.highlightAdjacentColor = ColorConstants.orange();
 		this.nodeStyle = SWT.NONE;
-		this.borderColor = ColorConstants.lightGray;
-		this.borderHighlightColor = ColorConstants.blue;
+		this.borderColor = ColorConstants.lightGray();
+		this.borderHighlightColor = ColorConstants.blue();
 		this.borderWidth = 1;
 		this.currentLocation = new PrecisionPoint(0, 0);
 		this.size = new Dimension(-1, -1);

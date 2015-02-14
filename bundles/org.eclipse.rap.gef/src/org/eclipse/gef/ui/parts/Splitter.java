@@ -200,7 +200,7 @@ class Splitter extends Composite {
 					: SWT.HORIZONTAL;
 			for (int i = sashes.length; i < newSashes.length; i++) {
 				newSashes[i] = new Sash(this, sashOrientation);
-				newSashes[i].setBackground(ColorConstants.button);
+				newSashes[i].setBackground(ColorConstants.button());
 				newSashes[i].addListener(SWT.Paint, new SashPainter());
 				newSashes[i].addListener(SWT.Selection, sashListener);
 			}
@@ -268,15 +268,15 @@ class Splitter extends Composite {
 			return;
 		Point size = sash.getSize();
 		if (getOrientation() == SWT.HORIZONTAL) {
-			gc.setForeground(ColorConstants.buttonDarker);
+			gc.setForeground(ColorConstants.buttonDarker());
 			gc.drawLine(getSashWidth() - 1, 0, getSashWidth() - 1, size.y);
-			gc.setForeground(ColorConstants.buttonLightest);
+			gc.setForeground(ColorConstants.buttonLightest());
 			gc.drawLine(0, 0, 0, size.y);
 		} else {
-			gc.setForeground(ColorConstants.buttonDarker);
+			gc.setForeground(ColorConstants.buttonDarker());
 			gc.drawLine(0, 0, size.x, 0);
 			gc.drawLine(0, getSashWidth() - 1, size.x, getSashWidth() - 1);
-			gc.setForeground(ColorConstants.buttonLightest);
+			gc.setForeground(ColorConstants.buttonLightest());
 			gc.drawLine(0, 1, size.x, 1);
 		}
 	}
@@ -360,7 +360,7 @@ class Splitter extends Composite {
 		for (int i = 0; i < sashes.length; i++) {
 			sashes[i].dispose();
 			sashes[i] = new Sash(this, sashOrientation);
-			sashes[i].setBackground(ColorConstants.buttonLightest);
+			sashes[i].setBackground(ColorConstants.buttonLightest());
 			sashes[i].addListener(SWT.Selection, sashListener);
 		}
 		layout();

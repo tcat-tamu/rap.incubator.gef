@@ -200,7 +200,7 @@ public class BlockFlow extends FlowFigure {
 		if (selectionStart != -1) {
 			graphics.restoreState();
 			graphics.setXORMode(true);
-			graphics.setBackgroundColor(ColorConstants.white);
+			graphics.setBackgroundColor(ColorConstants.white());
 			graphics.fillRectangle(getBounds());
 		}
 	}

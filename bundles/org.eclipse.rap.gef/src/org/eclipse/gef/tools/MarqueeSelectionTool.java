@@ -92,8 +92,8 @@ public class MarqueeSelectionTool extends AbstractTool {
 			graphics.translate(getLocation());
 
 			graphics.setXORMode(true);
-			graphics.setForegroundColor(ColorConstants.white);
-			graphics.setBackgroundColor(ColorConstants.black);
+			graphics.setForegroundColor(ColorConstants.white());
+			graphics.setBackgroundColor(ColorConstants.black());
 			graphics.setLineStyle(Graphics.LINE_DOT);
 
 			int[] points = new int[6];

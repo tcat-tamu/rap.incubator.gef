@@ -61,7 +61,7 @@ public class ObstructionExample extends AbstractExample {
 			loc = location;
 			thisFigure = this;
 			this.isSource = isItSource;
-			setBackgroundColor(ColorConstants.darkBlue);
+			setBackgroundColor(ColorConstants.darkBlue());
 
 			addMouseListener(new MouseListener.Stub() {
 				public void mousePressed(MouseEvent event) {
@@ -143,7 +143,7 @@ public class ObstructionExample extends AbstractExample {
 		public DragFigure() {
 			thisFigure = this;
 
-			setBackgroundColor(ColorConstants.green);
+			setBackgroundColor(ColorConstants.green());
 
 			addMouseListener(new MouseListener.Stub() {
 				public void mousePressed(MouseEvent event) {
@@ -293,8 +293,8 @@ public class ObstructionExample extends AbstractExample {
 			router.solve();
 			g.setLineWidth(1);
 
-			g.setForegroundColor(ColorConstants.blue);
-			g.setBackgroundColor(ColorConstants.button);
+			g.setForegroundColor(ColorConstants.blue());
+			g.setBackgroundColor(ColorConstants.button());
 
 			// draw paths
 			Path path = null;

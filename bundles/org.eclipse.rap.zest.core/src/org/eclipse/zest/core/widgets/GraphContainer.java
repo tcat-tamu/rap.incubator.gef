@@ -713,7 +713,7 @@ public class GraphContainer extends GraphNode implements IContainer {
 		zestLayer.setLayoutManager(new FreeformLayout());
 		scrollPane.setSize(computeChildArea());
 		scrollPane.setLocation(new Point(0, containerDimension.labelHeight - SUBLAYER_OFFSET));
-		scrollPane.setForegroundColor(ColorConstants.gray);
+		scrollPane.setForegroundColor(ColorConstants.gray());
 
 		expandGraphLabel.setBackgroundColor(getBackgroundColor());
 		expandGraphLabel.setForegroundColor(getForegroundColor());

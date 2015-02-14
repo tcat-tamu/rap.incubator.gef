@@ -309,8 +309,8 @@ public class Clickable extends Figure {
 	protected void paintBorder(Graphics graphics) {
 		super.paintBorder(graphics);
 		if (hasFocus()) {
-			graphics.setForegroundColor(ColorConstants.black);
-			graphics.setBackgroundColor(ColorConstants.white);
+			graphics.setForegroundColor(ColorConstants.black());
+			graphics.setBackgroundColor(ColorConstants.white());
 
 			Rectangle area = getClientArea();
 			if (isStyle(STYLE_BUTTON))

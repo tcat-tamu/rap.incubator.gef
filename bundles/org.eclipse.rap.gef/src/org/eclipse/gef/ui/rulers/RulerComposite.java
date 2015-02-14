@@ -466,7 +466,7 @@ public class RulerComposite extends Composite {
 		 *      org.eclipse.draw2d.Graphics, org.eclipse.draw2d.geometry.Insets)
 		 */
 		public void paint(IFigure figure, Graphics graphics, Insets insets) {
-			graphics.setForegroundColor(ColorConstants.buttonDarker);
+			graphics.setForegroundColor(ColorConstants.buttonDarker());
 			if (horizontal) {
 				graphics.drawLine(
 						figure.getBounds().getTopLeft(),

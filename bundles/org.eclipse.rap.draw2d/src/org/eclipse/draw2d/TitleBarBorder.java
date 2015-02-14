@@ -26,8 +26,8 @@ import org.eclipse.draw2d.geometry.Rectangle;
  */
 public class TitleBarBorder extends AbstractLabeledBorder {
 
-	private static Color defaultBackgroundColor = ColorConstants.menuBackgroundSelected;
-	private static Color defaultForegroundColor = ColorConstants.menuForegroundSelected;
+	private static Color defaultBackgroundColor = ColorConstants.menuBackgroundSelected();
+	private static Color defaultForegroundColor = ColorConstants.menuForegroundSelected();
 
 	private int textAlignment = PositionConstants.LEFT;
 	private Insets padding = new Insets(1, 3, 2, 2);

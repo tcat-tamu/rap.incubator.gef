@@ -26,7 +26,7 @@ class DropShadowButtonBorder extends AbstractBorder {
 
 	protected Insets insets = new Insets(1, 1, 3, 3);
 
-	private static final Color highlight = ColorConstants.menuBackgroundSelected,
+	private static final Color highlight = ColorConstants.menuBackgroundSelected(),
 			dropshadow2 = new Color(null, ViewForm.borderMiddleRGB),
 			dropshadow3 = new Color(null, ViewForm.borderOutsideRGB);
 

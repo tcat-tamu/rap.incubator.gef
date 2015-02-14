@@ -21,7 +21,7 @@ public class LEDFeedbackFigure extends LEDFigure {
 	 */
 	protected void paintFigure(Graphics g) {
 		g.setXORMode(true);
-		g.setForegroundColor(ColorConstants.white);
+		g.setForegroundColor(ColorConstants.white());
 
 		Rectangle r = getBounds().getCopy();
 		g.translate(r.getLocation());

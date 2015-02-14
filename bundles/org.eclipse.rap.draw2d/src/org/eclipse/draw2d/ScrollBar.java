@@ -33,7 +33,7 @@ public class ScrollBar extends Figure implements Orientable,
 	protected static final int MAX_FLAG = ORIENTATION_FLAG;
 
 	private static final Color COLOR_TRACK = FigureUtilities.mixColors(
-			ColorConstants.white, ColorConstants.button);
+			ColorConstants.white(), ColorConstants.button());
 
 	private RangeModel rangeModel = null;
 	private IFigure thumb;
@@ -78,7 +78,7 @@ public class ScrollBar extends Figure implements Orientable,
 	protected Clickable createDefaultUpButton() {
 		Button buttonUp = new ArrowButton();
 		buttonUp.setBorder(new ButtonBorder(
-				ButtonBorder.SCHEMES.BUTTON_SCROLLBAR));
+				ButtonBorder.SCHEMES.BUTTON_SCROLLBAR()));
 		return buttonUp;
 	}
 
@@ -91,7 +91,7 @@ public class ScrollBar extends Figure implements Orientable,
 	protected Clickable createDefaultDownButton() {
 		Button buttonDown = new ArrowButton();
 		buttonDown.setBorder(new ButtonBorder(
-				ButtonBorder.SCHEMES.BUTTON_SCROLLBAR));
+				ButtonBorder.SCHEMES.BUTTON_SCROLLBAR()));
 		return buttonDown;
 	}
 
@@ -120,7 +120,7 @@ public class ScrollBar extends Figure implements Orientable,
 		clickable.addChangeListener(new ChangeListener() {
 			public void handleStateChanged(ChangeEvent evt) {
 				if (clickable.getModel().isArmed())
-					clickable.setBackgroundColor(ColorConstants.black);
+					clickable.setBackgroundColor(ColorConstants.black());
 				else
 					clickable.setBackgroundColor(COLOR_TRACK);
 			}
@@ -138,9 +138,9 @@ public class ScrollBar extends Figure implements Orientable,
 	protected IFigure createDefaultThumb() {
 		Panel thumb = new Panel();
 		thumb.setMinimumSize(new Dimension(6, 6));
-		thumb.setBackgroundColor(ColorConstants.button);
+		thumb.setBackgroundColor(ColorConstants.button());
 
-		thumb.setBorder(new SchemeBorder(SchemeBorder.SCHEMES.BUTTON_CONTRAST));
+		thumb.setBorder(new SchemeBorder(SchemeBorder.SCHEMES.BUTTON_CONTRAST()));
 		return thumb;
 	}
 

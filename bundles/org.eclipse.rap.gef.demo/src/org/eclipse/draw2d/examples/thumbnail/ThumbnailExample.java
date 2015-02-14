@@ -79,7 +79,7 @@ public class ThumbnailExample {
 		contents.setBorder(new LineBorder());
 		contents.setLayoutManager(new XYLayout());
 		final Figure figure1 = new RectangleFigure();
-		figure1.setBackgroundColor(ColorConstants.green);
+		figure1.setBackgroundColor(ColorConstants.green());
 		figure1.setBounds(new Rectangle(50, 50, 200, 200));
 		figure1.addMouseListener(new MouseListener.Stub() {
 			public void mousePressed(MouseEvent event) {
@@ -102,7 +102,7 @@ public class ThumbnailExample {
 		});
 		contents.add(figure1);
 		final Figure figure2 = new RectangleFigure();
-		figure2.setBackgroundColor(ColorConstants.blue);
+		figure2.setBackgroundColor(ColorConstants.blue());
 		figure2.setBounds(new Rectangle(350, 350, 150, 200));
 		figure2.addMouseListener(new MouseListener.Stub() {
 			public void mousePressed(MouseEvent event) {

@@ -21,7 +21,7 @@ public class XOrGateFeedbackFigure extends XOrGateFigure {
 	 */
 	protected void paintFigure(Graphics g) {
 		g.setXORMode(true);
-		g.setForegroundColor(ColorConstants.white);
+		g.setForegroundColor(ColorConstants.white());
 		g.setBackgroundColor(LogicColorConstants.ghostFillColor);
 		Rectangle r = getBounds().getCopy();
 		r.translate(2, 2);

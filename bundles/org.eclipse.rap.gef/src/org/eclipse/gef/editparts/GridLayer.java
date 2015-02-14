@@ -46,11 +46,11 @@ public class GridLayer extends FreeformLayer {
 	protected Point origin = new Point();
 
 	/**
-	 * Constructor Sets the default grid color: ColorConstants.lightGray
+	 * Constructor Sets the default grid color: ColorConstants.lightGray()
 	 */
 	public GridLayer() {
 		super();
-		setForegroundColor(ColorConstants.lightGray);
+		setForegroundColor(ColorConstants.lightGray());
 	}
 
 	/**

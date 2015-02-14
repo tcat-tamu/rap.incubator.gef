@@ -41,16 +41,16 @@ public class SimpleActivityLabel extends Label {
 	protected void paintFigure(Graphics graphics) {
 		if (selected) {
 			graphics.pushState();
-			graphics.setBackgroundColor(ColorConstants.menuBackgroundSelected);
+			graphics.setBackgroundColor(ColorConstants.menuBackgroundSelected());
 			graphics.fillRectangle(getSelectionRectangle());
 			graphics.popState();
-			graphics.setForegroundColor(ColorConstants.white);
+			graphics.setForegroundColor(ColorConstants.white());
 		}
 		if (hasFocus) {
 			graphics.pushState();
 			graphics.setXORMode(true);
-			graphics.setForegroundColor(ColorConstants.menuBackgroundSelected);
-			graphics.setBackgroundColor(ColorConstants.white);
+			graphics.setForegroundColor(ColorConstants.menuBackgroundSelected());
+			graphics.setBackgroundColor(ColorConstants.white());
 			graphics.drawFocus(getSelectionRectangle().resize(-1, -1));
 			graphics.popState();
 		}

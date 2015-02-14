@@ -46,7 +46,7 @@ public static Figure buildGraph(DirectedGraph graph) {
 	Figure contents = new Panel();
 		
 //	contents.setFont(new Font(null, "Tahoma", 10, 0));
-	contents.setBackgroundColor(ColorConstants.white);
+	contents.setBackgroundColor(ColorConstants.white());
 	contents.setLayoutManager(new XYLayout());
 	
 	for (int i = 0; i < graph.nodes.size(); i++) {

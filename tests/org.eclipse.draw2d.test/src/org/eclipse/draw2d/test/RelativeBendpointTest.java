@@ -38,7 +38,7 @@ public class RelativeBendpointTest extends AbstractFixtureTestCase {
 		public DiagramFigure() {
 			super();
 			setLayoutManager(new FreeformLayout());
-			setBackgroundColor(ColorConstants.white);
+			setBackgroundColor(ColorConstants.white());
 			setOpaque(true);
 		}
 	}
@@ -47,7 +47,7 @@ public class RelativeBendpointTest extends AbstractFixtureTestCase {
 		public NodeFigure() {
 			super();
 			setFill(true);
-			setBackgroundColor(ColorConstants.darkGray);
+			setBackgroundColor(ColorConstants.darkGray());
 		}
 	}
 

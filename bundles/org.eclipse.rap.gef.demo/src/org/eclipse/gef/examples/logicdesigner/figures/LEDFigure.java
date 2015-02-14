@@ -162,7 +162,7 @@ public class LEDFigure extends NodeFigure implements HandleBounds {
 		g.drawLine(right, Y1, right, Y2);
 
 		// Draw the gaps for the connectors
-		g.setForegroundColor(ColorConstants.listBackground);
+		g.setForegroundColor(ColorConstants.listBackground());
 		for (int i = 0; i < 4; i++) {
 			g.drawLine(GAP_CENTERS_X[i] - 2, Y1, GAP_CENTERS_X[i] + 3, Y1);
 			g.drawLine(GAP_CENTERS_X[i] - 2, Y2, GAP_CENTERS_X[i] + 3, Y2);
@@ -188,7 +188,7 @@ public class LEDFigure extends NodeFigure implements HandleBounds {
 		g.fillRectangle(displayHighlight);
 		g.setBackgroundColor(DISPLAY_SHADOW);
 		g.fillRectangle(displayShadow);
-		g.setBackgroundColor(ColorConstants.black);
+		g.setBackgroundColor(ColorConstants.black());
 		g.fillRectangle(displayRectangle);
 
 		// Draw the value

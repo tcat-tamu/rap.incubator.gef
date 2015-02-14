@@ -65,8 +65,8 @@ public class RulerFigure extends Figure {
 	public RulerFigure(boolean isHorizontal, int measurementUnit) {
 		setHorizontal(isHorizontal);
 		setUnit(measurementUnit);
-		setBackgroundColor(ColorConstants.listBackground);
-		setForegroundColor(ColorConstants.listForeground);
+		setBackgroundColor(ColorConstants.listBackground());
+		setForegroundColor(ColorConstants.listForeground());
 		setOpaque(true);
 		setLayoutManager(new RulerLayout());
 	}
@@ -371,7 +371,7 @@ public class RulerFigure extends Figure {
 		}
 		// paint the border
 		clippedBounds.expand(BORDER_WIDTH, 0);
-		graphics.setForegroundColor(ColorConstants.buttonDarker);
+		graphics.setForegroundColor(ColorConstants.buttonDarker());
 		graphics.drawLine(
 				transposer.t(clippedBounds.getTopRight().translate(-1, -1)),
 				transposer.t(clippedBounds.getBottomRight().translate(-1, -1)));

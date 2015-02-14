@@ -86,7 +86,7 @@ public TreeBranch(IFigure title) {
 public TreeBranch(IFigure title, int style) {
 	setStyle(style);
 	if (title.getBorder() == null)
-		title.setBorder(new LineBorder(ColorConstants.gray, 2));
+		title.setBorder(new LineBorder(ColorConstants.gray(), 2));
 	this.node = title;
 	add(contents);
 	add(title);

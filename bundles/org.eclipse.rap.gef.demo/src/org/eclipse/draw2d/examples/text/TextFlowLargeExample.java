@@ -84,7 +84,7 @@ static public void populatePage(){
 	target.setToolTip(new Label("This is a Tooltip"));
 	page.add(target);
 	page.setOpaque(true);
-	page.setBackgroundColor(ColorConstants.white);
+	page.setBackgroundColor(ColorConstants.white());
 
 	for (int i=0; i< 20; i++){
 		BlockFlow bf = new BlockFlow();

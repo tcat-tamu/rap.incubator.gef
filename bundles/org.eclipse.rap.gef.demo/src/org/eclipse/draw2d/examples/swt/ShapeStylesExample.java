@@ -326,7 +326,7 @@ public class ShapeStylesExample {
 				}
 				
 				// apply default style
-				shape.setBackgroundColor(ColorConstants.orange);
+				shape.setBackgroundColor(ColorConstants.orange());
 				shape.setLineWidthFloat(defaultLineWidth);
 				shape.setAntialias(SWT.ON);
 				

@@ -45,7 +45,7 @@ public class CircuitFigure extends NodeFigure implements HandleBounds,
 		scrollpane.setContents(pane);
 
 		createConnectionAnchors();
-		setBackgroundColor(ColorConstants.listBackground);
+		setBackgroundColor(ColorConstants.listBackground());
 		setOpaque(true);
 	}
 

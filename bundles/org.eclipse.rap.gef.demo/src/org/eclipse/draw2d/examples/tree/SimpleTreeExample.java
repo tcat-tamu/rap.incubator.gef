@@ -29,7 +29,7 @@ public static void main(String[] args) {
  * @see org.eclipse.draw2d.examples.AbstractExample#getContents()
  */
 protected IFigure getContents() {
-	getFigureCanvas().setBackground(ColorConstants.white);
+	getFigureCanvas().setBackground(ColorConstants.white());
 	TreeRoot root = new TreeRoot(new PageNode("Graph Root"));
 	root.setAlignment(PositionConstants.LEFT);
 

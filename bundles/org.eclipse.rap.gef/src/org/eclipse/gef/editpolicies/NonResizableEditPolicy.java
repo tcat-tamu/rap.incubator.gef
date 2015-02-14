@@ -70,7 +70,7 @@ public class NonResizableEditPolicy extends SelectionHandlesEditPolicy {
 		RectangleFigure r = new RectangleFigure();
 		FigureUtilities.makeGhostShape(r);
 		r.setLineStyle(Graphics.LINE_DOT);
-		r.setForegroundColor(ColorConstants.white);
+		r.setForegroundColor(ColorConstants.white());
 		r.setBounds(getInitialFeedbackBounds());
 		r.validate();
 		addFeedback(r);

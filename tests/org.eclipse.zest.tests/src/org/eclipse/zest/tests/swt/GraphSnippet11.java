@@ -18,7 +18,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.zest.core.widgets.Graph;
 import org.eclipse.zest.core.widgets.GraphConnection;
 import org.eclipse.zest.core.widgets.GraphNode;
-import org.eclipse.zest.core.widgets.ZestStyles;
 import org.eclipse.zest.layouts.LayoutStyles;
 import org.eclipse.zest.layouts.algorithms.SpringLayoutAlgorithm;
 
@@ -31,14 +30,14 @@ import org.eclipse.zest.layouts.algorithms.SpringLayoutAlgorithm;
  */
 public class GraphSnippet11 {
 
-
-	public static void createConnection( Graph g, GraphNode n1, GraphNode n2, Color color, int curve) {
+	public static void createConnection(Graph g, GraphNode n1, GraphNode n2,
+			Color color, int curve) {
 		GraphConnection connection = new GraphConnection(g, SWT.NONE, n1, n2);
 		connection.setLineColor(color);
 		connection.setCurveDepth(curve);
 		connection.setLineWidth(1);
 	}
-	
+
 	public static void main(String[] args) {
 		Display d = new Display();
 		Shell shell = new Shell(d);
@@ -49,14 +48,15 @@ public class GraphSnippet11 {
 		final Graph g = new Graph(shell, SWT.NONE);
 		GraphNode n = new GraphNode(g, SWT.NONE, "Node 1");
 		GraphNode n2 = new GraphNode(g, SWT.NONE, "Node 2");
-		createConnection(g, n, n2, ColorConstants.darkGreen, 20);
-		createConnection(g, n, n2, ColorConstants.darkGreen, -20);
-		createConnection(g, n, n2, ColorConstants.darkBlue, 40);
-		createConnection(g, n, n2, ColorConstants.darkBlue, -40);
-		createConnection(g, n, n2, ColorConstants.darkGray, 60);
-		createConnection(g, n, n2, ColorConstants.darkGray, -60);
-		createConnection(g, n, n2, ColorConstants.black, 0);
-		g.setLayoutAlgorithm(new SpringLayoutAlgorithm(LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
+		createConnection(g, n, n2, ColorConstants.darkGreen(), 20);
+		createConnection(g, n, n2, ColorConstants.darkGreen(), -20);
+		createConnection(g, n, n2, ColorConstants.darkBlue(), 40);
+		createConnection(g, n, n2, ColorConstants.darkBlue(), -40);
+		createConnection(g, n, n2, ColorConstants.darkGray(), 60);
+		createConnection(g, n, n2, ColorConstants.darkGray(), -60);
+		createConnection(g, n, n2, ColorConstants.black(), 0);
+		g.setLayoutAlgorithm(new SpringLayoutAlgorithm(
+				LayoutStyles.NO_LAYOUT_NODE_RESIZING), true);
 
 		shell.open();
 		while (!shell.isDisposed()) {

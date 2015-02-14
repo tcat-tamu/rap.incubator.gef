@@ -371,8 +371,8 @@ class StackMenuListener implements MenuListener {
 
 class RolloverArrow extends Clickable {
 
-	private static final Border BORDER_TOGGLE = new ButtonBorder(
-			ButtonBorder.SCHEMES.TOOLBAR);
+	private final Border BORDER_TOGGLE = new ButtonBorder(
+			ButtonBorder.SCHEMES.TOOLBAR());
 
 	/**
 	 * Creates a new Clickable that paints a triangle figure.
@@ -381,7 +381,7 @@ class RolloverArrow extends Clickable {
 		super();
 		setRolloverEnabled(true);
 		setBorder(BORDER_TOGGLE);
-		setBackgroundColor(ColorConstants.black);
+		setBackgroundColor(ColorConstants.black());
 		setOpaque(false);
 		setPreferredSize(11, -1);
 	}

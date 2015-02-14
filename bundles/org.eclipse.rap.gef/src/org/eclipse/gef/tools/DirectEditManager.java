@@ -50,7 +50,7 @@ import org.eclipse.gef.requests.DirectEditRequest;
  */
 public abstract class DirectEditManager {
 
-	private static final Color BLUE = ColorConstants.menuBackgroundSelected;
+	private static final Color BLUE = ColorConstants.menuBackgroundSelected();
 	private static final Border BORDER_FRAME = new DirectEditBorder();
 
 	private AncestorListener ancestorListener;
@@ -465,12 +465,12 @@ public abstract class DirectEditManager {
 
 		public void paint(IFigure figure, Graphics graphics, Insets insets) {
 			Rectangle rect = getPaintRectangle(figure, insets);
-			graphics.setForegroundColor(ColorConstants.white);
+			graphics.setForegroundColor(ColorConstants.white());
 			graphics.drawLine(rect.x, rect.y, rect.x, rect.bottom());
 			rect.x++;
 			rect.width--;
 			rect.resize(-1, -1);
-			graphics.setForegroundColor(ColorConstants.black);
+			graphics.setForegroundColor(ColorConstants.black());
 			graphics.drawLine(rect.x + 2, rect.bottom(), rect.right(),
 					rect.bottom());
 			graphics.drawLine(rect.right(), rect.bottom(), rect.right(),

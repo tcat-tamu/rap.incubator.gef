@@ -21,7 +21,7 @@ public class GroundFeedbackFigure extends GroundFigure {
 	 */
 	protected void paintFigure(Graphics g) {
 		g.setXORMode(true);
-		g.setForegroundColor(ColorConstants.white);
+		g.setForegroundColor(ColorConstants.white());
 		g.setBackgroundColor(LogicColorConstants.ghostFillColor);
 		Rectangle r = getBounds().getCopy();
 

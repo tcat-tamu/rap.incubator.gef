@@ -33,14 +33,14 @@ public static void main(String[] args) {
 	
 	Figure panel = new Figure();
 	panel.setLayoutManager(new FlowLayout());
-	panel.setBackgroundColor(ColorConstants.white);
+	panel.setBackgroundColor(ColorConstants.white());
 
 	MouseMotionListener listener = new MouseMotionListener.Stub() {
 		public void mouseEntered(MouseEvent me) {
-			((Shape)me.getSource()).setBackgroundColor(ColorConstants.yellow);
+			((Shape)me.getSource()).setBackgroundColor(ColorConstants.yellow());
 		}
 		public void mouseExited(MouseEvent me) {
-			((Shape)me.getSource()).setBackgroundColor(ColorConstants.white);
+			((Shape)me.getSource()).setBackgroundColor(ColorConstants.white());
 		}
 	};
 

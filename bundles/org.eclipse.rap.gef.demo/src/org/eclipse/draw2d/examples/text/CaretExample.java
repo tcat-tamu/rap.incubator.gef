@@ -51,7 +51,7 @@
 //		};
 //	};
 //	
-//	page.setBorder(new LineBorder(ColorConstants.darkGray, 10));
+//	page.setBorder(new LineBorder(ColorConstants.darkGray(), 10));
 //	page.setHorizontalAligment(PositionConstants.CENTER);
 //	
 //	final TextFlow text = new TextFlow();

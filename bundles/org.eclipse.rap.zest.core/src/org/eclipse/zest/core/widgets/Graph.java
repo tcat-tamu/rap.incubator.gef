@@ -80,8 +80,8 @@ public class Graph extends FigureCanvas implements IContainer {
 	public Color DARK_BLUE = null;
 	public Color LIGHT_YELLOW = null;
 
-	public Color HIGHLIGHT_COLOR = ColorConstants.yellow;
-	public Color HIGHLIGHT_ADJACENT_COLOR = ColorConstants.orange;
+	public Color HIGHLIGHT_COLOR = ColorConstants.yellow();
+	public Color HIGHLIGHT_ADJACENT_COLOR = ColorConstants.orange();
 	public Color DEFAULT_NODE_COLOR = LIGHT_BLUE;
 
 	/**
@@ -123,7 +123,7 @@ public class Graph extends FigureCanvas implements IContainer {
 	public Graph(Composite parent, int style) {
 		super(parent, style | SWT.DOUBLE_BUFFERED);
 		this.style = style;
-		this.setBackground(ColorConstants.white);
+		this.setBackground(ColorConstants.white());
 
 		LIGHT_BLUE = new Color(Display.getDefault(), 216, 228, 248);
 		LIGHT_BLUE_CYAN = new Color(Display.getDefault(), 213, 243, 255);

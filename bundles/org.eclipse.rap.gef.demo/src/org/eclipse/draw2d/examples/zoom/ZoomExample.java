@@ -54,7 +54,7 @@ public static void main(String args[]){
 	final ScrollBar bar = new ScrollBar();
 	final Label l = new Label("�Zoom�");
 
-	l.setBorder(new SchemeBorder(ButtonBorder.SCHEMES.BUTTON_SCROLLBAR));
+	l.setBorder(new SchemeBorder(ButtonBorder.SCHEMES.BUTTON_SCROLLBAR()));
 	bar.setThumb(l);
 	bar.setHorizontal(true);
 	bar.setMaximum(200);

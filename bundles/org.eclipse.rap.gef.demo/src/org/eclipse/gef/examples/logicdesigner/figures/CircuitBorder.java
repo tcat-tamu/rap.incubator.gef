@@ -47,7 +47,7 @@ public class CircuitBorder extends AbstractBorder {
 			x1 = rec.x + (2 * i + 1) * width / 8;
 
 			// Draw the "gap" for the connector
-			g.setForegroundColor(ColorConstants.listBackground);
+			g.setForegroundColor(ColorConstants.listBackground());
 			g.drawLine(x1 - 2, y1 + 2, x1 + 3, y1 + 2);
 
 			// Draw the connectors
@@ -56,7 +56,7 @@ public class CircuitBorder extends AbstractBorder {
 			g.fillPolygon(connector);
 			g.drawPolygon(connector);
 			connector.translate(-x1, -y1);
-			g.setForegroundColor(ColorConstants.listBackground);
+			g.setForegroundColor(ColorConstants.listBackground());
 			g.drawLine(x1 - 2, bottom - 3, x1 + 3, bottom - 3);
 			g.setForegroundColor(LogicColorConstants.connectorGreen);
 			bottomConnector.translate(x1, bottom);

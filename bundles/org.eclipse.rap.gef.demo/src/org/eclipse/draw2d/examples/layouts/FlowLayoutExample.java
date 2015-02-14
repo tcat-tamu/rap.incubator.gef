@@ -56,57 +56,57 @@ protected IFigure getContents() {
 	
 	Shape shape;
 	shape = new Ellipse();
-	shape.setBackgroundColor(ColorConstants.blue);
+	shape.setBackgroundColor(ColorConstants.blue());
 	shape.setSize(60,40);
 	container.add(shape);
 
 	shape = new RectangleFigure();
-	shape.setBackgroundColor(ColorConstants.red);
+	shape.setBackgroundColor(ColorConstants.red());
 	shape.setSize(30,70);
 	container.add(shape);
 
 	shape = new RoundedRectangle();
-	shape.setBackgroundColor(ColorConstants.yellow);
+	shape.setBackgroundColor(ColorConstants.yellow());
 	shape.setSize(90,30);
 	container.add(shape);
 
 	shape = new RectangleFigure();
-	shape.setBackgroundColor(ColorConstants.gray);
+	shape.setBackgroundColor(ColorConstants.gray());
 	shape.setSize(50,80);
 	container.add(shape);
 
 	shape = new Ellipse();
-	shape.setBackgroundColor(ColorConstants.green);
+	shape.setBackgroundColor(ColorConstants.green());
 	shape.setSize(50,50);
 	container.add(shape);
 	
 	shape = new Triangle();
-	shape.setBackgroundColor(ColorConstants.black);
+	shape.setBackgroundColor(ColorConstants.black());
 	shape.setSize(50,50);
 	container.add(shape);
 
 	shape = new RoundedRectangle();
-	shape.setBackgroundColor(ColorConstants.cyan);
+	shape.setBackgroundColor(ColorConstants.cyan());
 	shape.setSize(50,50);
 	container.add(shape);
 
 	shape = new RectangleFigure();
-	shape.setBackgroundColor(ColorConstants.darkGreen);
+	shape.setBackgroundColor(ColorConstants.darkGreen());
 	shape.setSize(50,50);
 	container.add(shape);
 
 	shape = new Triangle();
-	shape.setBackgroundColor(ColorConstants.orange);
+	shape.setBackgroundColor(ColorConstants.orange());
 	shape.setSize(50,50);
 	container.add(shape);
 	
 	shape = new Ellipse();
-	shape.setBackgroundColor(ColorConstants.red);
+	shape.setBackgroundColor(ColorConstants.red());
 	shape.setSize(50,50);
 	container.add(shape);
 
 	shape = new RoundedRectangle();
-	shape.setBackgroundColor(ColorConstants.yellow);
+	shape.setBackgroundColor(ColorConstants.yellow());
 	shape.setSize(50,50);
 	container.add(shape);
 

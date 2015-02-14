@@ -22,7 +22,7 @@ public class GuidePlaceHolder extends GuideFigure {
 
 	public GuidePlaceHolder(boolean isHorizontal) {
 		super(isHorizontal);
-		setBackgroundColor(ColorConstants.lightGray);
+		setBackgroundColor(ColorConstants.lightGray());
 	}
 
 	protected void paintFigure(Graphics graphics) {
@@ -38,7 +38,7 @@ public class GuidePlaceHolder extends GuideFigure {
 			list.addPoint(clientArea.x, clientArea.y + 6);
 			graphics.fillPolygon(list);
 			graphics.drawPolygon(list);
-			graphics.setForegroundColor(ColorConstants.buttonLightest);
+			graphics.setForegroundColor(ColorConstants.buttonLightest());
 			graphics.drawLine(clientArea.x - 1, clientArea.y, clientArea.x - 1,
 					clientArea.y + 6);
 			graphics.drawLine(clientArea.x, clientArea.y - 1, clientArea.x + 3,
@@ -56,7 +56,7 @@ public class GuidePlaceHolder extends GuideFigure {
 			list.addPoint(clientArea.x, clientArea.y + 3);
 			graphics.fillPolygon(list);
 			graphics.drawPolygon(list);
-			graphics.setForegroundColor(ColorConstants.buttonLightest);
+			graphics.setForegroundColor(ColorConstants.buttonLightest());
 			graphics.drawLine(clientArea.x, clientArea.y - 1, clientArea.x + 6,
 					clientArea.y - 1);
 			graphics.drawLine(clientArea.x - 1, clientArea.y, clientArea.x - 1,

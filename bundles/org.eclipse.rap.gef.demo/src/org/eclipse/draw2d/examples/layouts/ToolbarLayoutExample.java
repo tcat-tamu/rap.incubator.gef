@@ -57,27 +57,27 @@ protected IFigure getContents() {
 	container.setLayoutManager(layout = new ToolbarLayout(true));
 	
 	ellipse = new Ellipse();
-	ellipse.setBackgroundColor(ColorConstants.blue);
+	ellipse.setBackgroundColor(ColorConstants.blue());
 	ellipse.setSize(60,40);
 	container.add(ellipse);
 
 	rect = new RectangleFigure();
-	rect.setBackgroundColor(ColorConstants.red);
+	rect.setBackgroundColor(ColorConstants.red());
 	rect.setSize(30,70);
 	container.add(rect);
 
 	roundRect = new RoundedRectangle();
-	roundRect.setBackgroundColor(ColorConstants.yellow);
+	roundRect.setBackgroundColor(ColorConstants.yellow());
 	roundRect.setSize(90,30);
 	container.add(roundRect);
 
 	rect2 = new RectangleFigure();
-	rect2.setBackgroundColor(ColorConstants.gray);
+	rect2.setBackgroundColor(ColorConstants.gray());
 	rect2.setSize(50,80);
 	container.add(rect2);
 
 	ellipse2 = new Ellipse();
-	ellipse2.setBackgroundColor(ColorConstants.green);
+	ellipse2.setBackgroundColor(ColorConstants.green());
 	ellipse2.setSize(50,50);
 	container.add(ellipse2);
 	

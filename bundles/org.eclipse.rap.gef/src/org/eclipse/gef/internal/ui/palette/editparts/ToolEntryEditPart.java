@@ -254,7 +254,7 @@ public class ToolEntryEditPart extends PaletteEditPart {
 					setBorder(null);
 				}
 				setRolloverEnabled(false);
-				setForegroundColor(ColorConstants.gray);
+				setForegroundColor(ColorConstants.gray());
 			}
 		}
 
@@ -286,8 +286,8 @@ public class ToolEntryEditPart extends PaletteEditPart {
 				if (getBorder() != null)
 					getBorder().paint(this, graphics, NO_INSETS);
 				if (hasFocus()) {
-					graphics.setForegroundColor(ColorConstants.black);
-					graphics.setBackgroundColor(ColorConstants.white);
+					graphics.setForegroundColor(ColorConstants.black());
+					graphics.setBackgroundColor(ColorConstants.white());
 
 					Rectangle area = isToolbarItem() ? getClientArea()
 							: getSelectionRectangle(getLayoutSetting(),
@@ -366,8 +366,8 @@ public class ToolEntryEditPart extends PaletteEditPart {
 		};
 	}
 
-	static final Border TOOLBAR_ITEM_BORDER = new ButtonBorder(
-			ButtonBorder.SCHEMES.TOOLBAR);
+	final Border TOOLBAR_ITEM_BORDER = new ButtonBorder(
+			ButtonBorder.SCHEMES.TOOLBAR());
 
 	// The following are the insets that the bounds of the label figure should
 	// be

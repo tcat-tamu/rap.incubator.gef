@@ -54,8 +54,8 @@ public class ArrowButton extends Button implements Orientable {
 	protected void createTriangle() {
 		Triangle tri = new Triangle();
 		tri.setOutline(true);
-		tri.setBackgroundColor(ColorConstants.listForeground);
-		tri.setForegroundColor(ColorConstants.listForeground);
+		tri.setBackgroundColor(ColorConstants.listForeground());
+		tri.setForegroundColor(ColorConstants.listForeground());
 		tri.setBorder(new MarginBorder(new Insets(2)));
 		setContents(tri);
 	}

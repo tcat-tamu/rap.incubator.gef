@@ -77,7 +77,7 @@ public abstract class SquareHandle extends AbstractHandle {
 	 * @return the color for the border
 	 */
 	protected Color getBorderColor() {
-		return (isPrimary()) ? ColorConstants.white : ColorConstants.black;
+		return (isPrimary()) ? ColorConstants.white() : ColorConstants.black();
 	}
 
 	/**
@@ -86,7 +86,7 @@ public abstract class SquareHandle extends AbstractHandle {
 	 * @return the color of the handle
 	 */
 	protected Color getFillColor() {
-		return (isPrimary()) ? ColorConstants.black : ColorConstants.white;
+		return (isPrimary()) ? ColorConstants.black() : ColorConstants.white();
 	}
 
 	/**

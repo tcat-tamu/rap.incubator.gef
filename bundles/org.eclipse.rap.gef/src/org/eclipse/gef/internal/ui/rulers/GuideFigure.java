@@ -33,7 +33,7 @@ public class GuideFigure extends Figure {
 
 	public GuideFigure(boolean isHorizontal) {
 		horizontal = isHorizontal;
-		setBackgroundColor(ColorConstants.button);
+		setBackgroundColor(ColorConstants.button());
 		if (horizontal) {
 			setCursor(SharedCursors.SIZENS);
 		} else {
@@ -94,7 +94,7 @@ public class GuideFigure extends Figure {
 			graphics.fillRectangle(clientArea
 					.getShrinked(new Insets(2, 2, 2, 1)));
 
-			graphics.setForegroundColor(ColorConstants.buttonLightest);
+			graphics.setForegroundColor(ColorConstants.buttonLightest());
 			graphics.drawLine(clientArea.x, clientArea.y + 1, clientArea.x,
 					clientArea.y + 7);
 			graphics.drawLine(clientArea.x + 1, clientArea.y, clientArea.x + 4,
@@ -112,7 +112,7 @@ public class GuideFigure extends Figure {
 			graphics.drawLine(clientArea.x + 7, clientArea.y + 3,
 					clientArea.x + 7, clientArea.y + 5);
 
-			graphics.setForegroundColor(ColorConstants.buttonDarker);
+			graphics.setForegroundColor(ColorConstants.buttonDarker());
 			graphics.drawLine(clientArea.x + 1, clientArea.y + 1,
 					clientArea.x + 4, clientArea.y + 1);
 			graphics.drawLine(clientArea.x + 1, clientArea.y + 2,
@@ -124,7 +124,7 @@ public class GuideFigure extends Figure {
 			graphics.drawLine(clientArea.x + 6, clientArea.y + 3,
 					clientArea.x + 6, clientArea.y + 3);
 
-			graphics.setForegroundColor(ColorConstants.buttonDarkest);
+			graphics.setForegroundColor(ColorConstants.buttonDarkest());
 			graphics.drawLine(clientArea.x + 3, clientArea.y + 7,
 					clientArea.x + 4, clientArea.y + 7);
 			graphics.drawLine(clientArea.x + 5, clientArea.y + 6,
@@ -137,8 +137,8 @@ public class GuideFigure extends Figure {
 			if (drawFocus) {
 				clientArea.expand(1, 1);
 				clientArea.height -= 1;
-				graphics.setForegroundColor(ColorConstants.black);
-				graphics.setBackgroundColor(ColorConstants.white);
+				graphics.setForegroundColor(ColorConstants.black());
+				graphics.setBackgroundColor(ColorConstants.white());
 				graphics.drawFocus(clientArea);
 			}
 		} else {
@@ -150,7 +150,7 @@ public class GuideFigure extends Figure {
 			graphics.fillRectangle(clientArea
 					.getShrinked(new Insets(2, 2, 1, 2)));
 
-			graphics.setForegroundColor(ColorConstants.buttonLightest);
+			graphics.setForegroundColor(ColorConstants.buttonLightest());
 			graphics.drawLine(clientArea.x + 1, clientArea.y, clientArea.x + 7,
 					clientArea.y);
 			graphics.drawLine(clientArea.x, clientArea.y + 1, clientArea.x,
@@ -168,7 +168,7 @@ public class GuideFigure extends Figure {
 			graphics.drawLine(clientArea.x + 3, clientArea.y + 7,
 					clientArea.x + 5, clientArea.y + 7);
 
-			graphics.setForegroundColor(ColorConstants.buttonDarker);
+			graphics.setForegroundColor(ColorConstants.buttonDarker());
 			graphics.drawLine(clientArea.x + 1, clientArea.y + 1,
 					clientArea.x + 1, clientArea.y + 4);
 			graphics.drawLine(clientArea.x + 2, clientArea.y + 1,
@@ -180,7 +180,7 @@ public class GuideFigure extends Figure {
 			graphics.drawLine(clientArea.x + 3, clientArea.y + 6,
 					clientArea.x + 3, clientArea.y + 6);
 
-			graphics.setForegroundColor(ColorConstants.buttonDarkest);
+			graphics.setForegroundColor(ColorConstants.buttonDarkest());
 			graphics.drawLine(clientArea.x + 7, clientArea.y + 3,
 					clientArea.x + 7, clientArea.y + 4);
 			graphics.drawLine(clientArea.x + 6, clientArea.y + 5,
@@ -193,8 +193,8 @@ public class GuideFigure extends Figure {
 			if (drawFocus) {
 				clientArea.expand(1, 1);
 				clientArea.width -= 1;
-				graphics.setForegroundColor(ColorConstants.black);
-				graphics.setBackgroundColor(ColorConstants.white);
+				graphics.setForegroundColor(ColorConstants.black());
+				graphics.setBackgroundColor(ColorConstants.white());
 				graphics.drawFocus(clientArea);
 			}
 		}

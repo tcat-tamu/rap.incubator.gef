@@ -26,7 +26,7 @@ public abstract class AbstractLabeledBorder extends AbstractBorder implements
 	private Dimension textExtents;
 	private String label;
 	private Insets insets;
-	private Color textColor = ColorConstants.black;
+	private Color textColor ;
 	private Font font;
 
 	/**
@@ -36,6 +36,7 @@ public abstract class AbstractLabeledBorder extends AbstractBorder implements
 	 * @since 2.0
 	 */
 	public AbstractLabeledBorder() {
+	    textColor = ColorConstants.black();
 		String className = getClass().getName();
 		setLabel(className.substring(className.lastIndexOf('.') + 1,
 				className.length()));
@@ -49,6 +50,7 @@ public abstract class AbstractLabeledBorder extends AbstractBorder implements
 	 * @since 2.0
 	 */
 	public AbstractLabeledBorder(String s) {
+	    textColor = ColorConstants.black();
 		setLabel(s);
 	}
 

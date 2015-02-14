@@ -83,8 +83,8 @@ public class GraphJFaceSnippet8 {
 			PolylineConnection pc = (PolylineConnection) connection
 					.getConnectionFigure();
 			pc.setLineDash(new float[] { 4 });
-			pc.setTargetDecoration(createDecoration(ColorConstants.white));
-			pc.setSourceDecoration(createDecoration(ColorConstants.green));
+			pc.setTargetDecoration(createDecoration(ColorConstants.white()));
+			pc.setSourceDecoration(createDecoration(ColorConstants.green()));
 		}
 
 		private PolygonDecoration createDecoration(final Color color) {

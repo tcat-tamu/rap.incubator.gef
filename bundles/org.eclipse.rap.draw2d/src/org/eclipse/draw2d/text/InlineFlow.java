@@ -137,7 +137,7 @@ public class InlineFlow extends FlowFigure {
 	protected void paintSelection(Graphics graphics) {
 		graphics.restoreState();
 		graphics.setXORMode(true);
-		graphics.setBackgroundColor(ColorConstants.white);
+		graphics.setBackgroundColor(ColorConstants.white());
 		List list = getFragments();
 		FlowBox box;
 		for (int i = 0; i < list.size(); i++) {

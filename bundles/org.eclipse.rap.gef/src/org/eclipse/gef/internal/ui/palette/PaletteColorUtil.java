@@ -25,15 +25,15 @@ import org.eclipse.draw2d.FigureUtilities;
  */
 public class PaletteColorUtil {
 
-	public static final Color WIDGET_BACKGROUND = ColorConstants.button;
+	public static final Color WIDGET_BACKGROUND = ColorConstants.button();
 
-	public static final Color WIDGET_NORMAL_SHADOW = ColorConstants.buttonDarker;
+	public static final Color WIDGET_NORMAL_SHADOW = ColorConstants.buttonDarker();
 
-	public static final Color WIDGET_DARK_SHADOW = ColorConstants.buttonDarkest;
+	public static final Color WIDGET_DARK_SHADOW = ColorConstants.buttonDarkest();
 
-	public static final Color WIDGET_LIST_BACKGROUND = ColorConstants.listBackground;
+	public static final Color WIDGET_LIST_BACKGROUND = ColorConstants.listBackground();
 
-	public static final Color INFO_FOREGROUND = ColorConstants.tooltipForeground;
+	public static final Color INFO_FOREGROUND = ColorConstants.tooltipForeground();
 
 	public static final Color ARROW_HOVER = new Color(null, 229, 229, 219);
 

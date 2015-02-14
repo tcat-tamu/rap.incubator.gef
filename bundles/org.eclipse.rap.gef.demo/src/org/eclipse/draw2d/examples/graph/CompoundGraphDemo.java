@@ -41,7 +41,7 @@ public class CompoundGraphDemo
 public static Figure buildGraph(CompoundDirectedGraph graph) {
 	Figure contents = new Panel();
 	contents.setFont(new Font(null, "Tahoma", 10, 0));
-	contents.setBackgroundColor(ColorConstants.white);
+	contents.setBackgroundColor(ColorConstants.white());
 	contents.setLayoutManager(new XYLayout());
 	
 	for (int i = 0; i < graph.subgraphs.size(); i++) {
@@ -111,7 +111,7 @@ public static Figure buildGraph(CompoundDirectedGraph graph) {
 
 private static void buildSubgraphFigure(Figure contents, Subgraph s) {
 	Figure figure = new Figure();	
-	figure.setBorder(new LineBorder(ColorConstants.blue, s.insets.left));
+	figure.setBorder(new LineBorder(ColorConstants.blue(), s.insets.left));
 	contents.add(figure, new Rectangle(s.x, s.y, s.width, s.height));
 }
 

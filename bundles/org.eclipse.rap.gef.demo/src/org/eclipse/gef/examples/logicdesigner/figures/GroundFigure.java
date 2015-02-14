@@ -41,7 +41,7 @@ public class GroundFigure extends OutputFigure {
 	 */
 	protected void paintFigure(Graphics g) {
 		Rectangle r = getBounds().getCopy();
-		g.setBackgroundColor(ColorConstants.yellow);
+		g.setBackgroundColor(ColorConstants.yellow());
 
 		g.fillOval(r);
 		r.height--;

@@ -55,9 +55,9 @@ protected IFigure getContents() {
 	RectangleFigure
 		node1 = new RectangleFigure(),
 		node2 = new RectangleFigure();
-	node1.setBackgroundColor(ColorConstants.red);
+	node1.setBackgroundColor(ColorConstants.red());
 	node1.setBounds(new Rectangle(40,40, 50, 30));
-	node2.setBackgroundColor(ColorConstants.blue);
+	node2.setBackgroundColor(ColorConstants.blue());
 	node2.setBounds(new Rectangle(200,40, 50, 30));
 	
 	PolylineConnection conn = new PolylineConnection();
@@ -67,7 +67,7 @@ protected IFigure getContents() {
 	  
 	Label label = new Label("Midpoint");
 	label.setOpaque(true);
-	label.setBackgroundColor(ColorConstants.buttonLightest);
+	label.setBackgroundColor(ColorConstants.buttonLightest());
 	label.setBorder(new LineBorder());
 	conn.add(label, new MidpointLocator(conn, 0));
 	//conn.setSourceDecoration(new ConnectionLabel());
@@ -86,9 +86,9 @@ protected IFigure getContents() {
 	Shape
 		node3 = new RectangleFigure(),
 		node4 = new RectangleFigure();
-	node3.setBackgroundColor(ColorConstants.green);
+	node3.setBackgroundColor(ColorConstants.green());
 	node3.setBounds(new Rectangle(480,40, 50, 30));
-	node4.setBackgroundColor(ColorConstants.black);
+	node4.setBackgroundColor(ColorConstants.black());
 	node4.setBounds(new Rectangle(480, 230, 50, 30));
 	
 	PolylineConnection conn2 = new PolylineConnection();
@@ -98,13 +98,13 @@ protected IFigure getContents() {
 	  
 	Label endPointLabel = new Label("Endpoint");
 	endPointLabel.setOpaque(true);
-	endPointLabel.setBackgroundColor(ColorConstants.buttonLightest);
+	endPointLabel.setBackgroundColor(ColorConstants.buttonLightest());
 	endPointLabel.setBorder(new LineBorder());
 	conn2.add(endPointLabel, new ConnectionEndpointLocator(conn2, true));
 	
 	Label endPointLabel2 = new Label("Endpoint");
 	endPointLabel2.setOpaque(true);
-	endPointLabel2.setBackgroundColor(ColorConstants.buttonLightest);
+	endPointLabel2.setBackgroundColor(ColorConstants.buttonLightest());
 	endPointLabel2.setBorder(new LineBorder());
 	ConnectionEndpointLocator endpointLocator = 
 				new ConnectionEndpointLocator(conn2,false);

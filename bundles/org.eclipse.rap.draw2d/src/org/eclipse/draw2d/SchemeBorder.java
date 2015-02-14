@@ -11,7 +11,6 @@
 package org.eclipse.draw2d;
 
 import org.eclipse.swt.graphics.Color;
-
 import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Rectangle;
 
@@ -21,16 +20,18 @@ import org.eclipse.draw2d.geometry.Rectangle;
  * purpose is to carry border specific information. SchemeBorder renders the
  * border based on the information given by the <i>Scheme</i> set to it.
  */
-public class SchemeBorder extends AbstractBorder implements ColorConstants {
+public class SchemeBorder extends AbstractBorder {
 
 	/** The {@link SchemeBorder.Scheme} associated with this SchemeBorder **/
 	protected Scheme scheme = null;
 
 	/** Arrays of Colors, used for shadow or highlight effects **/
-	protected static final Color DARKEST_DARKER[] = new Color[] {
-			buttonDarkest, buttonDarker }, LIGHTER_DARKER[] = new Color[] {
-			buttonLightest, buttonDarker }, DARKER_LIGHTER[] = new Color[] {
-			buttonDarker, buttonLightest };
+	protected static final Color[] DARKEST_DARKER() { return new Color[] {
+	  ColorConstants.buttonDarkest(), ColorConstants.buttonDarker() };}
+	protected static final Color[] LIGHTER_DARKER() { return new Color[] {
+	  ColorConstants.buttonLightest(), ColorConstants.buttonDarker() };}
+	protected static final Color[] DARKER_LIGHTER() { return  new Color[] {
+	  ColorConstants.buttonDarker(), ColorConstants.buttonLightest() };}
 
 	/**
 	 * Holds a set of information about a border, which can be changed to create
@@ -179,20 +180,25 @@ public class SchemeBorder extends AbstractBorder implements ColorConstants {
 	 * schemes can be given as input to the {@link SchemeBorder SchemeBorder} to
 	 * generate appropriate borders.
 	 */
-	public static interface SCHEMES {
+	public static class SCHEMES {
 
 		/** Schemes used for shadow and highlight effects **/
-		Scheme BUTTON_CONTRAST = new Scheme(new Color[] { button,
-				buttonLightest }, DARKEST_DARKER), BUTTON_RAISED = new Scheme(
-				new Color[] { buttonLightest }, DARKEST_DARKER),
-				BUTTON_PRESSED = new Scheme(DARKEST_DARKER,
-						new Color[] { buttonLightest }), RAISED = new Scheme(
-						new Color[] { buttonLightest },
-						new Color[] { buttonDarkest }), LOWERED = new Scheme(
-						new Color[] { buttonDarkest },
-						new Color[] { buttonLightest }), RIDGED = new Scheme(
-						LIGHTER_DARKER, DARKER_LIGHTER), ETCHED = new Scheme(
-						DARKER_LIGHTER, LIGHTER_DARKER);
+		public static Scheme BUTTON_CONTRAST() { return new Scheme(new Color[] { ColorConstants.button(),
+		  ColorConstants.buttonLightest() }, DARKEST_DARKER());}
+		public static Scheme BUTTON_RAISED() { return new Scheme(
+				new Color[] { ColorConstants.buttonLightest() }, DARKEST_DARKER());}
+		public static Scheme BUTTON_PRESSED() { return new Scheme(DARKEST_DARKER(),
+						new Color[] { ColorConstants.buttonLightest() });}
+		public static Scheme RAISED() { return new Scheme(
+						new Color[] { ColorConstants.buttonLightest() },
+						new Color[] { ColorConstants.buttonDarkest() });}
+		public static Scheme LOWERED() { return new Scheme(
+						new Color[] { ColorConstants.buttonDarkest() },
+						new Color[] { ColorConstants.buttonLightest() });}
+		public static Scheme RIDGED() { return new Scheme(
+						LIGHTER_DARKER(), DARKER_LIGHTER());}
+		public static Scheme ETCHED() { return new Scheme(
+						DARKER_LIGHTER(), LIGHTER_DARKER());}
 	}
 
 	/**

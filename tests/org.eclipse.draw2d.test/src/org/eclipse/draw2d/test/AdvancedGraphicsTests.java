@@ -164,12 +164,13 @@ public class AdvancedGraphicsTests extends AbstractFixtureTestCase {
 		g.pushState();
 
 		Runnable tests[] = new Runnable[4];
-		tests[0] = new AntialiasSettings(SWT.ON, SWT.ON, ColorConstants.red);
-		tests[1] = new AntialiasSettings(SWT.OFF, SWT.OFF, ColorConstants.blue);
+		tests[0] = new AntialiasSettings(SWT.ON, SWT.ON, ColorConstants.red());
+		tests[1] = new AntialiasSettings(SWT.OFF, SWT.OFF,
+				ColorConstants.blue());
 		tests[2] = new AntialiasSettings(SWT.DEFAULT, SWT.ON,
-				ColorConstants.black);
+				ColorConstants.black());
 		tests[3] = new AntialiasSettings(SWT.ON, SWT.DEFAULT,
-				ColorConstants.darkGreen);
+				ColorConstants.darkGreen());
 		performTestcase(new Runnable() {
 			public void run() {
 				g.drawPolyline(LINE);
@@ -195,7 +196,7 @@ public class AdvancedGraphicsTests extends AbstractFixtureTestCase {
 				g.setAntialias(aa);
 			}
 		}
-		g.setBackgroundColor(ColorConstants.red);
+		g.setBackgroundColor(ColorConstants.red());
 		g.pushState();
 
 		Runnable tests[] = new Runnable[3];
@@ -434,11 +435,11 @@ public class AdvancedGraphicsTests extends AbstractFixtureTestCase {
 		Font f = new Font(null, "Helvetica", 50, SWT.BOLD);
 		resources.push(f);
 		g.setFont(f);
-		g.setBackgroundColor(ColorConstants.yellow);
+		g.setBackgroundColor(ColorConstants.yellow());
 		g.pushState();
 
-		Pattern gradient = new Pattern(null, 0, 0, 80, 40, ColorConstants.gray,
-				ColorConstants.black);
+		Pattern gradient = new Pattern(null, 0, 0, 80, 40,
+				ColorConstants.gray(), ColorConstants.black());
 		Pattern image = new Pattern(null, TestImages.depth_24);
 
 		resources.push(gradient);

@@ -301,7 +301,7 @@ public class GuideEditPart extends AbstractGraphicalEditPart {
 		protected void paintFigure(Graphics g) {
 			g.setLineStyle(Graphics.LINE_DOT);
 			g.setXORMode(true);
-			g.setForegroundColor(ColorConstants.darkGray);
+			g.setForegroundColor(ColorConstants.darkGray());
 			if (bounds.width > bounds.height) {
 				g.drawLine(bounds.x, bounds.y, bounds.right(), bounds.y);
 				g.drawLine(bounds.x + 2, bounds.y, bounds.right(), bounds.y);

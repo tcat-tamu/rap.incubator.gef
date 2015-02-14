@@ -44,8 +44,8 @@ public class ExpandGraphLabel extends Figure implements ActionListener {
 			setStyle(Clickable.STYLE_TOGGLE);
 			triangle = new Triangle();
 			triangle.setSize(10, 10);
-			triangle.setBackgroundColor(ColorConstants.black);
-			triangle.setForegroundColor(ColorConstants.black);
+			triangle.setBackgroundColor(ColorConstants.black());
+			triangle.setForegroundColor(ColorConstants.black());
 			triangle.setFill(true);
 			triangle.setDirection(Triangle.EAST);
 			triangle.setLocation(new Point(5, 3));
@@ -66,7 +66,9 @@ public class ExpandGraphLabel extends Figure implements ActionListener {
 	}
 
 	/**
-	 * Sets the expander state (the little triangle) to ExpanderGraphLabel.OPEN or ExpanderGraphLabel.CLOSED
+	 * Sets the expander state (the little triangle) to ExpanderGraphLabel.OPEN
+	 * or ExpanderGraphLabel.CLOSED
+	 * 
 	 * @param state
 	 */
 	public void setExpandedState(int state) {
@@ -80,7 +82,10 @@ public class ExpandGraphLabel extends Figure implements ActionListener {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.draw2d.ActionListener#actionPerformed(org.eclipse.draw2d.ActionEvent)
+	 * 
+	 * @see
+	 * org.eclipse.draw2d.ActionListener#actionPerformed(org.eclipse.draw2d.
+	 * ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent event) {
 		if (state == OPEN) {
@@ -100,21 +105,26 @@ public class ExpandGraphLabel extends Figure implements ActionListener {
 		this(container, "", null, cacheLabel);
 	}
 
-	public ExpandGraphLabel(GraphContainer container, Image i, boolean cacheLabel) {
+	public ExpandGraphLabel(GraphContainer container, Image i,
+			boolean cacheLabel) {
 		this(container, "", i, cacheLabel);
 	}
 
-	public ExpandGraphLabel(GraphContainer container, String text, boolean cacheLabel) {
+	public ExpandGraphLabel(GraphContainer container, String text,
+			boolean cacheLabel) {
 		this(container, text, null, cacheLabel);
 	}
 
-	public ExpandGraphLabel(GraphContainer container, String text, Image image, boolean cacheLabel) {
+	public ExpandGraphLabel(GraphContainer container, String text, Image image,
+			boolean cacheLabel) {
 		this.label = new Label(text) {
 
 			/*
 			 * This method is overwritten so that the text is not truncated.
 			 * (non-Javadoc)
-			 * @see org.eclipse.draw2d.Label#paintFigure(org.eclipse.draw2d.Graphics)
+			 * 
+			 * @see
+			 * org.eclipse.draw2d.Label#paintFigure(org.eclipse.draw2d.Graphics)
 			 */
 			protected void paintFigure(Graphics graphics) {
 				if (isOpaque()) {
@@ -127,10 +137,10 @@ public class ExpandGraphLabel extends Figure implements ActionListener {
 				}
 				if (!isEnabled()) {
 					graphics.translate(1, 1);
-					graphics.setForegroundColor(ColorConstants.buttonLightest);
+					graphics.setForegroundColor(ColorConstants.buttonLightest());
 					graphics.drawText(getSubStringText(), getTextLocation());
 					graphics.translate(-1, -1);
-					graphics.setForegroundColor(ColorConstants.buttonDarker);
+					graphics.setForegroundColor(ColorConstants.buttonDarker());
 				}
 				graphics.drawText(getText(), getTextLocation());
 				graphics.translate(-bounds.x, -bounds.y);
@@ -148,7 +158,7 @@ public class ExpandGraphLabel extends Figure implements ActionListener {
 		this.setLayoutManager(layout);
 		this.add(this.expander);
 		this.add(this.label);
-		//this.remove(this.label);
+		// this.remove(this.label);
 	}
 
 	/**
@@ -161,8 +171,10 @@ public class ExpandGraphLabel extends Figure implements ActionListener {
 			if (font != null) {
 				Dimension minSize = FigureUtilities.getTextExtents(text, font);
 				if (getIcon() != null) {
-					org.eclipse.swt.graphics.Rectangle imageRect = getIcon().getBounds();
-					int expandHeight = Math.max(imageRect.height - minSize.height, 0);
+					org.eclipse.swt.graphics.Rectangle imageRect = getIcon()
+							.getBounds();
+					int expandHeight = Math.max(imageRect.height
+							- minSize.height, 0);
 					minSize.expand(imageRect.width + 4, expandHeight);
 				}
 				minSize.expand(10 + (2 * 1) + 100, 4 + (2 * 1));
@@ -198,7 +210,8 @@ public class ExpandGraphLabel extends Figure implements ActionListener {
 		green = (int) (green - (green * 0.20));
 		green = green > 0 ? green : 0;
 
-		Color lightenColor = new Color(Display.getCurrent(), new RGB(red, green, blue));
+		Color lightenColor = new Color(Display.getCurrent(), new RGB(red,
+				green, blue));
 		graphics.setForegroundColor(lightenColor);
 		graphics.setBackgroundColor(getBackgroundColor());
 
@@ -207,28 +220,28 @@ public class ExpandGraphLabel extends Figure implements ActionListener {
 		// fill in the background
 		Rectangle bounds = getBounds().getCopy();
 		Rectangle r = bounds.getCopy();
-		//r.x += arcWidth / 2;
+		// r.x += arcWidth / 2;
 		r.y += arcWidth / 2;
-		//r.width -= arcWidth;
+		// r.width -= arcWidth;
 		r.height -= arcWidth;
 
 		Rectangle top = bounds.getCopy();
 		top.height /= 2;
-		//graphics.setForegroundColor(lightenColor);
-		//graphics.setBackgroundColor(lightenColor);
+		// graphics.setForegroundColor(lightenColor);
+		// graphics.setBackgroundColor(lightenColor);
 		graphics.setForegroundColor(getBackgroundColor());
 		graphics.setBackgroundColor(getBackgroundColor());
 		graphics.fillRoundRectangle(top, arcWidth, arcWidth);
 
 		top.y = top.y + top.height;
-		//graphics.setForegroundColor(getBackgroundColor());
-		//graphics.setBackgroundColor(getBackgroundColor());
+		// graphics.setForegroundColor(getBackgroundColor());
+		// graphics.setBackgroundColor(getBackgroundColor());
 		graphics.setForegroundColor(lightenColor);
 		graphics.setBackgroundColor(lightenColor);
 		graphics.fillRoundRectangle(top, arcWidth, arcWidth);
 
-		//graphics.setForegroundColor(lightenColor);
-		//graphics.setBackgroundColor(getBackgroundColor());
+		// graphics.setForegroundColor(lightenColor);
+		// graphics.setBackgroundColor(getBackgroundColor());
 		graphics.setBackgroundColor(lightenColor);
 		graphics.setForegroundColor(getBackgroundColor());
 		graphics.fillGradient(r, true);
@@ -243,31 +256,31 @@ public class ExpandGraphLabel extends Figure implements ActionListener {
 		lightenColor.dispose();
 	}
 
-//	public Dimension getPreferredSize(int hint, int hint2) {
-//	return this.label.getPreferredSize();
-//}
+	// public Dimension getPreferredSize(int hint, int hint2) {
+	// return this.label.getPreferredSize();
+	// }
 
 	public void setTextT(String string) {
 		this.setPreferredSize(null);
 		this.label.setText(string);
 		this.add(label);
-		//System.out.println(this.label.getPreferredSize());
+		// System.out.println(this.label.getPreferredSize());
 		this.layout.layout(this);
 		this.invalidate();
 		this.revalidate();
 		this.validate();
-		//this.remove(label);
+		// this.remove(label);
 	}
 
 	public void setText(String string) {
 		this.label.setText(string);
-		//this.label.setPreferredSize(500, 30);
-		//adjustBoundsToFit();
+		// this.label.setPreferredSize(500, 30);
+		// adjustBoundsToFit();
 	}
 
 	public void setImage(Image image) {
 		this.label.setIcon(image);
-		//adjustBoundsToFit();
+		// adjustBoundsToFit();
 	}
 
 	public void setLocation(Point p) {

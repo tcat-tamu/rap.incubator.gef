@@ -57,7 +57,7 @@ public StickyNote() {
 	add(text);
 	text.setText("This is a sticky note.  It wraps text based on its " +
 			"width.");
-	setBackgroundColor(ColorConstants.tooltipBackground);
+	setBackgroundColor(ColorConstants.tooltipBackground());
 	setOpaque(true);
 }
 

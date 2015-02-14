@@ -24,7 +24,7 @@ public class LabelFeedbackFigure extends BentCornerFigure {
 		Rectangle rect = getBounds().getCopy();
 
 		graphics.setXORMode(true);
-		graphics.setForegroundColor(ColorConstants.white);
+		graphics.setForegroundColor(ColorConstants.white());
 		graphics.setBackgroundColor(LogicColorConstants.ghostFillColor);
 
 		graphics.translate(getLocation());

@@ -59,7 +59,7 @@ public class ConnectionEndpointEditPolicy extends SelectionHandlesEditPolicy {
 
 		ConnectionFocus() {
 			setFill(false);
-			setForegroundColor(ColorConstants.white);
+			setForegroundColor(ColorConstants.white());
 			setXOR(true);
 			setOutline(true);
 		}

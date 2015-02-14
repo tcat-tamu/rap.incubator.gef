@@ -23,11 +23,11 @@ public class FrameBorder extends CompoundBorder implements LabeledBorder {
 	 * The border scheme that determines the border highlight and shadow colors,
 	 * as well as the border width (3).
 	 */
-	protected static final SchemeBorder.Scheme SCHEME_FRAME = new SchemeBorder.Scheme(
-			new Color[] { ColorConstants.button, ColorConstants.buttonLightest,
-					ColorConstants.button }, new Color[] {
-					ColorConstants.buttonDarkest, ColorConstants.buttonDarker,
-					ColorConstants.button });
+	protected final SchemeBorder.Scheme SCHEME_FRAME = new SchemeBorder.Scheme(
+			new Color[] { ColorConstants.button(), ColorConstants.buttonLightest(),
+					ColorConstants.button() }, new Color[] {
+					ColorConstants.buttonDarkest(), ColorConstants.buttonDarker(),
+					ColorConstants.button() });
 
 	{
 		createBorders();

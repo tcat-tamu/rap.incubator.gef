@@ -1222,7 +1222,7 @@ public class FlyoutPaletteComposite extends Composite {
 			Label tooltip = new Label(getText());
 			tooltip.setBorder(TOOL_TIP_BORDER);
 			setToolTip(tooltip);
-			setForegroundColor(ColorConstants.listForeground);
+			setForegroundColor(ColorConstants.listForeground());
 		}
 
 		public IFigure getToolTip() {
@@ -1308,7 +1308,7 @@ public class FlyoutPaletteComposite extends Composite {
 			lws.setControl(this);
 			final ArrowButton b = new ArrowButton(getArrowDirection());
 			b.setRolloverEnabled(true);
-			b.setBorder(new ButtonBorder(ButtonBorder.SCHEMES.TOOLBAR));
+			b.setBorder(new ButtonBorder(ButtonBorder.SCHEMES.TOOLBAR()));
 			b.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent event) {
 					transferFocus = true;

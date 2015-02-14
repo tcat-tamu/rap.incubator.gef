@@ -36,15 +36,15 @@ public class InternalFrame
 static class InternalFrameBorder extends CompoundBorder {
 	InternalFrameBorder(){
 		TitleBarBorder titlebar = new TitleBarBorder();
-		titlebar.setTextColor(ColorConstants.white);
-		titlebar.setBackgroundColor(ColorConstants.darkGray);
+		titlebar.setTextColor(ColorConstants.white());
+		titlebar.setBackgroundColor(ColorConstants.darkGray());
 		inner = new CompoundBorder(
 			new LineBorder(FigureUtilities.mixColors(
-				ColorConstants.buttonDarker,ColorConstants.button), 3),
-			new SchemeBorder(SchemeBorder.SCHEMES.LOWERED)
+				ColorConstants.buttonDarker(),ColorConstants.button()), 3),
+			new SchemeBorder(SchemeBorder.SCHEMES.LOWERED())
 		);
 		outer = new CompoundBorder(
-			new SchemeBorder(SchemeBorder.SCHEMES.RAISED),
+			new SchemeBorder(SchemeBorder.SCHEMES.RAISED()),
 			titlebar
 		);
 	}

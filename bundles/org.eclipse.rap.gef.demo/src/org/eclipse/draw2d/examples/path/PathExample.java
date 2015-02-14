@@ -42,7 +42,7 @@ public class PathExample {
 		final ScrollBar bar = new ScrollBar();
 		final Label l = new Label("�Zoom�");
 
-		l.setBorder(new SchemeBorder(ButtonBorder.SCHEMES.BUTTON_SCROLLBAR));
+		l.setBorder(new SchemeBorder(ButtonBorder.SCHEMES.BUTTON_SCROLLBAR()));
 		bar.setThumb(l);
 		bar.setHorizontal(true);
 		bar.setMaximum(200);
@@ -66,7 +66,7 @@ public class PathExample {
 		polyline.addPoint(new Point(w + k, w + k));
 		polyline.addPoint(new Point(0 + k, w + k));
 		polyline.setLineWidth(3);
-		polyline.setBackgroundColor(ColorConstants.red);
+		polyline.setBackgroundColor(ColorConstants.red());
 		polyline.setClosed(true);
 
 		Point c = polyline.getBounds().getCenter();

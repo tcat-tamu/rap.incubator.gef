@@ -26,7 +26,7 @@ final class SeparatorBorder extends MarginBorder {
 	public void paint(IFigure f, Graphics g, Insets i) {
 		Rectangle r = getPaintRectangle(f, i);
 		r.height--;
-		g.setForegroundColor(ColorConstants.buttonDarker);
+		g.setForegroundColor(ColorConstants.buttonDarker());
 		g.drawLine(r.x, r.bottom(), r.right(), r.bottom());
 	}
 

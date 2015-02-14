@@ -36,10 +36,10 @@ public class ParallelActivityFigure extends SubgraphFigure {
 	protected void paintFigure(Graphics g) {
 		super.paintFigure(g);
 		Rectangle r = getBounds();
-		g.setBackgroundColor(ColorConstants.button);
+		g.setBackgroundColor(ColorConstants.button());
 		if (selected) {
-			g.setBackgroundColor(ColorConstants.menuBackgroundSelected);
-			g.setForegroundColor(ColorConstants.menuForegroundSelected);
+			g.setBackgroundColor(ColorConstants.menuBackgroundSelected());
+			g.setForegroundColor(ColorConstants.menuForegroundSelected());
 		}
 
 		g.fillRectangle(r.x, r.y, 3, r.height);
@@ -57,9 +57,9 @@ public class ParallelActivityFigure extends SubgraphFigure {
 			getFooter().setForegroundColor(null);
 		} else {
 			getHeader().setForegroundColor(
-					ColorConstants.menuForegroundSelected);
+					ColorConstants.menuForegroundSelected());
 			getFooter().setForegroundColor(
-					ColorConstants.menuForegroundSelected);
+					ColorConstants.menuForegroundSelected());
 		}
 
 		repaint();

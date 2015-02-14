@@ -46,8 +46,8 @@ public class FocusBorder extends AbstractBorder {
 		tempRect.setBounds(getPaintRectangle(figure, insets));
 		tempRect.width--;
 		tempRect.height--;
-		graphics.setForegroundColor(ColorConstants.black);
-		graphics.setBackgroundColor(ColorConstants.white);
+		graphics.setForegroundColor(ColorConstants.black());
+		graphics.setBackgroundColor(ColorConstants.white());
 		graphics.drawFocus(tempRect);
 	}
 

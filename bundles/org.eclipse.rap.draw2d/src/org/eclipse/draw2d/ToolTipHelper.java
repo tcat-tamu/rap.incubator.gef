@@ -43,8 +43,8 @@ public class ToolTipHelper extends PopUpHelper {
 	 */
 	public ToolTipHelper(org.eclipse.swt.widgets.Control c) {
 		super(c, SWT.TOOL | SWT.ON_TOP);
-		getShell().setBackground(ColorConstants.tooltipBackground);
-		getShell().setForeground(ColorConstants.tooltipForeground);
+		getShell().setBackground(ColorConstants.tooltipBackground());
+		getShell().setForeground(ColorConstants.tooltipForeground());
 	}
 
 	/*

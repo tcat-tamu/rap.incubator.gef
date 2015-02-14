@@ -84,8 +84,8 @@ public class GraphConnection extends GraphItem {
 		this.sourceNode = source;
 		this.destinationNode = destination;
 		this.visible = true;
-		this.color = ColorConstants.lightGray;
-		this.foreground = ColorConstants.lightGray;
+		this.color = ColorConstants.lightGray();
+		this.foreground = ColorConstants.lightGray();
 		this.highlightColor = graphModel.DARK_BLUE;
 		this.lineWidth = 1;
 		this.lineStyle = Graphics.LINE_SOLID;

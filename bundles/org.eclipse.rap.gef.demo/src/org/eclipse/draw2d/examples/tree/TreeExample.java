@@ -123,7 +123,7 @@ void doStyleNormal() {
  * @see org.eclipse.draw2d.examples.AbstractExample#getContents()
  */
 protected IFigure getContents() {
-	getFigureCanvas().setBackground(ColorConstants.white);
+	getFigureCanvas().setBackground(ColorConstants.white());
 	root = new TreeRoot(createPageNode("Graph Root"));
 
 	TreeBranch branch, subbranch;

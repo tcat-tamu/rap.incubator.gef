@@ -64,7 +64,9 @@ public abstract class CachedLabel extends Label {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.draw2d.Figure#setForegroundColor(org.eclipse.swt.graphics.Color)
+	 * @see
+	 * org.eclipse.draw2d.Figure#setForegroundColor(org.eclipse.swt.graphics
+	 * .Color)
 	 */
 	public void setForegroundColor(Color fg) {
 		updateInvalidation();
@@ -74,7 +76,9 @@ public abstract class CachedLabel extends Label {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.draw2d.Figure#setBackgroundColor(org.eclipse.swt.graphics.Color)
+	 * @see
+	 * org.eclipse.draw2d.Figure#setBackgroundColor(org.eclipse.swt.graphics
+	 * .Color)
 	 */
 	public void setBackgroundColor(Color bg) {
 		updateInvalidation();
@@ -118,10 +122,13 @@ public abstract class CachedLabel extends Label {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.draw2d.Figure#setBounds(org.eclipse.draw2d.geometry.Rectangle)
+	 * @see
+	 * org.eclipse.draw2d.Figure#setBounds(org.eclipse.draw2d.geometry.Rectangle
+	 * )
 	 */
 	public void setBounds(Rectangle rect) {
-		boolean resize = (rect.width != bounds.width) || (rect.height != bounds.height);
+		boolean resize = (rect.width != bounds.width)
+				|| (rect.height != bounds.height);
 
 		if (resize && Animation.isAnimating()) {
 			updateInvalidation();
@@ -166,10 +173,10 @@ public abstract class CachedLabel extends Label {
 			}
 			if (!isEnabled()) {
 				graphics.translate(1, 1);
-				graphics.setForegroundColor(ColorConstants.buttonLightest);
+				graphics.setForegroundColor(ColorConstants.buttonLightest());
 				graphics.drawText(getSubStringText(), getTextLocation());
 				graphics.translate(-1, -1);
-				graphics.setForegroundColor(ColorConstants.buttonDarker);
+				graphics.setForegroundColor(ColorConstants.buttonDarker());
 			}
 			graphics.drawText(getText(), getTextLocation());
 			graphics.translate(-bounds.x, -bounds.y);
@@ -197,16 +204,17 @@ public abstract class CachedLabel extends Label {
 			cachedImage = new Image(Display.getCurrent(), width, height);
 
 			// @tag TODO : Dispose of the image properly
-			//ZestPlugin.getDefault().addImage(cachedImage.toString(), cachedImage);
-//			   UNSUPPORTED - image constructor not implemented in RAP
-//			GC gc = new GC(cachedImage);
+			// ZestPlugin.getDefault().addImage(cachedImage.toString(),
+			// cachedImage);
+			// UNSUPPORTED - image constructor not implemented in RAP
+			// GC gc = new GC(cachedImage);
 			GC gc = new GC(cachedImage.getDevice());
 
 			Graphics graphics2 = new SWTGraphics(gc);
 			graphics2.setBackgroundColor(getBackgroundTextColor());
 			graphics2.fillRectangle(0, 0, width, height);
 			graphics2.setForegroundColor(getForegroundColor());
-			//graphics2.drawText(getSubStringText(), new Point(0, 0));
+			// graphics2.drawText(getSubStringText(), new Point(0, 0));
 			graphics2.drawText(getText(), new Point(0, 0));
 			gc.dispose();
 
@@ -240,7 +248,7 @@ public abstract class CachedLabel extends Label {
 	protected void cleanImage() {
 		if (cachedImage != null) {
 
-			//ZestPlugin.getDefault().removeImage(cachedImage.toString());
+			// ZestPlugin.getDefault().removeImage(cachedImage.toString());
 			cachedImage.dispose();
 			cachedImage = null;
 		}

@@ -192,27 +192,27 @@ public class SnapFeedbackPolicy extends GraphicalEditPolicy {
 			Integer value;
 			value = (Integer) req.getExtendedData().get(
 					SnapToGeometry.KEY_WEST_ANCHOR);
-			highlightGuide(value, ColorConstants.blue, 0);
+			highlightGuide(value, ColorConstants.blue(), 0);
 
 			value = (Integer) req.getExtendedData().get(
 					SnapToGeometry.KEY_NORTH_ANCHOR);
-			highlightGuide(value, ColorConstants.blue, 1);
+			highlightGuide(value, ColorConstants.blue(), 1);
 
 			value = (Integer) req.getExtendedData().get(
 					SnapToGeometry.KEY_EAST_ANCHOR);
-			highlightGuide(value, ColorConstants.blue, 2);
+			highlightGuide(value, ColorConstants.blue(), 2);
 
 			value = (Integer) req.getExtendedData().get(
 					SnapToGeometry.KEY_SOUTH_ANCHOR);
-			highlightGuide(value, ColorConstants.blue, 3);
+			highlightGuide(value, ColorConstants.blue(), 3);
 
 			value = (Integer) req.getExtendedData().get(
 					SnapToGuides.KEY_VERTICAL_GUIDE);
-			highlightGuide(value, ColorConstants.red, 4);
+			highlightGuide(value, ColorConstants.red(), 4);
 
 			value = (Integer) req.getExtendedData().get(
 					SnapToGuides.KEY_HORIZONTAL_GUIDE);
-			highlightGuide(value, ColorConstants.red, 5);
+			highlightGuide(value, ColorConstants.red(), 5);
 		}
 	}
 

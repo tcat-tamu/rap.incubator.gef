@@ -85,7 +85,7 @@ public class SeparatorEditPart extends PaletteEditPart {
 				g.drawLine(r.getBottomLeft(), r.getTopLeft());
 				g.drawLine(r.getTopLeft(), r.getTopRight());
 
-				g.setForegroundColor(ColorConstants.buttonLightest);
+				g.setForegroundColor(ColorConstants.buttonLightest());
 				g.drawLine(r.getBottomLeft(), r.getBottomRight());
 				g.drawLine(r.getBottomRight(), r.getTopRight());
 			}

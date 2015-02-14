@@ -31,27 +31,27 @@ public class ButtonBorder extends SchemeBorder {
 	 * 
 	 * @see SCHEMES#BUTTON
 	 */
-	public static final Border BUTTON = new ButtonBorder(SCHEMES.BUTTON);
+	public static final Border BUTTON() { return new ButtonBorder(SCHEMES.BUTTON());}
 	/**
 	 * Inverted hightlight colors from BUTTON.
 	 * 
 	 * @see SCHEMES#BUTTON_CONTRAST
 	 */
-	public static final Border BUTTON_CONTRAST = new ButtonBorder(
-			SCHEMES.BUTTON_CONTRAST);
+	public static final Border BUTTON_CONTRAST() { return new ButtonBorder(
+			SCHEMES.BUTTON_CONTRAST());}
 	/**
 	 * Used for scrollbar buttons.
 	 * 
 	 * @see SCHEMES#BUTTON_SCROLLBAR
 	 */
-	public static final Border BUTTON_SCROLLBAR = new ButtonBorder(
-			SCHEMES.BUTTON_SCROLLBAR);
+	public static final Border BUTTON_SCROLLBAR() { return new ButtonBorder(
+			SCHEMES.BUTTON_SCROLLBAR());}
 	/**
 	 * Used for toolbar buttons.
 	 * 
 	 * @see SCHEMES#TOOLBAR
 	 */
-	public static final Border TOOLBAR = new ButtonBorder(SCHEMES.TOOLBAR);
+	public static final Border TOOLBAR() { return new ButtonBorder(SCHEMES.TOOLBAR());}
 
 	/**
 	 * Provides for a scheme to represent the borders of clickable figures like
@@ -183,29 +183,29 @@ public class ButtonBorder extends SchemeBorder {
 	/**
 	 * Interface defining commonly used schemes for the ButtonBorder.
 	 */
-	public static interface SCHEMES {
+	public static class SCHEMES {
 
 		/**
 		 * Contrast button scheme
 		 */
-		ButtonScheme BUTTON_CONTRAST = new ButtonScheme(new Color[] { button,
-				buttonLightest }, DARKEST_DARKER);
+		public static ButtonScheme BUTTON_CONTRAST() { return new ButtonScheme(new Color[] { ColorConstants.button(),
+		  ColorConstants.buttonLightest() }, DARKEST_DARKER());}
 		/**
 		 * Regular button scheme
 		 */
-		ButtonScheme BUTTON = new ButtonScheme(new Color[] { buttonLightest },
-				DARKEST_DARKER);
+		public static ButtonScheme BUTTON() { return new ButtonScheme(new Color[] { ColorConstants.buttonLightest() },
+				DARKEST_DARKER());}
 		/**
 		 * Toolbar button scheme
 		 */
-		ButtonScheme TOOLBAR = new ButtonScheme(new Color[] { buttonLightest },
-				new Color[] { buttonDarker });
+		public static ButtonScheme TOOLBAR() { return new ButtonScheme(new Color[] { ColorConstants.buttonLightest() },
+				new Color[] { ColorConstants.buttonDarker() });}
 		/**
 		 * Scrollbar button scheme
 		 */
-		ButtonScheme BUTTON_SCROLLBAR = new ButtonScheme(new Color[] { button,
-				buttonLightest }, DARKEST_DARKER, new Color[] { buttonDarker },
-				new Color[] { buttonDarker });
+		public static ButtonScheme BUTTON_SCROLLBAR() { return new ButtonScheme(new Color[] { ColorConstants.button(),
+		  ColorConstants.buttonLightest() }, DARKEST_DARKER(), new Color[] { ColorConstants.buttonDarker() },
+				new Color[] { ColorConstants.buttonDarker() });}
 	}
 
 	/**
@@ -215,7 +215,7 @@ public class ButtonBorder extends SchemeBorder {
 	 * @since 2.0
 	 */
 	public ButtonBorder() {
-		setScheme(SCHEMES.BUTTON);
+		setScheme(SCHEMES.BUTTON());
 	}
 
 	/**

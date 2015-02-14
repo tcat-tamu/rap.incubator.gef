@@ -53,12 +53,12 @@ public class RaisedBorder extends MarginBorder {
 	public void paint(IFigure figure, Graphics g, Insets insets) {
 		g.setLineStyle(Graphics.LINE_SOLID);
 		g.setLineWidth(1);
-		g.setForegroundColor(ColorConstants.buttonLightest);
+		g.setForegroundColor(ColorConstants.buttonLightest());
 		Rectangle r = getPaintRectangle(figure, insets);
 		r.resize(-1, -1);
 		g.drawLine(r.x, r.y, r.right(), r.y);
 		g.drawLine(r.x, r.y, r.x, r.bottom());
-		g.setForegroundColor(ColorConstants.buttonDarker);
+		g.setForegroundColor(ColorConstants.buttonDarker());
 		g.drawLine(r.x, r.bottom(), r.right(), r.bottom());
 		g.drawLine(r.right(), r.y, r.right(), r.bottom());
 	}

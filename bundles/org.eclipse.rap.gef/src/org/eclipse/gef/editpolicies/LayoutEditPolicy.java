@@ -328,7 +328,7 @@ public abstract class LayoutEditPolicy extends GraphicalEditPolicy {
 			sizeOnDropFeedback = new RectangleFigure();
 			FigureUtilities.makeGhostShape((Shape) sizeOnDropFeedback);
 			((Shape) sizeOnDropFeedback).setLineStyle(Graphics.LINE_DASHDOT);
-			sizeOnDropFeedback.setForegroundColor(ColorConstants.white);
+			sizeOnDropFeedback.setForegroundColor(ColorConstants.white());
 			addFeedback(sizeOnDropFeedback);
 		}
 		return sizeOnDropFeedback;

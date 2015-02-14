@@ -191,14 +191,14 @@ public class PaintDamageEraseTest extends AbstractFixtureTestCase implements
 			container = new RectangleFigure();
 		}
 
-		container.setBackgroundColor(ColorConstants.red);
+		container.setBackgroundColor(ColorConstants.red());
 		container.setBorder(new MarginBorder(15));
 
 		insideBox = new RectangleFigure();
 
 		container.add(insideBox);
 
-		insideBox.setBackgroundColor(ColorConstants.green);
+		insideBox.setBackgroundColor(ColorConstants.green());
 
 		if (useRelativeCoordinates) {
 			insideBox.setBounds(new Rectangle(10, 10, 25, 25));

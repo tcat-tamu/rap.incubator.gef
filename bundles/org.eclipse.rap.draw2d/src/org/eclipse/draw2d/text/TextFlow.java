@@ -576,10 +576,10 @@ public class TextFlow extends InlineFlow {
 
 			if (!isEnabled()) {
 				Color fgColor = g.getForegroundColor();
-				g.setForegroundColor(ColorConstants.buttonLightest);
+				g.setForegroundColor(ColorConstants.buttonLightest());
 				paintText(g, draw, frag.getX() + 1, frag.getBaseline()
 						- getAscent() + 1, frag.getBidiLevel());
-				g.setForegroundColor(ColorConstants.buttonDarker);
+				g.setForegroundColor(ColorConstants.buttonDarker());
 				paintText(g, draw, frag.getX(), frag.getBaseline()
 						- getAscent(), frag.getBidiLevel());
 				g.setForegroundColor(fgColor);
@@ -597,7 +597,7 @@ public class TextFlow extends InlineFlow {
 		if (selectionStart == -1)
 			return;
 		graphics.setXORMode(true);
-		graphics.setBackgroundColor(ColorConstants.white);
+		graphics.setBackgroundColor(ColorConstants.white());
 
 		TextFragmentBox frag;
 		for (int i = 0; i < fragments.size(); i++) {

@@ -29,7 +29,7 @@ public static void main(String[] args) {
 	shell.setLayout(new FillLayout());
 	
 	FigureCanvas canvas = new FigureCanvas(shell);
-	canvas.setBackground(ColorConstants.white);
+	canvas.setBackground(ColorConstants.white());
 
 	Figure diagram = new Figure();
 	diagram.setLayoutManager(new XYLayout());
@@ -56,7 +56,7 @@ public static void main(String[] args) {
 	Label connLabel = new Label("connection");
 	connLabel.setBorder(new LineBorder());
 	connLabel.setOpaque(true);
-	connLabel.setBackgroundColor(ColorConstants.tooltipBackground);
+	connLabel.setBackgroundColor(ColorConstants.tooltipBackground());
 	assoc.add(connLabel, new ConnectionLocator(assoc, ConnectionLocator.MIDDLE));
 	
 	diagram.add(new StickyNote(), new Rectangle(180, 10, 90, - 1));

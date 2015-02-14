@@ -39,7 +39,7 @@ public class CircuitFeedbackBorder extends CircuitBorder {
 
 	public void paint(IFigure figure, Graphics g, Insets in) {
 		g.setXORMode(true);
-		g.setForegroundColor(ColorConstants.white);
+		g.setForegroundColor(ColorConstants.white());
 		g.setBackgroundColor(LogicColorConstants.ghostFillColor);
 
 		Rectangle r = figure.getBounds().getCropped(in);

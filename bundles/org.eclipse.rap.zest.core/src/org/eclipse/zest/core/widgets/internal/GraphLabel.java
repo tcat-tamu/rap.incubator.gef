@@ -99,7 +99,7 @@ public class GraphLabel extends CachedLabel {
 	 */
 	protected void initLabel() {
 		super.setFont(Display.getDefault().getSystemFont());
-		this.borderColor = ColorConstants.black;
+		this.borderColor = ColorConstants.black();
 		this.borderWidth = 0;
 		this.arcWidth = 8;
 		this.setLayoutManager(new StackLayout());

@@ -111,7 +111,7 @@ public class PrintFigureOperation extends PrintOperation {
 	 */
 	protected void preparePrintSource() {
 		oldBGColor = getPrintSource().getLocalBackgroundColor();
-		getPrintSource().setBackgroundColor(ColorConstants.white);
+		getPrintSource().setBackgroundColor(ColorConstants.white());
 	}
 
 	/**

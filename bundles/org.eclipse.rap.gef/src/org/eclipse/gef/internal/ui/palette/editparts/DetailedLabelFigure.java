@@ -265,7 +265,7 @@ public class DetailedLabelFigure extends Figure {
 			if (super.getImage() != null) {
 				ImageData data = ImageUtilities
 						.createShadedImage(super.getImage(),
-								ColorConstants.menuBackgroundSelected);
+								ColorConstants.menuBackgroundSelected());
 				// UNSUPPORTED - Create image using RAP supported constructor
 				// shadedImage = new Image(null, data,
 				// data.getTransparencyMask());

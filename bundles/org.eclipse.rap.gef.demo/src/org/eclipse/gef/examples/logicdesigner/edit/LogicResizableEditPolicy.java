@@ -110,7 +110,7 @@ public class LogicResizableEditPolicy extends ResizableEditPolicy {
 			((RectangleFigure) figure).setXOR(true);
 			((RectangleFigure) figure).setFill(true);
 			figure.setBackgroundColor(LogicColorConstants.ghostFillColor);
-			figure.setForegroundColor(ColorConstants.white);
+			figure.setForegroundColor(ColorConstants.white());
 		}
 
 		return figure;

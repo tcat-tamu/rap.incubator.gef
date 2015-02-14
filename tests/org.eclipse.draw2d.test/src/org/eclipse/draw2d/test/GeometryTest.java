@@ -341,8 +341,8 @@ public class GeometryTest extends AbstractFixtureTestCase {
 		Image image = new Image(display, IMAGE_SIZE, IMAGE_SIZE);
 		GC gc = new GC(image.getDevice());
 		cleanupImage(gc);
-		gc.setBackground(ColorConstants.black);
-		gc.setForeground(ColorConstants.black);
+		gc.setBackground(ColorConstants.black());
+		gc.setForeground(ColorConstants.black());
 		gc.fillPolygon(pointlist.toIntArray());
 		gc.drawPolygon(pointlist.toIntArray());
 		gc.dispose();
@@ -364,7 +364,7 @@ public class GeometryTest extends AbstractFixtureTestCase {
 		Image image = new Image(display, IMAGE_SIZE, IMAGE_SIZE);
 		GC gc = new GC(image.getDevice());
 		cleanupImage(gc);
-		gc.setForeground(ColorConstants.black);
+		gc.setForeground(ColorConstants.black());
 		gc.drawPolyline(pointlist.toIntArray());
 		gc.dispose();
 		ImageData imageData = image.getImageData();
@@ -382,8 +382,8 @@ public class GeometryTest extends AbstractFixtureTestCase {
 
 	// Filling initial image with white color
 	private void cleanupImage(GC gc) {
-		gc.setBackground(ColorConstants.white);
-		gc.setForeground(ColorConstants.white);
+		gc.setBackground(ColorConstants.white());
+		gc.setForeground(ColorConstants.white());
 		gc.fillRectangle(0, 0, IMAGE_SIZE, IMAGE_SIZE);
 		gc.drawRectangle(0, 0, IMAGE_SIZE, IMAGE_SIZE);
 	}

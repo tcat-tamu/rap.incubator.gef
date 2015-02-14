@@ -507,10 +507,10 @@ public class Label extends Figure implements PositionConstants {
 			graphics.drawImage(icon, getIconLocation());
 		if (!isEnabled()) {
 			graphics.translate(1, 1);
-			graphics.setForegroundColor(ColorConstants.buttonLightest);
+			graphics.setForegroundColor(ColorConstants.buttonLightest());
 			graphics.drawText(getSubStringText(), getTextLocation());
 			graphics.translate(-1, -1);
-			graphics.setForegroundColor(ColorConstants.buttonDarker);
+			graphics.setForegroundColor(ColorConstants.buttonDarker());
 		}
 		graphics.drawText(getSubStringText(), getTextLocation());
 		graphics.translate(-bounds.x, -bounds.y);

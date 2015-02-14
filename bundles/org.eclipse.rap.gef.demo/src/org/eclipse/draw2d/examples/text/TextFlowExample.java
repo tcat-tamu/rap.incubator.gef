@@ -95,7 +95,7 @@ static protected IFigure createNestedInlineParagraph() {
 	  + " nested structure using InlineFlows. "));
 	
 	InlineFlow inline = new InlineFlow();
-	inline.setForegroundColor(ColorConstants.darkBlue);
+	inline.setForegroundColor(ColorConstants.darkBlue());
 	inline.add(new TextFlow("This TextFlow is inside an InlineFlow with a blue "
 	  + "foreground color. Children can have "));
 	text = new TextFlow("Bold ");
@@ -142,7 +142,7 @@ static protected IFigure createTitle() {
 protected IFigure getContents() {
 	FlowPage page = new FlowPage();
 	page.setOpaque(true);
-	page.setBackgroundColor(ColorConstants.white);
+	page.setBackgroundColor(ColorConstants.white());
 	page.add(createTitle());
 	page.add(createParagraph());
 	page.add(createBlockParagraph());

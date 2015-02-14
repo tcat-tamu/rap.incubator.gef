@@ -32,11 +32,11 @@ public class BentCornerFigure extends Figure {
 
 	/**
 	 * Constructs an empty BentCornerFigure with default background color of
-	 * ColorConstants.tooltipBackground and default corner size.
+	 * ColorConstants.tooltipBackground() and default corner size.
 	 */
 	public BentCornerFigure() {
-		setBackgroundColor(ColorConstants.tooltipBackground);
-		setForegroundColor(ColorConstants.tooltipForeground);
+		setBackgroundColor(ColorConstants.tooltipBackground());
+		setForegroundColor(ColorConstants.tooltipForeground());
 		setCornerSize(DEFAULT_CORNER_SIZE);
 	}
 

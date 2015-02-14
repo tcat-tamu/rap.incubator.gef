@@ -536,12 +536,12 @@ public class PaletteCustomizerDialog extends Dialog implements
 				GC gc = e.gc;
 				// UNSUPPORTED - api not implemented in RAP
 				// gc.setLineStyle(SWT.LINE_SOLID);
-				gc.setForeground(ColorConstants.buttonDarker);
+				gc.setForeground(ColorConstants.buttonDarker());
 				gc.drawLine(area.x, area.y, area.x + area.width - 2, area.y);
 				gc.drawLine(area.x, area.y, area.x, area.y + area.height - 1);
 				gc.drawLine(area.x + area.width - 2, area.y, area.x
 						+ area.width - 2, area.y + area.height - 1);
-				gc.setForeground(ColorConstants.buttonLightest);
+				gc.setForeground(ColorConstants.buttonLightest());
 				gc.drawLine(area.x + 1, area.y + 1, area.x + area.width - 3,
 						area.y + 1);
 				gc.drawLine(area.x + area.width - 1, area.y + 1, area.x

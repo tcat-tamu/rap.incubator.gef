@@ -26,7 +26,7 @@ public class LogicFlowFeedbackBorder extends LogicFlowBorder {
 	}
 
 	public void paint(IFigure figure, Graphics graphics, Insets insets) {
-		graphics.setForegroundColor(ColorConstants.white);
+		graphics.setForegroundColor(ColorConstants.white());
 		graphics.setBackgroundColor(LogicColorConstants.ghostFillColor);
 		graphics.setXORMode(true);
 

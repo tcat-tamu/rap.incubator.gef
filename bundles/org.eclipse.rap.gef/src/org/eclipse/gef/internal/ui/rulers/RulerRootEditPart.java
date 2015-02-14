@@ -210,8 +210,8 @@ public class RulerRootEditPart extends SimpleRootEditPart {
 					focusBounds.resize(-4, -2);
 					focusBounds.y++;
 				}
-				graphics.setForegroundColor(ColorConstants.black);
-				graphics.setBackgroundColor(ColorConstants.white);
+				graphics.setForegroundColor(ColorConstants.black());
+				graphics.setBackgroundColor(ColorConstants.white());
 				graphics.drawFocus(focusBounds);
 			}
 		}

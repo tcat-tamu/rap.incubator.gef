@@ -115,7 +115,7 @@ public final class ScrollableThumbnail extends Thumbnail {
 
 		public SelectorFigure() {
 			PaletteData pData = new PaletteData(0xFF, 0xFF00, 0xFF0000);
-			RGB rgb = ColorConstants.menuBackgroundSelected.getRGB();
+			RGB rgb = ColorConstants.menuBackgroundSelected().getRGB();
 			int fillColor = pData.getPixel(rgb);
 			iData = new ImageData(1, 1, 24, pData);
 			iData.setPixel(0, 0, fillColor);
@@ -144,7 +144,7 @@ public final class ScrollableThumbnail extends Thumbnail {
 			g.drawImage(image, iBounds, bounds);
 			image.dispose();
 
-			g.setForegroundColor(ColorConstants.menuBackgroundSelected);
+			g.setForegroundColor(ColorConstants.menuBackgroundSelected());
 			g.drawRectangle(bounds);
 		}
 	}

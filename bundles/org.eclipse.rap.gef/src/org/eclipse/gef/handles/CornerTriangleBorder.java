@@ -138,7 +138,7 @@ public final class CornerTriangleBorder extends AbstractBorder {
 	 * @return The outline color.
 	 */
 	protected Color getBorderColor() {
-		return (isPrimary()) ? ColorConstants.white : ColorConstants.black;
+		return (isPrimary()) ? ColorConstants.white() : ColorConstants.black();
 	}
 
 	/**
@@ -147,7 +147,7 @@ public final class CornerTriangleBorder extends AbstractBorder {
 	 * @return The fill color.
 	 */
 	protected Color getFillColor() {
-		return (isPrimary()) ? ColorConstants.black : ColorConstants.white;
+		return (isPrimary()) ? ColorConstants.black() : ColorConstants.white();
 	}
 
 	/**

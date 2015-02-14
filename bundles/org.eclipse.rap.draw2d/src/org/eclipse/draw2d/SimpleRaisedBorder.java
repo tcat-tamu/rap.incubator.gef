@@ -18,9 +18,9 @@ import org.eclipse.swt.graphics.Color;
 public class SimpleRaisedBorder extends SchemeBorder {
 
 	private static final Scheme DOUBLE = new Scheme(new Color[] {
-			ColorConstants.buttonLightest, ColorConstants.button },
-			new Color[] { ColorConstants.buttonDarkest,
-					ColorConstants.buttonDarker });
+			ColorConstants.buttonLightest(), ColorConstants.button() },
+			new Color[] { ColorConstants.buttonDarkest(),
+					ColorConstants.buttonDarker() });
 
 	/**
 	 * Constructs a SimpleRaisedBorder with the predefined
@@ -29,7 +29,7 @@ public class SimpleRaisedBorder extends SchemeBorder {
 	 * @since 2.0
 	 */
 	public SimpleRaisedBorder() {
-		super(SCHEMES.BUTTON_RAISED);
+		super(SCHEMES.BUTTON_RAISED());
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class SimpleRaisedBorder extends SchemeBorder {
 	 * @since 2.0
 	 */
 	public SimpleRaisedBorder(int width) {
-		super(width == 2 ? DOUBLE : SCHEMES.BUTTON_RAISED);
+		super(width == 2 ? DOUBLE : SCHEMES.BUTTON_RAISED());
 	}
 
 }

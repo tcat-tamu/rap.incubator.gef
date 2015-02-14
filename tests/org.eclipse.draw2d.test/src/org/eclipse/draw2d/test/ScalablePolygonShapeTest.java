@@ -169,21 +169,21 @@ public class ScalablePolygonShapeTest extends AbstractFixtureTestCase {
 		scalablePolygon.setBounds(RECTANGLE_DOUBLED_BOUNDS);
 		scalablePolygon.setOutline(true);
 		scalablePolygon.setFill(true);
-		scalablePolygon.setBackgroundColor(ColorConstants.black);
-		scalablePolygon.setForegroundColor(ColorConstants.black);
+		scalablePolygon.setBackgroundColor(ColorConstants.black());
+		scalablePolygon.setForegroundColor(ColorConstants.black());
 
 		Display display = Display.getDefault();
 		int imageSize = RECTANGLE_END * 3;
 		Image image = new Image(display, imageSize, imageSize);
 		GC gc = new GC(image.getDevice());
 		// Filling initial image with white color
-		gc.setBackground(ColorConstants.white);
-		gc.setForeground(ColorConstants.white);
+		gc.setBackground(ColorConstants.white());
+		gc.setForeground(ColorConstants.white());
 		gc.fillRectangle(0, 0, imageSize, imageSize);
 		gc.drawRectangle(0, 0, imageSize, imageSize);
 
-		gc.setBackground(ColorConstants.black);
-		gc.setForeground(ColorConstants.black);
+		gc.setBackground(ColorConstants.black());
+		gc.setForeground(ColorConstants.black());
 		SWTGraphics graphics = new SWTGraphics(gc);
 		scalablePolygon.paint(graphics);
 		graphics.dispose();

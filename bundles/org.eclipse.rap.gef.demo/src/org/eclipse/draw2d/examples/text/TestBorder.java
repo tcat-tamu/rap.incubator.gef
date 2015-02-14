@@ -48,7 +48,7 @@ public void paint(FlowFigure figure, Graphics g, Rectangle where, int sides) {
 		points.addPoint(where.getRight());
 		points.addPoint(where.getBottomRight().translate(-where.height / 2, 0));
 		points.addPoint(where.getBottomLeft());
-		g.setBackgroundColor(ColorConstants.tooltipBackground);
+		g.setBackgroundColor(ColorConstants.tooltipBackground());
 		g.fillPolygon(points);
 		g.drawPolygon(points);
 		g.drawString("begin", where.x + 1, where.y);
@@ -60,7 +60,7 @@ public void paint(FlowFigure figure, Graphics g, Rectangle where, int sides) {
 		points.addPoint(where.getTopRight());
 		points.addPoint(where.getBottomRight());
 		points.addPoint(where.getBottomLeft().translate(where.height / 2, 0));
-		g.setBackgroundColor(ColorConstants.tooltipBackground);
+		g.setBackgroundColor(ColorConstants.tooltipBackground());
 		g.fillPolygon(points);
 		g.drawPolygon(points);
 		g.drawString("end", where.x + where.height / 2, where.y);

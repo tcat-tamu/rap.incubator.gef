@@ -64,10 +64,10 @@ public class GridLayoutExample extends AbstractExample {
 	Shape selectedShape = null, prevSelectedShape = null;
 	int shapeCount = 0;
 	int colorCount = 0;
-	Color colors[] = new Color[] { ColorConstants.blue, ColorConstants.red,
-			ColorConstants.yellow, ColorConstants.gray, ColorConstants.green,
-			ColorConstants.lightBlue, ColorConstants.cyan,
-			ColorConstants.darkGreen, ColorConstants.orange };
+	Color colors[] = new Color[] { ColorConstants.blue(), ColorConstants.red(),
+			ColorConstants.yellow(), ColorConstants.gray(), ColorConstants.green(),
+			ColorConstants.lightBlue(), ColorConstants.cyan(),
+			ColorConstants.darkGreen(), ColorConstants.orange() };
 
 	/**
 	 * @param args

@@ -124,8 +124,8 @@ public abstract class Shape extends Figure {
 
 		if (!isEnabled()) {
 			graphics.translate(1, 1);
-			graphics.setBackgroundColor(ColorConstants.buttonLightest);
-			graphics.setForegroundColor(ColorConstants.buttonLightest);
+			graphics.setBackgroundColor(ColorConstants.buttonLightest());
+			graphics.setForegroundColor(ColorConstants.buttonLightest());
 
 			if (fill) {
 				paintFill(graphics);
@@ -135,8 +135,8 @@ public abstract class Shape extends Figure {
 				paintOutline(graphics);
 			}
 
-			graphics.setBackgroundColor(ColorConstants.buttonDarker);
-			graphics.setForegroundColor(ColorConstants.buttonDarker);
+			graphics.setBackgroundColor(ColorConstants.buttonDarker());
+			graphics.setForegroundColor(ColorConstants.buttonDarker());
 			graphics.translate(-1, -1);
 		}
 

@@ -42,7 +42,7 @@ public class SequentialActivityFigure extends SubgraphFigure {
 
 	protected void paintFigure(Graphics graphics) {
 		super.paintFigure(graphics);
-		graphics.setBackgroundColor(ColorConstants.button);
+		graphics.setBackgroundColor(ColorConstants.button());
 		Rectangle r = getBounds();
 		graphics.fillRectangle(r.x + 13, r.y + 10, 8, r.height - 18);
 		// graphics.fillPolygon(ARROW);

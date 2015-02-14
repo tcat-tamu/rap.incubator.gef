@@ -102,7 +102,7 @@ public abstract class AbstractGraphDemo {
 	 */
 	static void buildEdgeFigure(Figure contents, Edge edge) {
 		PolylineConnection conn = connection(edge);
-		conn.setForegroundColor(ColorConstants.gray);
+		conn.setForegroundColor(ColorConstants.gray());
 		PolygonDecoration dec = new PolygonDecoration();
 		conn.setTargetDecoration(dec);
 		conn.setPoints(edge.getPoints());
@@ -120,7 +120,7 @@ public abstract class AbstractGraphDemo {
 	static void buildNodeFigure(Figure contents, Node node) {
 		Label label;
 		label = new Label();
-		label.setBackgroundColor(ColorConstants.lightGray);
+		label.setBackgroundColor(ColorConstants.lightGray());
 		label.setOpaque(true);
 		label.setBorder(new LineBorder());
 		if (node.incoming.isEmpty())

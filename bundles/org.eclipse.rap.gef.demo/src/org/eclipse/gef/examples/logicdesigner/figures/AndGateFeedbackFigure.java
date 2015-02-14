@@ -21,7 +21,7 @@ public class AndGateFeedbackFigure extends AndGateFigure {
 	 */
 	protected void paintFigure(Graphics g) {
 		g.setXORMode(true);
-		g.setForegroundColor(ColorConstants.white);
+		g.setForegroundColor(ColorConstants.white());
 		g.setBackgroundColor(LogicColorConstants.ghostFillColor);
 
 		Rectangle r = getBounds().getCopy();
@@ -49,7 +49,7 @@ public class AndGateFeedbackFigure extends AndGateFigure {
 		r.y += 4;
 		g.setForegroundColor(LogicColorConstants.ghostFillColor);
 		g.drawLine(r.x, r.y + 4, r.x + 10, r.y + 4);
-		g.setForegroundColor(ColorConstants.white);
+		g.setForegroundColor(ColorConstants.white());
 
 		g.drawPoint(r.x, r.y + 4);
 		g.fillArc(r, 180, 180);
